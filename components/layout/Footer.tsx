@@ -1,0 +1,92 @@
+import Link from "next/link";
+import Monogram from "@/components/ui/Monogram";
+
+const cols = [
+  {
+    title: "Learn",
+    links: [
+      { href: "/how-it-works", label: "How it works" },
+      { href: "/subjects", label: "Subjects" },
+      { href: "/pricing", label: "Pricing" },
+      { href: "/testimonials", label: "Testimonials" }
+    ]
+  },
+  {
+    title: "Get Started",
+    links: [
+      { href: "/booking", label: "Book free consultation" },
+      { href: "/auth/login", label: "Student portal" },
+      { href: "/auth/signup", label: "Create account" }
+    ]
+  },
+  {
+    title: "Company",
+    links: [
+      { href: "/about", label: "About" },
+      { href: "/careers", label: "Careers" },
+      { href: "/contact", label: "Contact" }
+    ]
+  }
+];
+
+export default function Footer() {
+  return (
+    <footer className="relative mt-32 overflow-hidden bg-ink-900 text-ivory">
+      <div className="bg-noise pointer-events-none absolute inset-0 opacity-30" />
+      <div className="bg-radial-gold pointer-events-none absolute inset-0" />
+      <div className="container-luxe relative grid gap-12 py-20 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+        <div>
+          <div className="flex items-center gap-3">
+            <Monogram tone="gold" className="h-10 w-10" />
+            <div>
+              <div className="font-serif text-2xl">PAL&rsquo;s Academy</div>
+              <div className="mt-1 text-[10px] uppercase tracking-wider2 text-gold-400">
+                Private Tutoring · Est. 2025
+              </div>
+            </div>
+          </div>
+          <p className="mt-6 max-w-sm text-sm leading-relaxed text-ink-200">
+            Quietly excellent tutoring for ambitious Grade 9–12 and first-year university
+            students across the Greater Toronto Area.
+          </p>
+          <div className="gold-rule mt-8" />
+          <a
+            href="mailto:palseduacademy@gmail.com"
+            className="mt-4 inline-block text-xs uppercase tracking-wider2 text-ink-300 transition-colors hover:text-gold-300"
+          >
+            palseduacademy@gmail.com
+          </a>
+        </div>
+
+        {cols.map((col) => (
+          <div key={col.title}>
+            <div className="text-[10px] uppercase tracking-wider2 text-gold-400">{col.title}</div>
+            <ul className="mt-5 space-y-3">
+              {col.links.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-sm text-ink-100 transition-colors hover:text-gold-300"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div className="relative border-t border-ivory/10">
+        <div className="container-luxe flex flex-col items-center justify-between gap-4 py-6 text-xs text-ink-300 sm:flex-row">
+          <div>© {new Date().getFullYear()} PAL&rsquo;s Academy. All rights reserved.</div>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="hover:text-gold-300">Privacy</Link>
+            <Link href="/terms" className="hover:text-gold-300">Terms</Link>
+            <Link href="/careers" className="text-gold-400 hover:text-gold-300">Careers ↗</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
