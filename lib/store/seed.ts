@@ -1,4 +1,4 @@
-import { mutate, newId } from "./db";
+import { mutate, newId, readDb } from "./db";
 import { hashPassword } from "@/lib/auth/password";
 import type { ClassEntry, User } from "./types";
 
@@ -211,10 +211,20 @@ const CATALOG: CatalogClass[] = [
  */
 export async function ensureSeed() {
   if (seeded) return;
-  seeded = true;
+
+  // Read-only check FIRST. ensureSeed() runs on every admin/portal page load;
+  // if the catalog already exists we must NOT write the database back. Writing
+  // the whole DB on every page load is what let a concurrent stale write erase
+  // a freshly-created account. So: only write the very first time we seed.
+  const current = await readDb();
+  if (current.users.some((u) => u.email.toLowerCase() === SEED_MARKER_EMAIL)) {
+    seeded = true;
+    return;
+  }
 
   await mutate(async (db) => {
-    // Already catalog-seeded? Leave everything alone.
+    // Double-check under the compare-and-swap lock in case another instance
+    // seeded between our read above and this write.
     if (db.users.some((u) => u.email.toLowerCase() === SEED_MARKER_EMAIL)) return;
 
     const now = Date.now();
@@ -323,4 +333,6 @@ export async function ensureSeed() {
       }
     }
   });
+
+  seeded = true;
 }
