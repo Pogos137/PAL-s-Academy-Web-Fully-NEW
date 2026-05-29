@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { getAdminSnapshot } from "@/lib/store/admin";
+import { BOT_PASSWORD } from "@/lib/store/seed";
+import SimulateButton from "@/components/admin/SimulateButton";
 
 export const dynamic = "force-dynamic";
 
@@ -9,11 +11,15 @@ export default async function AdminOverview() {
   const stats = [
     { label: "Total users", value: snap.users.length, href: "/admin/users" },
     { label: "Pending approvals", value: snap.pending.length, href: "/admin/approvals" },
-    { label: "Active classes", value: snap.classes.length, href: "/admin/classes" },
+    { label: "Active classes", value: snap.classes.length, href: "/admin/enrollment" },
     { label: "Leads", value: snap.leads.length, href: "/admin/leads" },
     { label: "Tutor applications", value: snap.applications.length, href: "/admin/applications" },
-    { label: "Messages exchanged", value: snap.messages.length, href: "/admin/classes" }
+    { label: "Messages exchanged", value: snap.messages.length, href: "/admin/messages" }
   ];
+
+  const sampleBots = snap.users
+    .filter((u) => u.email.endsWith("@palsacademy.bot"))
+    .slice(0, 3);
 
   return (
     <div>
@@ -36,6 +42,50 @@ export default async function AdminOverview() {
             </div>
           </Link>
         ))}
+      </div>
+
+      {/* Test-run / bots */}
+      <div className="mt-10 grid gap-4 lg:grid-cols-2">
+        <div className="rounded-2xl border border-ink-100 bg-white p-6">
+          <div className="text-[10px] uppercase tracking-wider2 text-gold-600">Test-run</div>
+          <div className="mt-1 font-serif text-xl text-ink-800">Bring the platform to life</div>
+          <p className="mt-2 text-sm text-ink-600">
+            The academy is seeded with demo tutors, students, and courses. Run a simulation to post
+            new messages and mark assignments complete — then watch it land in{" "}
+            <Link href="/admin/messages" className="text-ink-800 underline decoration-gold-400">
+              Messages
+            </Link>{" "}
+            and on each course page.
+          </p>
+          <div className="mt-4">
+            <SimulateButton />
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-ink-100 bg-white p-6">
+          <div className="text-[10px] uppercase tracking-wider2 text-gold-600">
+            Sign in as a demo account
+          </div>
+          <div className="mt-1 font-serif text-xl text-ink-800">Test student &amp; tutor views</div>
+          <p className="mt-2 text-sm text-ink-600">
+            Every seeded account uses the password{" "}
+            <code className="rounded bg-ink-50 px-1.5 py-0.5 text-xs text-ink-800">
+              {BOT_PASSWORD}
+            </code>
+            . Sign out and log in as any of these to see their portal:
+          </p>
+          <ul className="mt-3 space-y-1 text-xs text-ink-600">
+            {sampleBots.map((b) => (
+              <li key={b.id}>
+                <span className="text-ink-800">{b.fullName}</span> · {b.email}
+              </li>
+            ))}
+            {sampleBots.length === 0 && <li>Demo accounts will appear after first load.</li>}
+          </ul>
+          <Link href="/admin/users" className="mt-3 inline-block text-xs text-gold-600 hover:text-gold-700">
+            See all accounts →
+          </Link>
+        </div>
       </div>
 
       {/* Pending approvals callout */}

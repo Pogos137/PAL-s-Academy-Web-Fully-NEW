@@ -12,6 +12,7 @@ import {
   Video
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import AppTopBar from "@/components/layout/AppTopBar";
 
 type Props = {
   user: { fullName: string; email: string; role: string };
@@ -38,7 +39,8 @@ export default function PortalShell({ user, classes, children }: Props) {
   }
 
   return (
-    <div className="relative min-h-[100svh] bg-ivory pt-20 text-ink-800">
+    <div className="relative min-h-[100svh] bg-ivory text-ink-800">
+      <AppTopBar home="/portal" label="Student Portal" />
       <div className="container-luxe grid gap-8 py-10 lg:grid-cols-[260px_1fr]">
         {/* Sidebar */}
         <aside className="lg:sticky lg:top-24 lg:self-start">

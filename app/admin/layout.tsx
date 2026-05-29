@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth/current";
 import { ensureSeed } from "@/lib/store/seed";
 import AdminSidebar from "@/components/admin/AdminSidebar";
+import AppTopBar from "@/components/layout/AppTopBar";
 
 export const metadata = {
   title: "Admin",
@@ -15,7 +16,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (user.role !== "admin") redirect("/portal");
 
   return (
-    <div className="min-h-[100svh] bg-ink-50 pt-20">
+    <div className="min-h-[100svh] bg-ink-50">
+      <AppTopBar home="/admin" label="Admin Console" />
       <div className="container-luxe grid gap-8 py-10 lg:grid-cols-[240px_1fr]">
         <AdminSidebar adminName={user.fullName} />
         <div className="min-w-0">{children}</div>

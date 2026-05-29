@@ -5,5 +5,11 @@ out
 .DS_Store
 *.log
 
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
+
+# Local preview/dev server launch config (machine-specific)
+.claude/
+
 # Local file-based data store (contains hashed credentials — never commit)
 .data/

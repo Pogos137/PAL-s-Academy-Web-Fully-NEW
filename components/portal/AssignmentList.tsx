@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Calendar, CheckCircle2, Circle, Loader2, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -40,20 +40,40 @@ export default function AssignmentList({ classId, initial, canSubmit, canCreate 
   const [dueDate, setDueDate] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  async function submitWork(id: string) {
+  // Open work first (by due date), completed sinks to the bottom (most recent due last).
+  const sorted = useMemo(
+    () =>
+      [...items].sort((a, b) => {
+        if (a.submitted !== b.submitted) return a.submitted ? 1 : -1;
+        return +new Date(a.dueDate) - +new Date(b.dueDate);
+      }),
+    [items]
+  );
+
+  const openCount = items.filter((a) => !a.submitted).length;
+  const doneCount = items.length - openCount;
+
+  // Toggle completion on/off. POST marks complete, DELETE un-marks.
+  async function toggle(id: string, currentlyDone: boolean) {
+    if (busyId) return;
     setBusyId(id);
     setErr(null);
+    // Optimistic flip.
+    setItems((prev) => prev.map((a) => (a.id === id ? { ...a, submitted: !currentlyDone } : a)));
     try {
       const res = await fetch(`/api/portal/classes/${classId}/assignments/${id}/submit`, {
-        method: "POST",
+        method: currentlyDone ? "DELETE" : "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({})
+        body: currentlyDone ? undefined : JSON.stringify({})
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Submit failed");
-      setItems((prev) => prev.map((a) => (a.id === id ? { ...a, submitted: true } : a)));
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Could not update");
+      }
     } catch (e: any) {
-      setErr(e.message || "Could not submit");
+      // Roll back on failure.
+      setItems((prev) => prev.map((a) => (a.id === id ? { ...a, submitted: currentlyDone } : a)));
+      setErr(e.message || "Could not update");
     } finally {
       setBusyId(null);
     }
@@ -72,18 +92,16 @@ export default function AssignmentList({ classId, initial, canSubmit, canCreate 
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Create failed");
-      setItems((prev) =>
-        [
-          ...prev,
-          {
-            id: data.assignment.id,
-            title: data.assignment.title,
-            description: data.assignment.description,
-            dueDate: data.assignment.dueDate,
-            submitted: false
-          }
-        ].sort((a, b) => +new Date(a.dueDate) - +new Date(b.dueDate))
-      );
+      setItems((prev) => [
+        ...prev,
+        {
+          id: data.assignment.id,
+          title: data.assignment.title,
+          description: data.assignment.description,
+          dueDate: data.assignment.dueDate,
+          submitted: false
+        }
+      ]);
       setTitle("");
       setDescription("");
       setDueDate("");
@@ -97,12 +115,20 @@ export default function AssignmentList({ classId, initial, canSubmit, canCreate 
 
   return (
     <div>
-      <div className="flex items-center justify-between">
-        <h2 className="font-serif text-2xl text-ink-800">Assignments</h2>
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          <h2 className="font-serif text-2xl text-ink-800">Assignments &amp; tasks</h2>
+          {items.length > 0 && (
+            <div className="mt-1 text-xs text-ink-500">
+              {openCount} open
+              {doneCount > 0 && <> · {doneCount} completed</>}
+            </div>
+          )}
+        </div>
         {canCreate && (
           <button
             onClick={() => setCreating((v) => !v)}
-            className="inline-flex items-center gap-2 rounded-full border border-ink-200 px-3 py-1.5 text-xs uppercase tracking-wider2 text-ink-700 transition-colors hover:border-gold-300"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-ink-200 px-3 py-1.5 text-xs uppercase tracking-wider2 text-ink-700 transition-colors hover:border-gold-300"
           >
             <Plus className="h-3 w-3" /> {creating ? "Cancel" : "New assignment"}
           </button>
@@ -149,34 +175,65 @@ export default function AssignmentList({ classId, initial, canSubmit, canCreate 
         </div>
       ) : (
         <ul className="mt-4 space-y-3">
-          {items.map((a) => {
+          {sorted.map((a) => {
             const overdue = !a.submitted && +new Date(a.dueDate) < Date.now();
+            const busy = busyId === a.id;
             return (
               <li
                 key={a.id}
                 className={cn(
-                  "rounded-2xl border bg-ivory-50 p-5 transition-colors",
+                  "rounded-2xl border p-5 transition-all",
                   a.submitted
-                    ? "border-accent-sage/40"
+                    ? "border-accent-sage/40 bg-accent-sage/5"
                     : overdue
-                    ? "border-accent-rose/50"
-                    : "border-ink-100"
+                    ? "border-accent-rose/50 bg-ivory-50"
+                    : "border-ink-100 bg-ivory-50"
                 )}
               >
                 <div className="flex items-start gap-3">
-                  {a.submitted ? (
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 text-accent-sage" />
+                  {/* Completion toggle */}
+                  {canSubmit ? (
+                    <button
+                      onClick={() => toggle(a.id, a.submitted)}
+                      disabled={busy}
+                      aria-label={a.submitted ? "Mark as not done" : "Mark as complete"}
+                      title={a.submitted ? "Mark as not done" : "Mark as complete"}
+                      className="mt-0.5 shrink-0 rounded-full transition-transform hover:scale-110 disabled:opacity-50"
+                    >
+                      {busy ? (
+                        <Loader2 className="h-5 w-5 animate-spin text-ink-400" />
+                      ) : a.submitted ? (
+                        <CheckCircle2 className="h-5 w-5 text-accent-sage" />
+                      ) : (
+                        <Circle className="h-5 w-5 text-ink-300 hover:text-gold-500" />
+                      )}
+                    </button>
+                  ) : a.submitted ? (
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent-sage" />
                   ) : (
-                    <Circle className="mt-0.5 h-5 w-5 text-ink-300" />
+                    <Circle className="mt-0.5 h-5 w-5 shrink-0 text-ink-300" />
                   )}
-                  <div className="flex-1">
-                    <div className="font-medium text-ink-800">{a.title}</div>
+
+                  <div className="min-w-0 flex-1">
+                    <div
+                      className={cn(
+                        "font-medium",
+                        a.submitted ? "text-ink-500 line-through decoration-accent-sage/50" : "text-ink-800"
+                      )}
+                    >
+                      {a.title}
+                    </div>
                     {a.description && (
-                      <p className="mt-1 whitespace-pre-wrap text-sm text-ink-600">
+                      <p
+                        className={cn(
+                          "mt-1 whitespace-pre-wrap text-sm",
+                          a.submitted ? "text-ink-400" : "text-ink-600"
+                        )}
+                      >
                         {a.description}
                       </p>
                     )}
-                    <div className="mt-2 flex items-center gap-3 text-xs">
+                    <div className="mt-2 flex flex-wrap items-center gap-3 text-xs">
                       <span
                         className={cn(
                           "inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 uppercase tracking-wider2",
@@ -187,21 +244,27 @@ export default function AssignmentList({ classId, initial, canSubmit, canCreate 
                             : "border border-gold-300 bg-gold-50 text-gold-700"
                         )}
                       >
-                        {a.submitted ? "Submitted" : overdue ? "Overdue" : "Open"}
+                        {a.submitted ? "Completed" : overdue ? "Overdue" : "Open"}
                       </span>
                       <span className="text-ink-500">Due {fmt(a.dueDate)}</span>
                     </div>
                   </div>
-                  {canSubmit && !a.submitted && (
+
+                  {canSubmit && (
                     <button
-                      onClick={() => submitWork(a.id)}
-                      className="btn btn-ink whitespace-nowrap"
-                      disabled={busyId === a.id}
+                      onClick={() => toggle(a.id, a.submitted)}
+                      disabled={busy}
+                      className={cn(
+                        "hidden shrink-0 whitespace-nowrap sm:inline-flex",
+                        a.submitted ? "btn btn-ghost" : "btn btn-ink"
+                      )}
                     >
-                      {busyId === a.id ? (
+                      {busy ? (
                         <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : a.submitted ? (
+                        "Undo"
                       ) : (
-                        "Mark submitted"
+                        "Mark complete"
                       )}
                     </button>
                   )}

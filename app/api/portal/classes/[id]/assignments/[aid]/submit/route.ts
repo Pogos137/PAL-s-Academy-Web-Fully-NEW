@@ -50,3 +50,25 @@ export async function POST(
 
   return NextResponse.json({ ok: true, submission });
 }
+
+// Un-mark a completed assignment (student toggles the circle off).
+export async function DELETE(
+  _req: Request,
+  { params }: { params: { id: string; aid: string } }
+) {
+  const user = await getCurrentUser();
+  if (!user) return NextResponse.json({ error: "Sign in required." }, { status: 401 });
+  if (user.role !== "student")
+    return NextResponse.json({ error: "Only students update their work." }, { status: 403 });
+
+  const allowed = await canAccessClass(user, params.id);
+  if (!allowed) return NextResponse.json({ error: "Not found." }, { status: 404 });
+
+  await mutate((db) => {
+    db.submissions = db.submissions.filter(
+      (s) => !(s.assignmentId === params.aid && s.studentId === user.id)
+    );
+  });
+
+  return NextResponse.json({ ok: true });
+}

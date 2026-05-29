@@ -157,7 +157,7 @@ export default function PricingPage() {
                   className={
                     "relative flex h-full flex-col rounded-3xl border p-8 transition-all duration-500 " +
                     (t.highlight
-                      ? "border-gold-300 bg-ink-900 text-ivory shadow-luxe hover:-translate-y-1"
+                      ? "mt-8 border-gold-300 bg-ink-900 text-ivory shadow-luxe hover:-translate-y-1 md:mt-0"
                       : "border-ink-100 bg-ivory-50 text-ink-800 hover:border-gold-300 hover:shadow-luxe")
                   }
                 >

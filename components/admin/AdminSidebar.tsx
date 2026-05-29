@@ -6,9 +6,11 @@ import { useState } from "react";
 import {
   Briefcase,
   CalendarDays,
+  GraduationCap,
   LayoutDashboard,
   LogOut,
   Mailbox,
+  MessageSquare,
   Users,
   UserCheck
 } from "lucide-react";
@@ -16,9 +18,11 @@ import { cn } from "@/lib/utils";
 
 const items = [
   { href: "/admin", label: "Overview", icon: LayoutDashboard, exact: true },
+  { href: "/admin/enrollment", label: "Enrollment", icon: GraduationCap },
+  { href: "/admin/classes", label: "Classes", icon: CalendarDays },
+  { href: "/admin/messages", label: "Messages", icon: MessageSquare },
   { href: "/admin/users", label: "Users", icon: Users },
   { href: "/admin/approvals", label: "Approvals", icon: UserCheck },
-  { href: "/admin/classes", label: "Classes", icon: CalendarDays },
   { href: "/admin/leads", label: "Leads", icon: Mailbox },
   { href: "/admin/applications", label: "Applications", icon: Briefcase }
 ];
