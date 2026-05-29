@@ -14,10 +14,18 @@ applications — works out of the box with **no external services required**.
 - **Marketing site** — Home, How it works, Subjects, Pricing, Testimonials, Booking, Careers,
   About, Contact. Emerald + gold brand theme, fully responsive, animated.
 - **Locked student portal** (Google Classroom-style):
-  - Per-class pages with **upcoming sessions**, a **"Join Google Meet"** quick link,
-    **assignments with due dates**, and a **private per-class message thread**.
-  - Calendar view (recurring sessions + every due date) and a Messages inbox.
-- **Admin console** at `/admin` — see **all users, approvals, classes, leads, and applications**.
+  - **Course homepages** focused on **Assignments & tasks** — click the circle to mark a task
+    complete; completed work sinks to the bottom and is labelled *Completed* (it never vanishes).
+  - A real **month-grid Calendar** plotting recurring weekly sessions + every assignment due date,
+    with a click-through day detail panel and "Join Meet" links.
+  - A two-pane **Messages inbox** with one private conversation per course. An academy **admin is
+    part of every conversation** (privacy/legal), and threads are deep-linkable from each course.
+- **Admin console** at `/admin` (owner only):
+  - **Enrollment manager** — create courses, assign tutors, and control which students are
+    enrolled in each course. Students only ever see the courses you enrol them in.
+  - **Messages** oversight across every class conversation, plus users, approvals, classes,
+    leads, and applications.
+  - **Simulate bot activity** to test-drive the platform with lifelike messages + completions.
 - **Auth with admin approval** — anyone can request access; new accounts stay *pending* until
   an admin approves them. **The owner email is auto-promoted to admin** (see below).
 - **Lead capture + tutor applications** with confirmation emails (no-op in dev until you add a key).
@@ -35,12 +43,20 @@ automatically. Use that account to sign in at `/auth/login` and manage the platf
 
 ### Demo accounts (seeded automatically for previewing the portal)
 
-| Role    | Email                              | Password          |
-|---------|------------------------------------|-------------------|
-| Student | `student.demo@palsacademy.local`   | `StudentDemo2025!`|
-| Tutor   | `tutor.demo@palsacademy.local`     | `TutorDemo2025!`  |
+The academy is seeded with a full **8-course catalog** and a roster of demo "bot" tutors and
+students so the portal and admin console feel alive for a test-run. **Every seeded account uses
+the password `PalsDemo2025!`** — sign out and log in as any of them to see their view:
 
-These come with two sample classes, assignments, and messages so the portal isn't empty.
+| Role    | Example email                      | Password         |
+|---------|------------------------------------|------------------|
+| Student | `student.demo@palsacademy.local`   | `PalsDemo2025!`  |
+| Student | `ava.bennett@palsacademy.bot`      | `PalsDemo2025!`  |
+| Tutor   | `tutor.demo@palsacademy.local`     | `PalsDemo2025!`  |
+| Tutor   | `priya.anand@palsacademy.bot`      | `PalsDemo2025!`  |
+
+See **Admin → Users** for the full roster. They come with classes, assignments, completions, and
+realistic message threads so nothing is empty. (The admin account is the one **you** sign up with
+using `palseduacademy@gmail.com` — see above.)
 
 ---
 
@@ -111,11 +127,14 @@ app/
   (marketing)            home, pricing, subjects, about, booking, careers, contact…
   auth/                  login + signup (request access)
   portal/                student portal: dashboard, calendar, messages, classes/[id]
-  admin/                 admin console: overview, users, approvals, classes, leads, applications
+  admin/                 admin console: overview, enrollment, classes, messages, users,
+                         approvals, leads, applications
   api/
     auth/                signup, login, logout
-    portal/classes/[id]/ messages + assignments (+ submit)
+    portal/classes/[id]/ messages + assignments (submit = mark complete, DELETE = undo)
     admin/approvals/     approve / reject pending accounts
+    admin/classes/       create course; [id] = enrol/remove students, set tutor, edit, delete
+    admin/simulate/      inject demo bot activity for a test-run
     leads, applications  public form intake
 lib/
   auth/                  password hashing, cookie sessions (Node + Edge variants)
