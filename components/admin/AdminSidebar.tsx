@@ -56,6 +56,7 @@ export default function AdminSidebar({ adminName }: { adminName: string }) {
             <Link
               key={href}
               href={href}
+              prefetch={false}
               className={cn(
                 "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors",
                 active ? "bg-ink-900 text-ivory" : "text-ink-600 hover:bg-ink-50 hover:text-ink-900"
