@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import { BookOpenCheck, Briefcase, Coins, HeartHandshake, Clock4, ShieldCheck } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 import TutorApplicationForm from "@/components/sections/TutorApplicationForm";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Careers — Become a PAL's Academy Tutor",
   description:
-    "Join PAL's Academy as a verified tutor. Competitive pay, flexible weekly hours, ambitious students, and a teaching culture you'll be proud of.",
-  alternates: { canonical: "/careers" }
-};
+    "Become a PAL's Academy tutor in the GTA. Competitive pay, flexible weekly online hours, ambitious students, and a teaching culture you'll be proud of. Apply today.",
+  path: "/careers"
+});
 
 const expectations = [
   {

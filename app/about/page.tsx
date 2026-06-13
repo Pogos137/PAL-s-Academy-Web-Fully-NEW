@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Compass, GraduationCap, ShieldCheck, Sparkles } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "About",
   description:
-    "PAL's Academy is a private tutoring practice for ambitious Grade 9–12 and first-year university students across the Greater Toronto Area.",
-  alternates: { canonical: "/about" }
-};
+    "PAL's Academy delivers verified one-to-one online tutoring for Ontario high-school and first-year university students across the GTA. Measurable results since 2025.",
+  path: "/about"
+});
 
 const principles = [
   {

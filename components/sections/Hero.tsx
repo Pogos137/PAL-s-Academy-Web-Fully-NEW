@@ -34,15 +34,22 @@ export default function Hero() {
           A Private Tutoring Academy
         </motion.div>
 
-        <motion.h1
+        {/* Keyword-forward H1 for search engines; the brand display line below
+            stays the visible headline. Exactly one H1 on the page. */}
+        <h1 className="sr-only">
+          Private Tutoring for Grade 9–12 and First-Year University Students in the GTA
+        </h1>
+
+        <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          aria-hidden="true"
           className="display mt-8 text-balance text-5xl text-ivory sm:text-6xl lg:text-[88px]"
         >
           Tutoring, refined for{" "}
           <span className="text-gradient-gold italic">students who refuse to settle.</span>
-        </motion.h1>
+        </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}

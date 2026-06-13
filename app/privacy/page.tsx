@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Privacy Policy",
   description:
-    "How PAL's Academy collects, uses, and protects the personal information of students, parents, and tutors.",
-  alternates: { canonical: "/privacy" }
-};
+    "How PAL's Academy collects, uses, stores, and protects the personal information of students, parents, and tutors, in line with Canadian privacy law (PIPEDA).",
+  path: "/privacy"
+});
 
 const updated = "May 1, 2025";
 

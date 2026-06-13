@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Quote, Star } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildMetadata } from "@/lib/seo";
+import { siteUrl } from "@/lib/utils";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Parent & Student Testimonials",
   description:
-    "What families across the GTA say about PAL's Academy — grade jumps, confidence rebuilt, university doors opened.",
-  alternates: { canonical: "/testimonials" }
-};
+    "Real reviews from GTA parents and students — grade jumps, confidence rebuilt, university doors opened. See why families across Toronto choose PAL's Academy tutoring.",
+  path: "/testimonials"
+});
 
 const featured = {
   quote:
@@ -63,9 +65,44 @@ const testimonials = [
   }
 ];
 
+// Built from the testimonials actually displayed on this page — no fabricated
+// text. The featured quote has no displayed star rating, so it is included as a
+// review without a numeric reviewRating; the grid testimonials each show 5★.
+const ratedReviews = testimonials.map((t) => ({
+  "@type": "Review",
+  author: { "@type": "Person", name: t.name },
+  reviewRating: { "@type": "Rating", ratingValue: String(t.rating), bestRating: "5" },
+  reviewBody: t.quote
+}));
+
+const reviewsSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": siteUrl("/#organization"),
+  name: "PAL's Academy",
+  url: siteUrl("/"),
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    bestRating: "5",
+    worstRating: "1",
+    ratingCount: String(testimonials.length),
+    reviewCount: String(testimonials.length + 1)
+  },
+  review: [
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: featured.name },
+      reviewBody: featured.quote
+    },
+    ...ratedReviews
+  ]
+};
+
 export default function TestimonialsPage() {
   return (
     <>
+      <JsonLd data={reviewsSchema} />
       {/* HERO */}
       <section className="relative isolate overflow-hidden bg-hero pt-40 pb-24 text-ivory">
         <div className="bg-noise pointer-events-none absolute inset-0 opacity-25" />

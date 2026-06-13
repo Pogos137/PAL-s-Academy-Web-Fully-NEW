@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Check,
@@ -14,13 +13,16 @@ import {
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildMetadata } from "@/lib/seo";
+import { siteUrl } from "@/lib/utils";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Pricing & Packages",
   description:
-    "Transparent monthly pricing for PAL's Academy. Four core packages plus PAL's Plus add-ons — designed for ambitious students.",
-  alternates: { canonical: "/pricing" }
-};
+    "Transparent monthly tutoring prices in the GTA — Starter $200, Core $360, Intensive $480, PAL's Circle $120/mo. Verified tutors, all CAD, cancel any time. Book free.",
+  path: "/pricing"
+});
 
 type Tier = {
   name: string;
@@ -126,9 +128,47 @@ const perks = [
   }
 ];
 
+const pricingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Private tutoring",
+  name: "Private Tutoring — PAL's Academy",
+  provider: {
+    "@type": "EducationalOrganization",
+    name: "PAL's Academy",
+    url: siteUrl("/")
+  },
+  areaServed: "Greater Toronto Area",
+  url: siteUrl("/pricing"),
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Tutoring Packages",
+    itemListElement: tiers.map((t) => ({
+      "@type": "Offer",
+      name: t.name,
+      description: `${t.sessions} — ${t.tagline}`,
+      price: t.price.replace(/[^0-9.]/g, ""),
+      priceCurrency: "CAD",
+      url: siteUrl("/pricing"),
+      availability: "https://schema.org/InStock",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: t.price.replace(/[^0-9.]/g, ""),
+        priceCurrency: "CAD",
+        referenceQuantity: {
+          "@type": "QuantitativeValue",
+          value: 1,
+          unitCode: "MON"
+        }
+      }
+    }))
+  }
+};
+
 export default function PricingPage() {
   return (
     <>
+      <JsonLd data={pricingSchema} />
       {/* HERO */}
       <section className="relative isolate overflow-hidden bg-hero pt-40 pb-20 text-ivory">
         <div className="bg-noise pointer-events-none absolute inset-0 opacity-25" />

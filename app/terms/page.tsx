@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ScrollText } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Terms of Service",
   description:
-    "The terms that govern tutoring services, scheduling, payment, and use of the PAL's Academy student portal.",
-  alternates: { canonical: "/terms" }
-};
+    "The terms governing PAL's Academy tutoring services — scheduling, monthly payment, rescheduling, and use of the student portal across the Greater Toronto Area.",
+  path: "/terms"
+});
 
 const updated = "May 1, 2025";
 

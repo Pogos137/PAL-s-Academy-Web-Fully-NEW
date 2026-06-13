@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import Method from "@/components/sections/Method";
 import { Sparkles } from "lucide-react";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "How It Works",
-  description: "Four quiet steps from the first call to a measurable grade jump.",
-  alternates: { canonical: "/how-it-works" }
-};
+  description:
+    "Four simple steps to measurable grade improvement for GTA students: free consultation, verified tutor matching, weekly online sessions, and visible monthly progress.",
+  path: "/how-it-works"
+});
 
 export default function HowItWorksPage() {
   return (

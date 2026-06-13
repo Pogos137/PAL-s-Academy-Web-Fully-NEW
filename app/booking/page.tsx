@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Calendar, Check, Clock, Lock, Shield } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import Calendly from "@/components/sections/Calendly";
 import LeadForm from "@/components/sections/LeadForm";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Book a Free Consultation",
   description:
-    "Book a 20-minute consultation with PAL's Academy. We'll diagnose where the gap actually is and outline a weekly plan — no pressure, no pitch.",
-  alternates: { canonical: "/booking" }
-};
+    "Book a free 20-minute tutoring consultation with PAL's Academy in the GTA. We'll diagnose where the gap really is and outline a weekly plan — no pressure, no pitch.",
+  path: "/booking"
+});
 
 const guarantees = [
   { icon: Clock, label: "20 minutes" },

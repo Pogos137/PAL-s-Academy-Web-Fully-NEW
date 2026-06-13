@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import SiteChrome from "@/components/layout/SiteChrome";
-import { siteUrl } from "@/lib/utils";
+import { siteUrl, SITE_URL } from "@/lib/utils";
+import { OG_IMAGE } from "@/lib/seo";
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
@@ -25,40 +26,37 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "PAL's Academy — Private Tutoring for Grade 9–12 & First-Year University",
+    default: "Private Tutoring in the GTA for Grade 9–12 & First-Year University | PAL's Academy",
     template: "%s · PAL's Academy"
   },
   description:
-    "Elite private tutoring for high school and first-year university students. Verified tutors, live weekly sessions, measurable results. Book your free consultation.",
-  keywords: [
-    "GTA tutoring",
-    "private tutor Toronto",
-    "high school tutor",
-    "first year university tutor",
-    "math tutor",
-    "science tutor",
-    "English tutor",
-    "French tutor"
-  ],
+    "Private 1-on-1 tutoring for Grade 9–12 and first-year university students across the Greater Toronto Area. Verified tutors, weekly online sessions, measurable results. Book a free consultation.",
   authors: [{ name: "PAL's Academy" }],
   openGraph: {
     type: "website",
-    title: "PAL's Academy — Private Tutoring",
+    title: "PAL's Academy — Private Tutoring for Grade 9–12 & First-Year University",
     description:
-      "Elite private tutoring for Grade 9–12 and first-year university. Book your free consultation.",
+      "Verified 1-on-1 tutors for high school and first-year university students across the GTA. Weekly online sessions, measurable results. Book a free consultation.",
     url: siteUrl("/"),
     siteName: "PAL's Academy",
-    locale: "en_CA"
+    locale: "en_CA",
+    images: [OG_IMAGE]
   },
   twitter: {
     card: "summary_large_image",
-    title: "PAL's Academy — Private Tutoring",
-    description: "Elite private tutoring for Grade 9–12 and first-year university."
+    title: "PAL's Academy — Private Tutoring for Grade 9–12 & First-Year University",
+    description: "Verified 1-on-1 tutors across the GTA. Weekly online sessions, measurable results.",
+    images: [OG_IMAGE.url]
   },
   alternates: { canonical: "/" },
-  robots: { index: true, follow: true }
+  robots: { index: true, follow: true },
+  // Paste the verification token from Google Search Console into
+  // NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION (Vercel env). Omitted when unset.
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -72,12 +70,52 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "EducationalOrganization",
+              "@id": siteUrl("/#organization"),
               name: "PAL's Academy",
+              alternateName: "PALs Academy",
               url: siteUrl("/"),
+              logo: siteUrl("/logo-mark.svg"),
+              image: siteUrl("/og"),
               email: "palseduacademy@gmail.com",
+              description:
+                "Private 1-on-1 tutoring for Grade 9–12 and first-year university students across the Greater Toronto Area. Verified tutors, weekly online sessions, measurable results.",
               foundingDate: "2025",
-              areaServed: "Greater Toronto Area",
-              sameAs: []
+              slogan: "Tutoring, refined.",
+              knowsAbout: [
+                "Chemistry tutoring",
+                "Physics tutoring",
+                "Biology tutoring",
+                "Calculus tutoring",
+                "Functions and Advanced Functions",
+                "English tutoring",
+                "French tutoring",
+                "Computer Science tutoring",
+                "First-year university science",
+                "Ontario high school curriculum"
+              ],
+              areaServed: [
+                "Toronto",
+                "Mississauga",
+                "Scarborough",
+                "North York",
+                "Etobicoke",
+                "Markham",
+                "Brampton",
+                "Vaughan",
+                "Greater Toronto Area"
+              ].map((name) => ({ "@type": "City", name })),
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Customer Support",
+                email: "palseduacademy@gmail.com",
+                areaServed: "CA",
+                availableLanguage: ["English", "French"]
+              },
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Tutoring Packages",
+                url: siteUrl("/pricing")
+              }
             })
           }}
         />

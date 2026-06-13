@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import LeadForm from "@/components/sections/LeadForm";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Contact",
-  description: "Get in touch with PAL's Academy.",
-  alternates: { canonical: "/contact" }
-};
+  description:
+    "Contact PAL's Academy about private tutoring in the Greater Toronto Area. We reply within 24 hours — book a free 20-minute consultation or send us a message directly.",
+  path: "/contact"
+});
 
 export default function ContactPage() {
   return (

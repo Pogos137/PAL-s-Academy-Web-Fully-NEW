@@ -6,6 +6,7 @@ import { hashPassword } from "@/lib/auth/password";
 import { isAdminEmail } from "@/lib/auth/current";
 import { signSession, setSessionCookie } from "@/lib/auth/session";
 import { sendEmail, ADMIN_TO } from "@/lib/email/resend";
+import { siteUrl } from "@/lib/utils";
 
 export const runtime = "nodejs";
 
@@ -71,7 +72,7 @@ export async function POST(req: Request) {
     await sendEmail({
       to: ADMIN_TO,
       subject: `New portal request · ${user.fullName}`,
-      html: `<p>${user.fullName} (${user.email}) just requested portal access. Review in <a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/admin/approvals">Admin · Approvals</a>.</p>`
+      html: `<p>${user.fullName} (${user.email}) just requested portal access. Review in <a href="${siteUrl("/admin/approvals")}">Admin · Approvals</a>.</p>`
     });
   } catch (e) {
     console.warn("[signup] notify admin failed:", e);
