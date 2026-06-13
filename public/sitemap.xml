@@ -4,6 +4,30 @@
   <url><loc>https://www.palsacademy.ca/pricing</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.palsacademy.ca/booking</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.palsacademy.ca/subjects</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.palsacademy.ca/subjects/chemistry-tutoring</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.palsacademy.ca/subjects/physics-tutoring</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.palsacademy.ca/subjects/biology-tutoring</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.palsacademy.ca/subjects/math-tutoring</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.palsacademy.ca/subjects/calculus-vectors-tutoring</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.palsacademy.ca/subjects/advanced-functions-tutoring</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.palsacademy.ca/subjects/english-tutoring</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.palsacademy.ca/subjects/computer-science-tutoring</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.palsacademy.ca/tutoring</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.palsacademy.ca/tutoring/toronto</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.palsacademy.ca/tutoring/mississauga</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.palsacademy.ca/tutoring/markham</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.palsacademy.ca/tutoring/vaughan</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.palsacademy.ca/tutoring/brampton</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.palsacademy.ca/tutoring/north-york</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.palsacademy.ca/tutoring/scarborough</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.palsacademy.ca/tutoring/etobicoke</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.palsacademy.ca/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.palsacademy.ca/blog/mhf4u-vs-mcv4u-which-is-harder</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.palsacademy.ca/blog/how-to-study-for-sch4u-chemistry</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.palsacademy.ca/blog/why-grade-12-marks-drop</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.palsacademy.ca/blog/what-ontario-universities-look-at</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.palsacademy.ca/blog/first-year-university-science-is-different</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.palsacademy.ca/blog/does-online-tutoring-actually-work</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.palsacademy.ca/how-it-works</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.palsacademy.ca/testimonials</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.palsacademy.ca/faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

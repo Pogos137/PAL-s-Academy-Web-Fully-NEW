@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 import { buildMetadata } from "@/lib/seo";
+import { subjects } from "@/lib/subjects-content";
 
 export const metadata = buildMetadata({
   title: "Subjects",
@@ -89,6 +91,42 @@ export default function SubjectsPage() {
               <Link href="/booking" className="btn btn-gold">Book free consultation</Link>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* DEDICATED SUBJECT PAGES — internal linking + deeper detail */}
+      <section className="relative bg-ink-50 py-24">
+        <div className="container-luxe">
+          <Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="eyebrow justify-center">Go deeper by subject</div>
+              <h2 className="display mt-4 text-4xl text-ink-800 sm:text-5xl">
+                Pick a subject. <span className="text-gradient-gold italic">See how we teach it.</span>
+              </h2>
+              <p className="mt-5 text-ink-600">
+                Course-by-course detail — what we cover, why it matters for university, and the
+                questions families ask most — for the subjects students come to us for first.
+              </p>
+            </div>
+          </Reveal>
+
+          <Stagger className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {subjects.map((s) => (
+              <StaggerItem key={s.slug}>
+                <Link
+                  href={`/subjects/${s.slug}`}
+                  className="group flex h-full flex-col rounded-2xl border border-ink-100 bg-ivory p-7 transition-all duration-500 hover:border-gold-300 hover:shadow-luxe"
+                >
+                  <div className="eyebrow">{s.eyebrow}</div>
+                  <h3 className="mt-4 font-serif text-2xl text-ink-800">{s.subject} tutoring</h3>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium text-gold-600">
+                    Explore {s.subject.toLowerCase()}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
     </>

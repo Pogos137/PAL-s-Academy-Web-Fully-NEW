@@ -7,9 +7,22 @@ const cols = [
     links: [
       { href: "/how-it-works", label: "How it works" },
       { href: "/subjects", label: "Subjects" },
+      { href: "/tutoring", label: "Tutoring by city" },
+      { href: "/blog", label: "Guides" },
       { href: "/pricing", label: "Pricing" },
       { href: "/testimonials", label: "Testimonials" },
       { href: "/faq", label: "FAQ" }
+    ]
+  },
+  {
+    title: "Subjects",
+    links: [
+      { href: "/subjects/chemistry-tutoring", label: "Chemistry (SCH4U)" },
+      { href: "/subjects/physics-tutoring", label: "Physics (SPH4U)" },
+      { href: "/subjects/biology-tutoring", label: "Biology (SBI4U)" },
+      { href: "/subjects/math-tutoring", label: "Math (Gr 9–12)" },
+      { href: "/subjects/calculus-vectors-tutoring", label: "Calculus & Vectors" },
+      { href: "/subjects/english-tutoring", label: "English (ENG4U)" }
     ]
   },
   {
@@ -32,10 +45,10 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer className="relative mt-32 overflow-hidden bg-ink-900 text-ivory">
+    <footer className="relative overflow-hidden border-t border-ivory/10 bg-ink-900 text-ivory">
       <div className="bg-noise pointer-events-none absolute inset-0 opacity-30" />
       <div className="bg-radial-gold pointer-events-none absolute inset-0" />
-      <div className="container-luxe relative grid gap-12 py-20 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+      <div className="container-luxe relative grid gap-12 py-20 md:grid-cols-2 lg:grid-cols-[1.6fr_repeat(4,1fr)]">
         <div>
           <div className="flex items-center gap-3">
             <Monogram tone="gold" className="h-10 w-10" />
