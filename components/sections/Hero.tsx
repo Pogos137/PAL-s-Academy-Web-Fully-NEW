@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 
 export default function Hero() {
+  const reduceMotion = useReducedMotion();
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden bg-hero text-ivory">
       <div className="bg-noise pointer-events-none absolute inset-0 opacity-25" />
@@ -73,8 +74,12 @@ export default function Hero() {
             Book your free consultation
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
-          <Link href="/how-it-works" className="btn btn-ghost-dark">
+          <Link
+            href="/how-it-works"
+            className="group inline-flex items-center gap-1.5 text-sm font-medium text-ivory/70 transition-colors hover:text-gold-300"
+          >
             How it works
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>
 
@@ -82,29 +87,40 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.7 }}
-          className="mt-20 grid max-w-3xl grid-cols-3 gap-6 border-t border-ivory/10 pt-8 text-ivory/80 sm:gap-12"
+          className="mt-20 max-w-2xl border-t border-ivory/10 pt-8"
         >
-          {[
-            { v: "150+", l: "Students coached" },
-            { v: "92%", l: "Hit their goal grade" },
-            { v: "4.9/5", l: "Family satisfaction" }
-          ].map((s) => (
-            <div key={s.l}>
-              <div className="font-serif text-3xl text-gradient-gold sm:text-4xl">{s.v}</div>
-              <div className="mt-2 text-[11px] uppercase tracking-wider2 text-ink-200">
-                {s.l}
-              </div>
-            </div>
-          ))}
+          <div className="inline-flex items-center gap-2 rounded-full border border-gold-300/40 bg-gold-300/10 px-4 py-1.5 text-[11px] font-medium uppercase tracking-wider2 text-gold-300">
+            <Sparkles className="h-3.5 w-3.5" />
+            Founding cohort · Summer 2026
+          </div>
+          <p className="mt-5 max-w-xl text-base leading-relaxed">
+            <span className="font-medium text-gradient-gold">
+              Now accepting founding families for the 2026 summer semester.
+            </span>{" "}
+            <span className="text-ink-200">
+              Spots are limited — intake closes when tutor capacity is reached.
+            </span>
+          </p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-wider2 text-ivory/40"
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 text-ivory/40"
         >
-          Scroll
+          <motion.span
+            className="block"
+            animate={reduceMotion ? undefined : { y: [0, 6, 0] }}
+            transition={
+              reduceMotion
+                ? undefined
+                : { duration: 2, repeat: Infinity, ease: "easeInOut" }
+            }
+          >
+            <ChevronDown className="h-5 w-5" />
+          </motion.span>
         </motion.div>
       </div>
     </section>

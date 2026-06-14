@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 
-export default function CTA() {
+export default function CTA({ note }: { note?: string }) {
   return (
     <section className="relative overflow-hidden bg-ink-900 py-24 text-ivory">
       <div className="bg-radial-gold pointer-events-none absolute inset-0" />
@@ -17,6 +17,11 @@ export default function CTA() {
               Most of our results begin with a short, honest conversation. No pressure, no
               pitch — just a plan you can act on tomorrow.
             </p>
+            {note && (
+              <p className="mx-auto mt-6 max-w-[460px] text-sm italic text-gold-200/80">
+                {note}
+              </p>
+            )}
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link href="/booking" className="btn btn-gold group">
                 Book your free consultation

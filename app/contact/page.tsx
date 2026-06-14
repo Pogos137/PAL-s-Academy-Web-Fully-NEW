@@ -34,6 +34,13 @@ export default function ContactPage() {
               >
                 palseduacademy@gmail.com
               </a>{" "}
+              · Call ·{" "}
+              <a
+                href="tel:+14377774828"
+                className="text-gold-300 underline-offset-4 hover:underline"
+              >
+                (437) 777-4828
+              </a>{" "}
               · Greater Toronto Area
             </p>
           </Reveal>

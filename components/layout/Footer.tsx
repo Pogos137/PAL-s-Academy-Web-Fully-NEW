@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Monogram from "@/components/ui/Monogram";
 
+const PHONE_DISPLAY = "(437) 777-4828";
+const PHONE_TEL = "+14377774828";
+
 const cols = [
   {
     title: "Learn",
@@ -55,12 +58,12 @@ export default function Footer() {
             <div>
               <div className="font-serif text-2xl">PAL&rsquo;s Academy</div>
               <div className="mt-1 text-[10px] uppercase tracking-wider2 text-gold-400">
-                Private Tutoring · Est. 2025
+                Private Tutoring
               </div>
             </div>
           </div>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-ink-200">
-            Quietly excellent tutoring for ambitious Grade 9–12 and first-year university
+            Measurable grade improvement for Grade 9&ndash;12 and first-year university
             students across the Greater Toronto Area.
           </p>
           <div className="gold-rule mt-8" />
@@ -69,6 +72,12 @@ export default function Footer() {
             className="mt-4 inline-block text-xs uppercase tracking-wider2 text-ink-300 transition-colors hover:text-gold-300"
           >
             palseduacademy@gmail.com
+          </a>
+          <a
+            href={`tel:${PHONE_TEL}`}
+            className="mt-2 block text-xs uppercase tracking-wider2 text-ink-300 transition-colors hover:text-gold-300"
+          >
+            {PHONE_DISPLAY}
           </a>
         </div>
 

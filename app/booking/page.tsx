@@ -100,6 +100,15 @@ export default function BookingPage() {
               <div className="mt-6">
                 <LeadForm source="booking" />
               </div>
+              <p className="mt-6 text-center text-sm text-ink-500">
+                Prefer to call? Reach us at{" "}
+                <a
+                  href="tel:+14377774828"
+                  className="font-medium text-gold-600 underline-offset-4 hover:underline"
+                >
+                  (437) 777-4828
+                </a>
+              </p>
             </div>
           </Reveal>
         </div>

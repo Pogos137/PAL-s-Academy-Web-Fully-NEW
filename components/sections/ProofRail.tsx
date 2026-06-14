@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const marquee = [
   "MCV4U · Calculus",
@@ -14,6 +14,7 @@ const marquee = [
 ];
 
 export default function ProofRail() {
+  const reduceMotion = useReducedMotion();
   return (
     <section className="relative overflow-hidden border-y border-ink-100 bg-ivory-100 py-10">
       <div className="container-luxe flex items-center gap-6">
@@ -23,8 +24,12 @@ export default function ProofRail() {
         <div className="relative flex-1 overflow-hidden">
           <motion.div
             className="flex shrink-0 gap-10 whitespace-nowrap"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 40, ease: "linear", repeat: Infinity }}
+            animate={reduceMotion ? undefined : { x: ["0%", "-50%"] }}
+            transition={
+              reduceMotion
+                ? undefined
+                : { duration: 40, ease: "linear", repeat: Infinity }
+            }
           >
             {[...marquee, ...marquee, ...marquee].map((s, i) => (
               <span

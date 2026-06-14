@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Lock } from "lucide-react";
+import { Menu, X, Lock, Phone } from "lucide-react";
 import Monogram from "@/components/ui/Monogram";
 import { cn } from "@/lib/utils";
 
@@ -12,8 +12,14 @@ const nav = [
   { href: "/how-it-works", label: "How it works" },
   { href: "/subjects", label: "Subjects" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/testimonials", label: "Testimonials" }
+  { href: "/testimonials", label: "Testimonials" },
+  { href: "/faq", label: "FAQ" }
 ];
+
+// Single source of truth for the public phone number (E.164 for the tel: href,
+// formatted for display). Used in the nav, footer, booking and contact pages.
+const PHONE_DISPLAY = "(437) 777-4828";
+const PHONE_TEL = "+14377774828";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -60,7 +66,7 @@ export default function Header() {
               PAL&rsquo;s Academy
             </div>
             <div className="mt-1 text-[10px] uppercase tracking-wider2 text-gold-400">
-              Private Tutoring · Est. 2025
+              Private Tutoring
             </div>
           </div>
         </Link>
@@ -93,6 +99,19 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href={`tel:${PHONE_TEL}`}
+            className={cn(
+              "inline-flex items-center gap-1.5 text-sm font-medium transition-colors",
+              onDark
+                ? "text-ivory/75 hover:text-gold-300"
+                : "text-ink-600 hover:text-ink-900"
+            )}
+            title="Call PAL's Academy"
+          >
+            <Phone className="h-3.5 w-3.5 text-gold-400" />
+            {PHONE_DISPLAY}
+          </a>
           <Link
             href="/auth/login"
             className={cn(

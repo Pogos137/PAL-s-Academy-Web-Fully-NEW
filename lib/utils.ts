@@ -7,11 +7,24 @@ export function cn(...inputs: ClassValue[]) {
 
 // The single source of truth for the site's public origin.
 // In local dev, .env.local sets NEXT_PUBLIC_SITE_URL=http://localhost:3000.
-// In production (Vercel) this MUST be set to https://www.palsacademy.ca.
-// The fallback is the production domain — never localhost — so that even if the
-// env var is missing at build time, canonical/OG URLs resolve to the live site
-// instead of leaking localhost into Google's index.
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.palsacademy.ca";
+// In production (Vercel) this SHOULD be set to https://www.palsacademy.ca.
+const PROD_ORIGIN = "https://www.palsacademy.ca";
+const RAW_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+
+// Defensive: in a production build, NEVER allow a localhost origin to leak into
+// canonical/OG tags — Google reads canonical as authoritative, and a localhost
+// canonical de-indexes the page. So if the env var is missing OR still points at
+// localhost/127.0.0.1 in production, fall back to the live domain. In dev we keep
+// whatever is configured (localhost is fine and expected there).
+const isLocalhost = (u?: string) =>
+  !!u && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/i.test(u);
+
+export const SITE_URL =
+  process.env.NODE_ENV === "production"
+    ? RAW_SITE_URL && !isLocalhost(RAW_SITE_URL)
+      ? RAW_SITE_URL
+      : PROD_ORIGIN
+    : RAW_SITE_URL || PROD_ORIGIN;
 
 export function siteUrl(path = "/") {
   return new URL(path, SITE_URL).toString();
