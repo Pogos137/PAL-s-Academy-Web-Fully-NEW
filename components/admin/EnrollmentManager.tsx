@@ -102,6 +102,7 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
           </div>
           <input
             className="input-luxe"
+            aria-label="Subject code and name"
             placeholder="Subject code · name (e.g. SPH4U · Physics)"
             value={form.subject}
             onChange={(e) => setForm({ ...form, subject: e.target.value })}
@@ -109,6 +110,7 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
           />
           <input
             className="input-luxe"
+            aria-label="Class title"
             placeholder="Class title (e.g. Grade 12 Physics — Monday cohort)"
             value={form.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
@@ -116,6 +118,7 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
           />
           <select
             className="input-luxe"
+            aria-label="Tutor for new course"
             value={form.tutorId}
             onChange={(e) => setForm({ ...form, tutorId: e.target.value })}
             required
@@ -131,6 +134,7 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
           </select>
           <input
             className="input-luxe"
+            aria-label="Schedule"
             placeholder="Schedule (e.g. Mondays · 7:30pm ET)"
             value={form.schedule}
             onChange={(e) => setForm({ ...form, schedule: e.target.value })}
@@ -138,6 +142,7 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
           />
           <input
             className="input-luxe sm:col-span-2"
+            aria-label="Google Meet URL (optional)"
             placeholder="Google Meet URL (optional)"
             value={form.meetUrl}
             onChange={(e) => setForm({ ...form, meetUrl: e.target.value })}
@@ -171,10 +176,15 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
                   <div className="text-sm text-ink-600">{c.title}</div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Link href={`/portal/classes/${c.id}`} className="btn btn-ghost">
+                  <Link
+                    href={`/portal/classes/${c.id}`}
+                    aria-label={`Open ${c.subject} — ${c.title}`}
+                    className="btn btn-ghost"
+                  >
                     Open
                   </Link>
                   <button
+                    aria-label={`Delete ${c.subject} — ${c.title}`}
                     onClick={() => {
                       if (confirm(`Delete "${c.subject}"? This removes its assignments and messages.`))
                         call(`/api/admin/classes/${c.id}`, "DELETE", null, `del-${c.id}`);
@@ -183,9 +193,9 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
                     className="inline-flex items-center gap-1.5 rounded-full border border-ink-200 px-3 py-1.5 text-xs text-ink-600 transition-colors hover:border-accent-rose hover:text-accent-rose disabled:opacity-50"
                   >
                     {busy === `del-${c.id}` ? (
-                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                      <Loader2 aria-hidden="true" focusable="false" className="h-3.5 w-3.5 animate-spin" />
                     ) : (
-                      <Trash2 className="h-3.5 w-3.5" />
+                      <Trash2 aria-hidden="true" focusable="false" className="h-3.5 w-3.5" />
                     )}
                     Delete
                   </button>
@@ -194,8 +204,9 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
 
               {/* Tutor */}
               <div className="mt-5 flex flex-wrap items-center gap-3">
-                <span className="text-[10px] uppercase tracking-wider2 text-ink-400">Tutor</span>
+                <span className="text-[10px] uppercase tracking-wider2 text-ink-500">Tutor</span>
                 <select
+                  aria-label={`Tutor for ${c.subject}`}
                   className="input-luxe max-w-xs py-1.5 text-sm"
                   value={c.tutorId}
                   disabled={busy === `tutor-${c.id}`}
@@ -216,12 +227,12 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
 
               {/* Enrolled students */}
               <div className="mt-5">
-                <div className="text-[10px] uppercase tracking-wider2 text-ink-400">
+                <div className="text-[10px] uppercase tracking-wider2 text-ink-500">
                   Enrolled students · {enrolled.length}
                 </div>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {enrolled.length === 0 && (
-                    <span className="text-sm text-ink-400">No students enrolled yet.</span>
+                    <span className="text-sm text-ink-500">No students enrolled yet.</span>
                   )}
                   {enrolled.map((sid) => (
                     <span
@@ -230,7 +241,7 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
                     >
                       {studentName(sid)}
                       <button
-                        aria-label={`Remove ${studentName(sid)}`}
+                        aria-label={`Remove ${studentName(sid)} from ${c.subject}`}
                         onClick={() =>
                           call(`/api/admin/classes/${c.id}`, "PATCH", {
                             op: "removeStudent",
@@ -238,12 +249,12 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
                           }, `rm-${c.id}-${sid}`)
                         }
                         disabled={busy === `rm-${c.id}-${sid}`}
-                        className="rounded-full p-0.5 text-ink-400 transition-colors hover:bg-accent-rose/10 hover:text-accent-rose disabled:opacity-50"
+                        className="rounded-full p-0.5 text-ink-500 transition-colors hover:bg-accent-rose/10 hover:text-accent-rose disabled:opacity-50"
                       >
                         {busy === `rm-${c.id}-${sid}` ? (
-                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                          <Loader2 aria-hidden="true" focusable="false" className="h-3.5 w-3.5 animate-spin" />
                         ) : (
-                          <X className="h-3.5 w-3.5" />
+                          <X aria-hidden="true" focusable="false" className="h-3.5 w-3.5" />
                         )}
                       </button>
                     </span>
@@ -253,8 +264,9 @@ export default function EnrollmentManager({ classes, students, tutors }: Props) 
                 {/* Add student */}
                 {available.length > 0 ? (
                   <div className="mt-3 flex items-center gap-2">
-                    <UserPlus className="h-4 w-4 text-gold-600" />
+                    <UserPlus aria-hidden="true" focusable="false" className="h-4 w-4 text-gold-600" />
                     <select
+                      aria-label={`Enroll a student in ${c.subject}`}
                       className="input-luxe max-w-xs py-1.5 text-sm"
                       value=""
                       disabled={busy?.startsWith(`add-${c.id}`)}

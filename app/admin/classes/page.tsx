@@ -4,6 +4,11 @@ import { getAllClasses } from "@/lib/store/admin";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Classes",
+  robots: { index: false, follow: false }
+};
+
 export default async function AdminClassesPage() {
   const classes = await getAllClasses();
 
@@ -25,11 +30,11 @@ export default async function AdminClassesPage() {
 
             <dl className="mt-5 space-y-2 text-sm">
               <div className="flex gap-2">
-                <dt className="w-20 shrink-0 text-ink-400">Tutor</dt>
+                <dt className="w-20 shrink-0 text-ink-500">Tutor</dt>
                 <dd className="text-ink-700">{c.tutorName}</dd>
               </div>
               <div className="flex gap-2">
-                <dt className="w-20 shrink-0 text-ink-400">Students</dt>
+                <dt className="w-20 shrink-0 text-ink-500">Students</dt>
                 <dd className="text-ink-700">
                   {c.studentNames.length ? c.studentNames.join(", ") : "—"}
                 </dd>

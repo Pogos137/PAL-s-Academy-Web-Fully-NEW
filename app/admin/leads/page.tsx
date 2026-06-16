@@ -2,24 +2,29 @@ import { getAllLeads } from "@/lib/store/admin";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Leads",
+  robots: { index: false, follow: false }
+};
+
 export default async function LeadsPage() {
   const leads = await getAllLeads();
   return (
     <div>
       <h1 className="font-serif text-3xl text-ink-800">Leads</h1>
       <p className="mt-1 text-sm text-ink-500">Every consultation request, newest first.</p>
-      <div className="mt-8 overflow-hidden rounded-2xl border border-ink-100 bg-white">
-        <table className="w-full text-sm">
-          <thead className="bg-ink-50 text-left text-[10px] uppercase tracking-wider2 text-ink-400">
+      <div className="mt-8 overflow-x-auto rounded-2xl border border-ink-100 bg-white">
+        <table className="w-full min-w-[900px] text-sm">
+          <thead className="bg-ink-50 text-left text-[10px] uppercase tracking-wider2 text-ink-600">
             <tr>
-              <th className="px-4 py-3">Name</th>
-              <th className="px-4 py-3">Email</th>
-              <th className="px-4 py-3">Phone</th>
-              <th className="px-4 py-3">Grade</th>
-              <th className="px-4 py-3">Subjects</th>
-              <th className="px-4 py-3">Goals</th>
-              <th className="px-4 py-3">Source</th>
-              <th className="px-4 py-3">When</th>
+              <th scope="col" className="px-4 py-3">Name</th>
+              <th scope="col" className="px-4 py-3">Email</th>
+              <th scope="col" className="px-4 py-3">Phone</th>
+              <th scope="col" className="px-4 py-3">Grade</th>
+              <th scope="col" className="px-4 py-3">Subjects</th>
+              <th scope="col" className="px-4 py-3">Goals</th>
+              <th scope="col" className="px-4 py-3">Source</th>
+              <th scope="col" className="px-4 py-3">When</th>
             </tr>
           </thead>
           <tbody>

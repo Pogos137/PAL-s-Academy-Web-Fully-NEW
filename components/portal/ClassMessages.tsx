@@ -133,11 +133,21 @@ export default function ClassMessages({ classId, currentUserId, initial }: Props
           value={body}
           onChange={(e) => setBody(e.target.value)}
           placeholder="Write a message…"
+          aria-label="Write a message to this class"
           className="input-luxe flex-1"
           disabled={sending}
         />
-        <button type="submit" className="btn btn-ink" disabled={sending || !body.trim()}>
-          {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+        <button
+          type="submit"
+          aria-label="Send message"
+          className="btn btn-ink"
+          disabled={sending || !body.trim()}
+        >
+          {sending ? (
+            <Loader2 aria-hidden="true" focusable="false" className="h-4 w-4 animate-spin" />
+          ) : (
+            <Send aria-hidden="true" focusable="false" className="h-4 w-4" />
+          )}
         </button>
       </form>
       {err && <div className="px-4 pb-3 text-xs text-accent-rose">{err}</div>}

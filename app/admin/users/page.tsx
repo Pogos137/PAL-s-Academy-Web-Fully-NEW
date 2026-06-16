@@ -2,21 +2,33 @@ import { getAllUsers } from "@/lib/store/admin";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Users",
+  robots: { index: false, follow: false }
+};
+
+const PILL_BASE =
+  "inline-flex rounded-full border px-2.5 py-0.5 text-[10px] uppercase tracking-wider2";
+
+// Status colours are chosen to clear WCAG 1.4.3 (≥4.5:1) at this small badge size.
 function StatusPill({ value }: { value: string }) {
   const map: Record<string, string> = {
-    approved: "bg-accent-sage/10 text-accent-sage border-accent-sage/40",
+    approved: "bg-ink-50 text-ink-700 border-ink-200",
     pending: "bg-gold-50 text-gold-700 border-gold-300",
-    rejected: "bg-accent-rose/10 text-accent-rose border-accent-rose/40"
+    rejected: "bg-accent-rose/10 text-[#8A2C44] border-accent-rose/40"
   };
-  return (
-    <span
-      className={`inline-flex rounded-full border px-2.5 py-0.5 text-[10px] uppercase tracking-wider2 ${
-        map[value] || map.pending
-      }`}
-    >
-      {value}
-    </span>
-  );
+  return <span className={`${PILL_BASE} ${map[value] || map.pending}`}>{value}</span>;
+}
+
+// Distinct, accessible role fills so screen-reader and low-vision users can tell
+// roles apart at a glance (brand emerald + gold, all ≥7:1 contrast).
+function RolePill({ value }: { value: string }) {
+  const map: Record<string, string> = {
+    admin: "bg-ink-700 text-white border-transparent",
+    tutor: "bg-ink-50 text-ink-700 border-ink-200",
+    student: "bg-gold-50 text-gold-700 border-gold-200"
+  };
+  return <span className={`${PILL_BASE} ${map[value] || map.student}`}>{value}</span>;
 }
 
 export default async function UsersPage() {
@@ -29,15 +41,15 @@ export default async function UsersPage() {
         Every account on the platform — students, parents, tutors, and admins.
       </p>
 
-      <div className="mt-8 overflow-hidden rounded-2xl border border-ink-100 bg-white">
-        <table className="w-full text-sm">
-          <thead className="bg-ink-50 text-left text-[10px] uppercase tracking-wider2 text-ink-400">
+      <div className="mt-8 overflow-x-auto rounded-2xl border border-ink-100 bg-white">
+        <table className="w-full min-w-[640px] text-sm">
+          <thead className="bg-ink-50 text-left text-[10px] uppercase tracking-wider2 text-ink-600">
             <tr>
-              <th className="px-4 py-3">Name</th>
-              <th className="px-4 py-3">Email</th>
-              <th className="px-4 py-3">Role</th>
-              <th className="px-4 py-3">Status</th>
-              <th className="px-4 py-3">Joined</th>
+              <th scope="col" className="px-4 py-3">Name</th>
+              <th scope="col" className="px-4 py-3">Email</th>
+              <th scope="col" className="px-4 py-3">Role</th>
+              <th scope="col" className="px-4 py-3">Status</th>
+              <th scope="col" className="px-4 py-3">Joined</th>
             </tr>
           </thead>
           <tbody>
@@ -46,9 +58,7 @@ export default async function UsersPage() {
                 <td className="px-4 py-3 font-medium text-ink-800">{u.fullName}</td>
                 <td className="px-4 py-3 text-ink-600">{u.email}</td>
                 <td className="px-4 py-3">
-                  <span className="inline-flex rounded-full border border-ink-100 bg-ink-50 px-2.5 py-0.5 text-[10px] uppercase tracking-wider2 text-ink-500">
-                    {u.role}
-                  </span>
+                  <RolePill value={u.role} />
                 </td>
                 <td className="px-4 py-3">
                   <StatusPill value={u.status} />

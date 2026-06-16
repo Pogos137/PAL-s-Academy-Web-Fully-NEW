@@ -40,6 +40,9 @@ export default function PortalShell({ user, classes, children }: Props) {
 
   return (
     <div className="relative min-h-[100svh] bg-ivory text-ink-800">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <AppTopBar home="/portal" label="Student Portal" />
       <div className="container-luxe grid gap-8 py-10 lg:grid-cols-[260px_1fr]">
         {/* Sidebar */}
@@ -123,7 +126,9 @@ export default function PortalShell({ user, classes, children }: Props) {
           </button>
         </aside>
 
-        <main className="min-w-0">{children}</main>
+        <main id="main-content" tabIndex={-1} className="min-w-0">
+          {children}
+        </main>
       </div>
     </div>
   );

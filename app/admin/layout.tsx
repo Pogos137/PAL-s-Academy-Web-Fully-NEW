@@ -5,7 +5,10 @@ import AdminSidebar from "@/components/admin/AdminSidebar";
 import AppTopBar from "@/components/layout/AppTopBar";
 
 export const metadata = {
-  title: "Admin",
+  title: {
+    default: "Admin · PAL's Academy",
+    template: "%s · PAL's Academy"
+  },
   robots: { index: false, follow: false }
 };
 
@@ -17,10 +20,15 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   return (
     <div className="min-h-[100svh] bg-ink-50">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <AppTopBar home="/admin" label="Admin Console" />
       <div className="container-luxe grid gap-8 py-10 lg:grid-cols-[240px_1fr]">
         <AdminSidebar adminName={user.fullName} />
-        <div className="min-w-0">{children}</div>
+        <main id="main-content" tabIndex={-1} className="min-w-0">
+          {children}
+        </main>
       </div>
     </div>
   );

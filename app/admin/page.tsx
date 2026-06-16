@@ -5,6 +5,11 @@ import SimulateButton from "@/components/admin/SimulateButton";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Overview",
+  robots: { index: false, follow: false }
+};
+
 export default async function AdminOverview() {
   const snap = await getAdminSnapshot();
 
@@ -33,12 +38,13 @@ export default async function AdminOverview() {
           <Link
             key={s.label}
             href={s.href}
+            aria-label={`View ${s.label.toLowerCase()}`}
             className="group rounded-2xl border border-ink-100 bg-white p-6 transition-all hover:border-gold-300 hover:shadow-luxe"
           >
-            <div className="text-[10px] uppercase tracking-wider2 text-ink-400">{s.label}</div>
+            <div className="text-[10px] uppercase tracking-wider2 text-ink-600">{s.label}</div>
             <div className="mt-2 font-serif text-4xl text-ink-800">{s.value}</div>
             <div className="mt-4 text-xs text-gold-600 transition-transform group-hover:translate-x-1">
-              View →
+              View <span aria-hidden="true">→</span>
             </div>
           </Link>
         ))}
@@ -105,15 +111,15 @@ export default async function AdminOverview() {
 
       {/* Recent leads */}
       <h2 className="mt-12 font-serif text-2xl text-ink-800">Recent leads</h2>
-      <div className="mt-4 overflow-hidden rounded-2xl border border-ink-100 bg-white">
-        <table className="w-full text-sm">
-          <thead className="bg-ink-50 text-left text-[10px] uppercase tracking-wider2 text-ink-400">
+      <div className="mt-4 overflow-x-auto rounded-2xl border border-ink-100 bg-white">
+        <table className="w-full min-w-[640px] text-sm">
+          <thead className="bg-ink-50 text-left text-[10px] uppercase tracking-wider2 text-ink-600">
             <tr>
-              <th className="px-4 py-3">Name</th>
-              <th className="px-4 py-3">Grade</th>
-              <th className="px-4 py-3">Subjects</th>
-              <th className="px-4 py-3">Source</th>
-              <th className="px-4 py-3">When</th>
+              <th scope="col" className="px-4 py-3">Name</th>
+              <th scope="col" className="px-4 py-3">Grade</th>
+              <th scope="col" className="px-4 py-3">Subjects</th>
+              <th scope="col" className="px-4 py-3">Source</th>
+              <th scope="col" className="px-4 py-3">When</th>
             </tr>
           </thead>
           <tbody>

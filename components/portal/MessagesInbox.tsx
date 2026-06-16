@@ -155,8 +155,8 @@ export default function MessagesInbox({
                     <Users className="h-3 w-3 text-gold-600" />
                     {active.participants.map((p) => p.fullName).join(" · ")}
                   </div>
-                  <div className="mt-1 inline-flex items-center gap-1 text-[10px] uppercase tracking-wider2 text-ink-400">
-                    <ShieldCheck className="h-3 w-3 text-gold-500" />
+                  <div className="mt-1 inline-flex items-center gap-1 text-[10px] uppercase tracking-wider2 text-ink-500">
+                    <ShieldCheck aria-hidden="true" focusable="false" className="h-3 w-3 text-gold-600" />
                     {isAdmin ? "Admin oversight" : "Admin is part of this conversation"}
                   </div>
                 </div>

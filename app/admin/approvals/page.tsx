@@ -3,6 +3,11 @@ import ApprovalRow from "@/components/admin/ApprovalRow";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Portal approvals",
+  robots: { index: false, follow: false }
+};
+
 export default async function ApprovalsPage() {
   const pending = await getPendingUsers();
   return (
@@ -12,14 +17,14 @@ export default async function ApprovalsPage() {
         Accounts awaiting your approval before their portal unlocks.
       </p>
 
-      <div className="mt-8 overflow-hidden rounded-2xl border border-ink-100 bg-white">
-        <table className="w-full text-sm">
-          <thead className="bg-ink-50 text-left text-[10px] uppercase tracking-wider2 text-ink-400">
+      <div className="mt-8 overflow-x-auto rounded-2xl border border-ink-100 bg-white">
+        <table className="w-full min-w-[560px] text-sm">
+          <thead className="bg-ink-50 text-left text-[10px] uppercase tracking-wider2 text-ink-600">
             <tr>
-              <th className="px-4 py-3">Name</th>
-              <th className="px-4 py-3">Email</th>
-              <th className="px-4 py-3">Requested</th>
-              <th className="px-4 py-3">Action</th>
+              <th scope="col" className="px-4 py-3">Name</th>
+              <th scope="col" className="px-4 py-3">Email</th>
+              <th scope="col" className="px-4 py-3">Requested</th>
+              <th scope="col" className="px-4 py-3">Action</th>
             </tr>
           </thead>
           <tbody>

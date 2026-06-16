@@ -28,7 +28,7 @@ body { font-family: var(--font-sans); }
   }
   .eyebrow::before { content: ""; @apply inline-block h-px w-6 bg-gold-400/70; }
 
-  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400; }
   .btn-gold {
     background: var(--gold-grad);
     @apply text-ink-800 shadow-luxe hover:shadow-xl hover:-translate-y-0.5;
@@ -67,14 +67,31 @@ body { font-family: var(--font-sans); }
   .lux-divider::after { content: ""; @apply h-px w-12 bg-gold-400/50; }
 }
 
+/* Accessibility — keyboard focus visibility (WCAG 2.4.7) and skip link (WCAG 2.4.1).
+   Kept unlayered so the focus ring reliably wins over any @layer component reset.
+   :focus-visible shows the ring for keyboard users only, not on mouse click. */
+:focus-visible {
+  outline: 2px solid #114E40; /* ink-700 */
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -120px;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+  background: #114E40; /* ink-700 */
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 0; }
+
 @layer utilities {
   .text-balance { text-wrap: balance; }
-  .text-gradient-gold {
-    background: var(--gold-grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
   .bg-noise { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85'/%3E%3CfeColorMatrix values='0 0 0 0 0.04 0 0 0 0 0.07 0 0 0 0 0.12 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
   .scrollbar-hide::-webkit-scrollbar { display: none; }
