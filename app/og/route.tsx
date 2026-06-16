@@ -4,8 +4,8 @@ import { renderOgImage } from "@/lib/og-image";
 // Handler (not an opengraph-image.tsx metadata file) so it builds regardless of
 // the project's filesystem path. Referenced as the og:image / twitter:image in
 // metadata (see lib/seo.ts and app/layout.tsx).
-export const runtime = "edge";
-
+// Runs on the Node.js runtime (next/og works there in 14.2+); avoids the
+// "edge runtime disables static generation" build warning.
 export function GET() {
   return renderOgImage();
 }
