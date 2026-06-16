@@ -78,7 +78,7 @@ export default function HowItWorksPage() {
             ].map((s) => (
               <StaggerItem key={s.n}>
                 <div className="h-full rounded-2xl border border-ink-100 bg-ivory-50 p-7 transition-all duration-500 hover:border-gold-300 hover:shadow-luxe">
-                  <span className="font-serif text-4xl text-gradient-gold">{s.n}</span>
+                  <span className="font-serif text-4xl text-gold-600">{s.n}</span>
                   <h3 className="mt-5 font-serif text-2xl text-ink-800">{s.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink-600">{s.body}</p>
                 </div>

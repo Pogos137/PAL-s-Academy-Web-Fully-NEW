@@ -172,7 +172,7 @@ export default function SubjectPage({ params }: { params: Params }) {
             <div className="mx-auto max-w-3xl text-center">
               <div className="eyebrow justify-center">What changes</div>
               <h2 className="display mt-4 text-4xl text-ink-800 sm:text-5xl">
-                Real understanding, <span className="text-gradient-gold italic">not a quick patch.</span>
+                Real understanding, <span className="text-gold-300 italic">not a quick patch.</span>
               </h2>
             </div>
           </Reveal>

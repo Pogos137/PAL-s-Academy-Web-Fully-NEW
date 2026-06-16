@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-15T03:43:38Z",
+  "title": "Design System: PAL's Academy",
+  "extensions": {
+    "colorMeta": {
+      "emerald": {
+        "role": "primary",
+        "displayName": "Heritage Emerald",
+        "canonical": "#114E40",
+        "tonalRamp": ["#082A23", "#0C3D32", "#114E40", "#155843", "#226F55", "#3F8E6F", "#6FB294", "#A8D2BF", "#DCEDE5", "#F0F7F4"]
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Laurel Gold",
+        "canonical": "#C99A2A",
+        "tonalRamp": ["#5E4912", "#8A6A1B", "#A98223", "#C99A2A", "#D2A648", "#E2C16D", "#EFDDA0", "#F8EFD0"]
+      },
+      "ivory": {
+        "role": "neutral",
+        "displayName": "Warm Ivory",
+        "canonical": "#FAF8F4",
+        "tonalRamp": ["#E5DBC0", "#F2EBDB", "#FAF8F4", "#FFFDF8", "#FFFFFF"]
+      },
+      "accent-rose": {
+        "role": "tertiary",
+        "displayName": "Accent Rose",
+        "canonical": "#B45369",
+        "tonalRamp": ["#7A3445", "#B45369", "#C97E8F", "#E0B3BD"]
+      },
+      "accent-sage": {
+        "role": "tertiary",
+        "displayName": "Accent Sage",
+        "canonical": "#647E68",
+        "tonalRamp": ["#3E4F41", "#647E68", "#8EA391", "#BCCBBE"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero and section headlines. Serif, often with an italic gold-accented phrase." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles and card headers. Serif." },
+      "title": { "displayName": "Title", "purpose": "Sub-section and portal/course titles. Serif." },
+      "body": { "displayName": "Body", "purpose": "All prose. Inter, capped 65-75ch." },
+      "label": { "displayName": "Eyebrow / Label", "purpose": "Gold uppercase brand device, used sparingly — not section scaffolding." }
+    },
+    "shadows": [
+      { "name": "luxe", "value": "0 30px 80px -20px rgba(8, 42, 35, 0.35)", "purpose": "Large, soft, emerald-tinted glow under cards on hover and under the primary CTA. Ambient depth, never harsh." },
+      { "name": "ring", "value": "inset 0 0 0 1px rgba(201, 154, 42, 0.35)", "purpose": "Inset gold hairline frame for selected/featured surfaces." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default easing for entrances and state transitions — exponential ease-out, no bounce." },
+      { "name": "fade-up", "value": "fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both", "purpose": "Section and element reveal: 16px rise + fade." },
+      { "name": "shimmer", "value": "shimmer 3s linear infinite", "purpose": "Slow gold shimmer across gradient surfaces." },
+      { "name": "float", "value": "float 6s ease-in-out infinite", "purpose": "Gentle 8px vertical drift for decorative elements." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "max", "value": "80rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (Gold)",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "The conversion CTA — gold gradient, lifts and glows on hover. One per view.",
+      "html": "<button class=\"ds-btn-gold\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m12 3-1.9 5.8-5.8 1.9 5.8 1.9 1.9 5.8 1.9-5.8 5.8-1.9-5.8-1.9z\"/></svg>Book your free consultation</button>",
+      "css": ".ds-btn-gold { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: linear-gradient(135deg, #EFDDA0 0%, #C99A2A 45%, #8A6A1B 100%); color: #0C3D32; border: none; border-radius: 9999px; padding: 0.75rem 1.5rem; font-family: Inter, sans-serif; font-size: 0.875rem; font-weight: 500; box-shadow: 0 30px 80px -20px rgba(8,42,35,0.35); cursor: pointer; transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s; } .ds-btn-gold:hover { transform: translateY(-2px); box-shadow: 0 36px 90px -18px rgba(8,42,35,0.45); } .ds-btn-gold:focus-visible { outline: 2px solid #C99A2A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Serious secondary action — solid emerald ground, ivory text.",
+      "html": "<button class=\"ds-btn-ink\">How it works</button>",
+      "css": ".ds-btn-ink { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #0C3D32; color: #FAF8F4; border: none; border-radius: 9999px; padding: 0.75rem 1.5rem; font-family: Inter, sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background 0.3s; } .ds-btn-ink:hover { background: #114E40; } .ds-btn-ink:focus-visible { outline: 2px solid #C99A2A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Low-commitment tertiary action — hairline border shifts to gold on hover.",
+      "html": "<button class=\"ds-btn-ghost\">View subjects</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: transparent; color: #155843; border: 1px solid #A8D2BF; border-radius: 9999px; padding: 0.75rem 1.5rem; font-family: Inter, sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: border-color 0.3s, color 0.3s; } .ds-btn-ghost:hover { border-color: #D2A648; color: #082A23; } .ds-btn-ghost:focus-visible { outline: 2px solid #C99A2A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Luxe Card",
+      "kind": "card",
+      "refersTo": "card-luxe",
+      "description": "Light surface on ivory — flat at rest, border shifts to gold with luxe glow on hover.",
+      "html": "<div class=\"ds-card-luxe\"><h3 class=\"ds-card-luxe__title\">University Biochemistry</h3><p class=\"ds-card-luxe__body\">One-to-one weekly sessions with verified tutors, built around the student — not a script.</p></div>",
+      "css": ".ds-card-luxe { position: relative; background: #FFFDF8; border: 1px solid #DCEDE5; border-radius: 1.5rem; padding: 2rem; transition: border-color 0.5s, box-shadow 0.5s, transform 0.5s; } .ds-card-luxe:hover { border-color: #D2A648; box-shadow: 0 30px 80px -20px rgba(8,42,35,0.35); transform: translateY(-2px); } .ds-card-luxe__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.25rem; font-weight: 500; letter-spacing: -0.015em; color: #0C3D32; margin: 0 0 0.5rem; } .ds-card-luxe__body { font-family: Inter, sans-serif; font-size: 1rem; line-height: 1.65; color: #155843; margin: 0; }"
+    },
+    {
+      "name": "Dark Card",
+      "kind": "card",
+      "refersTo": "card-dark",
+      "description": "Emerald-ground surface with backdrop blur — for sections on dark grounds.",
+      "html": "<div class=\"ds-card-dark\"><h3 class=\"ds-card-dark__title\">Founding cohort · Summer 2026</h3><p class=\"ds-card-dark__body\">Now accepting founding families. Intake closes when tutor capacity is reached.</p></div>",
+      "css": ".ds-card-dark { position: relative; background: rgba(17,78,64,0.5); backdrop-filter: blur(8px); border: 1px solid rgba(250,248,244,0.1); border-radius: 1.5rem; padding: 2rem; transition: border-color 0.5s; } .ds-card-dark:hover { border-color: rgba(210,166,72,0.4); } .ds-card-dark__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.25rem; font-weight: 500; letter-spacing: -0.015em; color: #FAF8F4; margin: 0 0 0.5rem; } .ds-card-dark__body { font-family: Inter, sans-serif; font-size: 1rem; line-height: 1.65; color: #DCEDE5; margin: 0; }"
+    },
+    {
+      "name": "Luxe Input",
+      "kind": "input",
+      "refersTo": "input-luxe",
+      "description": "True-white field on the ivory page; focus shifts border to gold with a soft gold ring.",
+      "html": "<input class=\"ds-input-luxe\" type=\"email\" placeholder=\"Parent or student email\" />",
+      "css": ".ds-input-luxe { width: 100%; box-sizing: border-box; background: #FFFFFF; color: #0C3D32; border: 1px solid #A8D2BF; border-radius: 1rem; padding: 0.75rem 1rem; font-family: Inter, sans-serif; font-size: 0.875rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input-luxe::placeholder { color: #6FB294; } .ds-input-luxe:focus { border-color: #C99A2A; box-shadow: 0 0 0 2px #EFDDA0; }"
+    },
+    {
+      "name": "Eyebrow",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Gold uppercase brand device with a leading hairline tick. Used sparingly, not over every section.",
+      "html": "<span class=\"ds-eyebrow\">A Private Tutoring Academy</span>",
+      "css": ".ds-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-family: Inter, sans-serif; font-size: 0.6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; color: #D2A648; } .ds-eyebrow::before { content: ''; display: inline-block; height: 1px; width: 1.5rem; background: rgba(210,166,72,0.7); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Heritage Standard",
+    "overview": "PAL's Academy looks like an institution that has earned its reputation — not a startup performing prestige, but an academy that simply holds a standard. The system speaks in the visual language of established excellence: deep evergreen emerald, the burnished gold of academic honor, and warm ivory paper. Every surface should signal three things at once: prestige (we belong to a tradition), professionalism (we are exacting and reliable), and premium quality (this is an investment, treated as one). This is a dual-register system — the marketing surface is where the design IS the product, the portal and admin surfaces are where the design SERVES the work, and the through-line is one identity from login to coursework.",
+    "keyCharacteristics": [
+      "Drenched emerald heroes; ivory-paper body; gold reserved for accent and honor",
+      "Serif display (Cormorant Garamond) for authority, humanist sans (Inter) for clarity",
+      "Flat at rest, ambient depth on interaction — the luxe shadow as a soft emerald glow",
+      "Generous negative space and varied vertical rhythm; never cramped, never templated",
+      "One identity across marketing, portal, and admin"
+    ],
+    "rules": [
+      { "name": "The Laurel Rule", "body": "Gold is honor, not decoration. It appears on ≤10% of any surface — the primary CTA, a divider, a focus ring, the founding-cohort badge. If gold is carrying a block of text or a whole panel, it has been demoted from honor to wallpaper. Pull it back.", "section": "colors" },
+      { "name": "The Warmth-In-Gold Rule", "body": "Warmth lives in the gold accent, the serif type, and the ivory paper — never in a washed-out gray. Text on emerald uses the emerald ramp (emerald-100/200) or ivory at opacity; gray text on the emerald ground is forbidden.", "section": "colors" },
+      { "name": "The Serif-Authority Rule", "body": "Headings are serif, always. The sans never carries a heading. This is the single strongest signal of the academy's voice — breaking it makes the page read as generic SaaS instantly.", "section": "typography" },
+      { "name": "The One-Eyebrow Rule", "body": "The gold uppercase eyebrow is a deliberate brand mark, not section scaffolding. Use it sparingly (hero, a key section) — never as an automatic kicker above every heading.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest, drawn by hairline borders. The luxe glow appears only on hover, focus, or genuine elevation. If a card has a heavy shadow sitting still, the shadow is doing the border's job — replace it with a 1px border.", "section": "elevation" },
+      { "name": "The Colored-Glow Rule", "body": "Shadows are emerald-tinted, large, and soft (blur ≥ 60px, low opacity). A small, dark, gray drop shadow is forbidden — it reads as cheap and dated.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep headings serif (Cormorant Garamond) — authority is non-negotiable.",
+      "Do reserve Laurel Gold for honor: the primary CTA, focus rings, dividers, the founding-cohort badge. ≤10% of any surface.",
+      "Do carry warmth through gold, serif type, and ivory paper — not through gray text.",
+      "Do keep surfaces flat at rest with hairline borders; let the soft emerald luxe glow appear only on interaction.",
+      "Do use emerald-100/200 (or ivory at opacity) for text on emerald grounds, so it clears 4.5:1.",
+      "Do carry one identity across marketing, portal, and admin — a parent should recognize the academy when their student logs in.",
+      "Do respect prefers-reduced-motion on every animation.",
+      "Do vary spacing and card density for rhythm."
+    ],
+    "donts": [
+      "Don't look like corporate SaaS — no generic blue, no rounded-everything, no identical card grids.",
+      "Don't look like an EdTech startup — no bright, gamified, anxiety-inducing playfulness.",
+      "Don't look cold or utilitarian — no text-heavy, dated academic layouts.",
+      "Don't use fake urgency as manipulation — countdowns and 'spots filling fast' only when literally true.",
+      "Don't let gold carry body text or full panels — that demotes honor to wallpaper.",
+      "Don't use small, dark, gray drop shadows — shadows are large, soft, and emerald-tinted.",
+      "Don't put a tracked uppercase eyebrow over every section — it's a named brand device, used sparingly.",
+      "Don't put gray text on the emerald ground — use the emerald ramp or ivory at opacity.",
+      "Don't signal errors or status with color alone — always pair with text or icon.",
+      "Don't nest cards, ever."
+    ]
+  }
+}

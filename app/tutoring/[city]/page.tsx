@@ -134,7 +134,7 @@ export default function LocationPage({ params }: { params: Params }) {
                 <div className="eyebrow">In {l.region}</div>
                 <h2 className="display mt-4 text-4xl text-ink-800 sm:text-5xl">
                   Tutoring built for{" "}
-                  <span className="text-gradient-gold italic">{l.city} students.</span>
+                  <span className="text-gold-600 italic">{l.city} students.</span>
                 </h2>
               </div>
             </Reveal>
@@ -190,7 +190,7 @@ export default function LocationPage({ params }: { params: Params }) {
             <div className="mx-auto max-w-3xl text-center">
               <div className="eyebrow justify-center">Why online works</div>
               <h2 className="display mt-4 text-4xl text-ink-800 sm:text-5xl">
-                Same tutor quality, <span className="text-gradient-gold italic">no commute.</span>
+                Same tutor quality, <span className="text-gold-600 italic">no commute.</span>
               </h2>
             </div>
           </Reveal>

@@ -103,7 +103,7 @@ export default function PrivacyPage() {
               <ShieldCheck className="h-4 w-4" /> Privacy
             </div>
             <h1 className="display mt-6 max-w-4xl text-balance text-5xl sm:text-6xl">
-              Your information, <span className="text-gradient-gold italic">handled with care.</span>
+              Your information, <span className="text-gold-300 italic">handled with care.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-ink-100/90">
               We collect only what we need to tutor well, we never sell it, and we keep student

@@ -49,7 +49,7 @@ export default function Hero() {
           className="display mt-8 text-balance text-5xl text-ivory sm:text-6xl lg:text-[88px]"
         >
           Tutoring, refined for{" "}
-          <span className="text-gradient-gold italic">students who refuse to settle.</span>
+          <span className="text-gold-300 italic">students who refuse to settle.</span>
         </motion.p>
 
         <motion.p
@@ -94,7 +94,7 @@ export default function Hero() {
             Founding cohort · Summer 2026
           </div>
           <p className="mt-5 max-w-xl text-base leading-relaxed">
-            <span className="font-medium text-gradient-gold">
+            <span className="font-medium text-gold-300">
               Now accepting founding families for the 2026 summer semester.
             </span>{" "}
             <span className="text-ink-200">

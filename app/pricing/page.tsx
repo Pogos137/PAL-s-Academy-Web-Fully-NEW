@@ -4,6 +4,7 @@ import {
   Clock,
   FileText,
   Gift,
+  Info,
   LifeBuoy,
   MessageCircle,
   Repeat,
@@ -182,7 +183,7 @@ export default function PricingPage() {
           <Reveal>
             <div className="eyebrow text-gold-300">Honest, monthly pricing</div>
             <h1 className="display mt-6 max-w-4xl text-balance text-5xl sm:text-6xl lg:text-7xl">
-              Honest pricing. <span className="text-gradient-gold italic">No contracts, no surprises.</span>
+              Honest pricing. <span className="text-gold-300 italic">No contracts, no surprises.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-ink-100/90">
               Three core 1-on-1 plans plus a small-group Circle. The same verified tutors, the
@@ -227,7 +228,7 @@ export default function PricingPage() {
                     <span
                       className={
                         "font-serif text-5xl " +
-                        (t.highlight ? "text-gradient-gold" : "text-ink-800")
+                        (t.highlight ? "text-gold-300" : "text-ink-800")
                       }
                     >
                       {t.price}
@@ -282,9 +283,12 @@ export default function PricingPage() {
 
           {/* Urgency note — honest capacity constraint (#14) */}
           <Reveal>
-            <div className="mx-auto mt-12 max-w-2xl border-l-2 border-gold-400 bg-ivory-50 px-5 py-4 text-sm text-ink-600">
-              Tutor availability is limited. Booking a free consultation holds your spot in the
-              matching queue — sessions begin once your tutor is matched.
+            <div className="mx-auto mt-12 flex max-w-2xl items-start gap-3 rounded-xl border border-gold-300 bg-gold-50/60 px-5 py-4 text-sm text-ink-700">
+              <Info className="mt-0.5 h-4 w-4 flex-none text-gold-600" aria-hidden="true" />
+              <p>
+                Tutor availability is limited. Booking a free consultation holds your spot in the
+                matching queue — sessions begin once your tutor is matched.
+              </p>
             </div>
           </Reveal>
 
@@ -309,7 +313,7 @@ export default function PricingPage() {
               <div className="eyebrow justify-center">PAL&rsquo;s Plus</div>
               <h2 className="display mt-4 text-4xl text-ink-800 sm:text-5xl">
                 Add only what{" "}
-                <span className="text-gradient-gold italic">moves the needle.</span>
+                <span className="text-gold-600 italic">moves the needle.</span>
               </h2>
               <p className="mt-5 text-ink-600">
                 Most families who add perks take the bundle. Everything is month-to-month —
@@ -342,7 +346,7 @@ export default function PricingPage() {
                 </div>
                 <div className="flex flex-col items-start gap-1 sm:items-end sm:text-right">
                   <div className="flex items-baseline gap-2">
-                    <span className="font-serif text-5xl text-gradient-gold">+$75</span>
+                    <span className="font-serif text-5xl text-gold-600">+$75</span>
                     <span className="text-ink-400">/ month</span>
                   </div>
                   <div className="text-sm text-ink-500 line-through">$90 individually</div>

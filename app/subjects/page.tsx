@@ -101,7 +101,7 @@ export default function SubjectsPage() {
             <div className="mx-auto max-w-3xl text-center">
               <div className="eyebrow justify-center">Go deeper by subject</div>
               <h2 className="display mt-4 text-4xl text-ink-800 sm:text-5xl">
-                Pick a subject. <span className="text-gradient-gold italic">See how we teach it.</span>
+                Pick a subject. <span className="text-gold-300 italic">See how we teach it.</span>
               </h2>
               <p className="mt-5 text-ink-600">
                 Course-by-course detail — what we cover, why it matters for university, and the

@@ -42,7 +42,7 @@ export default function Method() {
             <Reveal key={s.n} delay={i * 0.08}>
               <div className="group h-full bg-ink-800 p-10 transition-colors duration-500 hover:bg-ink-700">
                 <div className="flex items-baseline gap-4">
-                  <span className="font-serif text-5xl text-gradient-gold">{s.n}</span>
+                  <span className="font-serif text-5xl text-gold-300">{s.n}</span>
                   <div className="h-px flex-1 bg-ivory/10" />
                 </div>
                 <h3 className="mt-6 font-serif text-2xl">{s.title}</h3>

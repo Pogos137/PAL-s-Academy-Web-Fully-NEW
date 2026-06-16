@@ -52,7 +52,7 @@ export default function CareersPage() {
             <div className="eyebrow text-gold-300">Careers at PAL&rsquo;s Academy</div>
             <h1 className="display mt-6 max-w-4xl text-balance text-5xl sm:text-6xl lg:text-7xl">
               Teach for the kind of academy{" "}
-              <span className="text-gradient-gold italic">you wish you&rsquo;d had.</span>
+              <span className="text-gold-300 italic">you wish you&rsquo;d had.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-ink-100/90">
               We&rsquo;re building a small, exacting roster of tutors for Grade 9–12 and

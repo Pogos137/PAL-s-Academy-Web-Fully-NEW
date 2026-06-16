@@ -76,25 +76,56 @@ export default function LeadForm({ source = "booking" }: { source?: string }) {
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
       <div className="grid gap-4 sm:grid-cols-2">
-        <input className="input-luxe" name="full_name" required placeholder="Parent or student name" />
-        <input className="input-luxe" name="email" type="email" required placeholder="Email" />
+        <div>
+          <label htmlFor="lead-name" className="mb-1.5 block text-xs font-medium text-ink-700">
+            Parent or student name
+          </label>
+          <input
+            id="lead-name"
+            className="input-luxe"
+            name="full_name"
+            required
+            placeholder="e.g. Sarah Mitchell"
+          />
+        </div>
+        <div>
+          <label htmlFor="lead-email" className="mb-1.5 block text-xs font-medium text-ink-700">
+            Email
+          </label>
+          <input
+            id="lead-email"
+            className="input-luxe"
+            name="email"
+            type="email"
+            required
+            placeholder="you@example.com"
+          />
+        </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
-        <input className="input-luxe" name="phone" placeholder="Phone (optional)" />
-        <select className="input-luxe" name="student_grade" required defaultValue="">
-          <option value="" disabled>
+        <div>
+          <label htmlFor="lead-phone" className="mb-1.5 block text-xs font-medium text-ink-700">
+            Phone <span className="font-normal text-ink-500">(optional)</span>
+          </label>
+          <input id="lead-phone" className="input-luxe" name="phone" type="tel" placeholder="(437) 777-4828" />
+        </div>
+        <div>
+          <label htmlFor="lead-grade" className="mb-1.5 block text-xs font-medium text-ink-700">
             Student grade level
-          </option>
-          {grades.map((g) => (
-            <option key={g}>{g}</option>
-          ))}
-        </select>
+          </label>
+          <select id="lead-grade" className="input-luxe" name="student_grade" required defaultValue="">
+            <option value="" disabled>
+              Select grade…
+            </option>
+            {grades.map((g) => (
+              <option key={g}>{g}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
-      <div>
-        <div className="mb-2 text-xs uppercase tracking-wider2 text-ink-400">
-          Subjects of interest
-        </div>
+      <fieldset>
+        <legend className="mb-2 text-xs font-medium text-ink-700">Subjects of interest</legend>
         <div className="flex flex-wrap gap-2">
           {subjectOptions.map((s) => {
             const active = chosen.includes(s);
@@ -102,12 +133,13 @@ export default function LeadForm({ source = "booking" }: { source?: string }) {
               <button
                 type="button"
                 key={s}
+                aria-pressed={active}
                 onClick={() => toggle(s)}
                 className={
-                  "rounded-full border px-3 py-1.5 text-xs transition-all " +
+                  "rounded-full border px-3 py-1.5 text-xs transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400 " +
                   (active
                     ? "border-gold-400 bg-gold-50 text-ink-800"
-                    : "border-ink-200 text-ink-500 hover:border-gold-300")
+                    : "border-ink-200 text-ink-600 hover:border-gold-300")
                 }
               >
                 {s}
@@ -115,15 +147,25 @@ export default function LeadForm({ source = "booking" }: { source?: string }) {
             );
           })}
         </div>
+      </fieldset>
+
+      <div>
+        <label htmlFor="lead-goals" className="mb-1.5 block text-xs font-medium text-ink-700">
+          What do you want to change this term?
+        </label>
+        <textarea
+          id="lead-goals"
+          className="input-luxe min-h-[110px] resize-y"
+          name="goals"
+          placeholder="A grade, an exam, university prep…"
+        />
       </div>
 
-      <textarea
-        className="input-luxe min-h-[110px] resize-y"
-        name="goals"
-        placeholder="What do you want to change this term? (a grade, an exam, university prep…)"
-      />
-
-      {err && <div className="text-sm text-accent-rose">{err}</div>}
+      {err && (
+        <div role="alert" className="text-sm text-accent-rose">
+          {err}
+        </div>
+      )}
 
       <button type="submit" className="btn btn-gold mt-2" disabled={status === "sending"}>
         {status === "sending" ? (

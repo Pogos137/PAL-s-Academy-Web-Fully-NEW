@@ -91,27 +91,60 @@ export default function TutorApplicationForm() {
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
       <div className="grid gap-4 sm:grid-cols-2">
-        <input className="input-luxe" name="full_name" required placeholder="Full name" />
-        <input className="input-luxe" name="email" type="email" required placeholder="Email" />
+        <div>
+          <label htmlFor="ta-name" className="mb-1.5 block text-xs font-medium text-ink-700">
+            Full name
+          </label>
+          <input id="ta-name" className="input-luxe" name="full_name" required placeholder="e.g. Priya Anand" />
+        </div>
+        <div>
+          <label htmlFor="ta-email" className="mb-1.5 block text-xs font-medium text-ink-700">
+            Email
+          </label>
+          <input id="ta-email" className="input-luxe" name="email" type="email" required placeholder="you@example.com" />
+        </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
-        <input className="input-luxe" name="phone" placeholder="Phone" />
-        <input className="input-luxe" name="location" placeholder="City / area" />
+        <div>
+          <label htmlFor="ta-phone" className="mb-1.5 block text-xs font-medium text-ink-700">
+            Phone <span className="font-normal text-ink-500">(optional)</span>
+          </label>
+          <input id="ta-phone" className="input-luxe" name="phone" type="tel" placeholder="(437) 777-4828" />
+        </div>
+        <div>
+          <label htmlFor="ta-location" className="mb-1.5 block text-xs font-medium text-ink-700">
+            City / area
+          </label>
+          <input id="ta-location" className="input-luxe" name="location" placeholder="e.g. North York" />
+        </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-3">
-        <select className="input-luxe" name="highest_education" required defaultValue="">
-          <option value="" disabled>Highest education</option>
-          {educations.map((e) => <option key={e}>{e}</option>)}
-        </select>
-        <input className="input-luxe" name="university" placeholder="University" />
-        <input className="input-luxe" name="program" placeholder="Program / Major" />
+        <div>
+          <label htmlFor="ta-education" className="mb-1.5 block text-xs font-medium text-ink-700">
+            Highest education
+          </label>
+          <select id="ta-education" className="input-luxe" name="highest_education" required defaultValue="">
+            <option value="" disabled>Select…</option>
+            {educations.map((e) => <option key={e}>{e}</option>)}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="ta-university" className="mb-1.5 block text-xs font-medium text-ink-700">
+            University
+          </label>
+          <input id="ta-university" className="input-luxe" name="university" placeholder="e.g. U of T" />
+        </div>
+        <div>
+          <label htmlFor="ta-program" className="mb-1.5 block text-xs font-medium text-ink-700">
+            Program / Major
+          </label>
+          <input id="ta-program" className="input-luxe" name="program" placeholder="e.g. Biochemistry" />
+        </div>
       </div>
 
-      <div>
-        <div className="mb-2 text-xs uppercase tracking-wider2 text-ink-400">
-          Subjects you can teach
-        </div>
+      <fieldset>
+        <legend className="mb-2 text-xs font-medium text-ink-700">Subjects you can teach</legend>
         <div className="flex flex-wrap gap-2">
           {subjects.map((s) => {
             const active = chosenSubjects.includes(s);
@@ -119,12 +152,13 @@ export default function TutorApplicationForm() {
               <button
                 type="button"
                 key={s}
+                aria-pressed={active}
                 onClick={() => toggle(chosenSubjects, setChosenSubjects, s)}
                 className={
-                  "rounded-full border px-3 py-1.5 text-xs transition-all " +
+                  "rounded-full border px-3 py-1.5 text-xs transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400 " +
                   (active
                     ? "border-gold-400 bg-gold-50 text-ink-800"
-                    : "border-ink-200 text-ink-500 hover:border-gold-300")
+                    : "border-ink-200 text-ink-600 hover:border-gold-300")
                 }
               >
                 {s}
@@ -132,12 +166,12 @@ export default function TutorApplicationForm() {
             );
           })}
         </div>
-      </div>
+      </fieldset>
 
-      <div>
-        <div className="mb-2 text-xs uppercase tracking-wider2 text-ink-400">
+      <fieldset>
+        <legend className="mb-2 text-xs font-medium text-ink-700">
           Grade levels you&rsquo;re comfortable teaching
-        </div>
+        </legend>
         <div className="flex flex-wrap gap-2">
           {grades.map((g) => {
             const active = chosenGrades.includes(g);
@@ -145,12 +179,13 @@ export default function TutorApplicationForm() {
               <button
                 type="button"
                 key={g}
+                aria-pressed={active}
                 onClick={() => toggle(chosenGrades, setChosenGrades, g)}
                 className={
-                  "rounded-full border px-3 py-1.5 text-xs transition-all " +
+                  "rounded-full border px-3 py-1.5 text-xs transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400 " +
                   (active
                     ? "border-gold-400 bg-gold-50 text-ink-800"
-                    : "border-ink-200 text-ink-500 hover:border-gold-300")
+                    : "border-ink-200 text-ink-600 hover:border-gold-300")
                 }
               >
                 {g}
@@ -158,35 +193,60 @@ export default function TutorApplicationForm() {
             );
           })}
         </div>
-      </div>
+      </fieldset>
 
       <div className="grid gap-4 sm:grid-cols-3">
-        <input
-          className="input-luxe"
-          name="years_experience"
-          type="number"
-          min={0}
-          placeholder="Years tutoring"
-        />
-        <input
-          className="input-luxe sm:col-span-2"
-          name="availability"
-          placeholder="Weekly availability (e.g. weekday evenings + Sun AM)"
-        />
+        <div>
+          <label htmlFor="ta-years" className="mb-1.5 block text-xs font-medium text-ink-700">
+            Years tutoring
+          </label>
+          <input id="ta-years" className="input-luxe" name="years_experience" type="number" min={0} placeholder="0" />
+        </div>
+        <div className="sm:col-span-2">
+          <label htmlFor="ta-availability" className="mb-1.5 block text-xs font-medium text-ink-700">
+            Weekly availability
+          </label>
+          <input
+            id="ta-availability"
+            className="input-luxe"
+            name="availability"
+            placeholder="e.g. weekday evenings + Sun AM"
+          />
+        </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <input className="input-luxe" name="linkedin" placeholder="LinkedIn URL" />
-        <input className="input-luxe" name="resume_url" placeholder="Resume link (Drive/Dropbox)" />
+        <div>
+          <label htmlFor="ta-linkedin" className="mb-1.5 block text-xs font-medium text-ink-700">
+            LinkedIn <span className="font-normal text-ink-500">(optional)</span>
+          </label>
+          <input id="ta-linkedin" className="input-luxe" name="linkedin" type="url" placeholder="linkedin.com/in/…" />
+        </div>
+        <div>
+          <label htmlFor="ta-resume" className="mb-1.5 block text-xs font-medium text-ink-700">
+            Resume link <span className="font-normal text-ink-500">(optional)</span>
+          </label>
+          <input id="ta-resume" className="input-luxe" name="resume_url" type="url" placeholder="Drive / Dropbox link" />
+        </div>
       </div>
 
-      <textarea
-        className="input-luxe min-h-[140px] resize-y"
-        name="cover_letter"
-        placeholder="Tell us why you want to teach with PAL's. Specific is better than long."
-      />
+      <div>
+        <label htmlFor="ta-cover" className="mb-1.5 block text-xs font-medium text-ink-700">
+          Why do you want to teach with PAL&rsquo;s?
+        </label>
+        <textarea
+          id="ta-cover"
+          className="input-luxe min-h-[140px] resize-y"
+          name="cover_letter"
+          placeholder="Specific is better than long."
+        />
+      </div>
 
-      {err && <div className="text-sm text-accent-rose">{err}</div>}
+      {err && (
+        <div role="alert" className="text-sm text-accent-rose">
+          {err}
+        </div>
+      )}
 
       <button type="submit" className="btn btn-gold mt-2" disabled={status === "sending"}>
         {status === "sending" ? (

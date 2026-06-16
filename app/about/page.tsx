@@ -72,7 +72,7 @@ export default function AboutPage() {
               <div className="eyebrow">Our mission</div>
               <h2 className="display mt-5 text-4xl text-ink-800 sm:text-5xl">
                 To make excellent tutoring{" "}
-                <span className="text-gradient-gold italic">quietly reliable</span> — for
+                <span className="text-gold-600 italic">quietly reliable</span> — for
                 every student we accept.
               </h2>
               <p className="mt-6 text-ink-600">
@@ -140,7 +140,7 @@ export default function AboutPage() {
             <div className="grid gap-8 rounded-3xl border border-ink-100 bg-ivory-50 px-8 py-12 sm:grid-cols-2 sm:px-12 lg:grid-cols-4">
               {facts.map(({ stat, label }) => (
                 <div key={label}>
-                  <div className="font-serif text-5xl text-gradient-gold">{stat}</div>
+                  <div className="font-serif text-5xl text-gold-600">{stat}</div>
                   <div className="mt-2 text-xs uppercase tracking-wider2 text-ink-500">
                     {label}
                   </div>

@@ -99,7 +99,7 @@ export default function TermsPage() {
               <ScrollText className="h-4 w-4" /> Terms of Service
             </div>
             <h1 className="display mt-6 max-w-4xl text-balance text-5xl sm:text-6xl">
-              Clear terms, <span className="text-gradient-gold italic">fairly written.</span>
+              Clear terms, <span className="text-gold-300 italic">fairly written.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-ink-100/90">
               The straightforward agreement that covers tutoring, scheduling, payment, and your
