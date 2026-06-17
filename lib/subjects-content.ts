@@ -46,9 +46,9 @@ export const subjects: SubjectContent[] = [
     slug: "chemistry-tutoring",
     subject: "Chemistry",
     serviceType: "Chemistry tutoring",
-    metaTitle: "SCH4U Chemistry Tutoring in the GTA",
+    metaTitle: "Chemistry Tutoring Toronto | SCH3U & SCH4U",
     metaDescription:
-      "Private 1-on-1 SCH4U & SCH3U chemistry tutoring across the GTA, plus first-year university chemistry. Verified tutors, weekly online sessions. Book a free consultation.",
+      "Expert 1-on-1 chemistry tutoring in Toronto — SCH3U, SCH4U & university. Verified tutors, same instructor weekly. Book a free consultation.",
     eyebrow: "SCH3U · SCH4U · First-year chemistry",
     h1: "Chemistry tutoring that finally makes it click.",
     heroIntro:
@@ -106,9 +106,9 @@ export const subjects: SubjectContent[] = [
     slug: "physics-tutoring",
     subject: "Physics",
     serviceType: "Physics tutoring",
-    metaTitle: "SPH4U Physics Tutoring in the GTA",
+    metaTitle: "Physics Tutoring Toronto | SPH3U & SPH4U",
     metaDescription:
-      "Private 1-on-1 SPH4U & SPH3U physics tutoring across the GTA, plus first-year university physics. Verified tutors, weekly online sessions. Book a free consultation.",
+      "Expert 1-on-1 physics tutoring in Toronto — SPH3U & SPH4U, plus first-year university. Verified tutors, same instructor every week. Free consultation.",
     eyebrow: "SPH3U · SPH4U · First-year physics",
     h1: "Physics tutoring for students who can do the math but not the problem.",
     heroIntro:
@@ -166,9 +166,9 @@ export const subjects: SubjectContent[] = [
     slug: "biology-tutoring",
     subject: "Biology",
     serviceType: "Biology tutoring",
-    metaTitle: "SBI4U Biology Tutoring in the GTA",
+    metaTitle: "Biology Tutoring Toronto | SBI3U & SBI4U",
     metaDescription:
-      "Private 1-on-1 SBI4U & SBI3U biology tutoring across the GTA, plus first-year university biology. Verified tutors, weekly online sessions. Book a free consultation.",
+      "Expert 1-on-1 biology tutoring in Toronto — SBI3U, SBI4U & first-year university biology. Verified tutors, same instructor weekly. Free consultation.",
     eyebrow: "SBI3U · SBI4U · First-year biology",
     h1: "Biology tutoring that goes beyond memorizing.",
     heroIntro:
@@ -226,9 +226,9 @@ export const subjects: SubjectContent[] = [
     slug: "math-tutoring",
     subject: "Math",
     serviceType: "Mathematics tutoring",
-    metaTitle: "Math Tutoring in the GTA · Grade 9–12",
+    metaTitle: "Math Tutoring Toronto | MHF4U, MCV4U & MDM4U",
     metaDescription:
-      "Private 1-on-1 math tutoring across the GTA for Grade 9–12 — MCR3U, MHF4U, MCV4U and more — plus first-year calculus. Verified tutors. Book a free consultation.",
+      "Expert 1-on-1 math tutoring in Toronto — MHF4U, MCV4U, MDM4U, MCR3U & first-year calculus. Verified tutors. Same instructor weekly. Free consultation.",
     eyebrow: "Grade 9–12 · First-year university",
     h1: "Math tutoring across the full Ontario sequence.",
     heroIntro:

@@ -28,17 +28,17 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Private Tutoring in the GTA for Grade 9–12 & First-Year University | PAL's Academy",
+    default: "Chemistry, Physics & Math Tutoring in Toronto | PAL's Academy",
     template: "%s · PAL's Academy"
   },
   description:
-    "Private 1-on-1 tutoring for Grade 9–12 and first-year university students across the Greater Toronto Area. Verified tutors, weekly online sessions, measurable results. Book a free consultation.",
+    "Expert 1-on-1 tutoring for Ontario Grade 9–12 & first-year university. Chemistry, physics, math & biology. Verified tutors. Free first consultation — book today.",
   authors: [{ name: "PAL's Academy" }],
   openGraph: {
     type: "website",
-    title: "PAL's Academy — Private Tutoring for Grade 9–12 & First-Year University",
+    title: "Chemistry, Physics & Math Tutoring in Toronto | PAL's Academy",
     description:
-      "Verified 1-on-1 tutors for high school and first-year university students across the GTA. Weekly online sessions, measurable results. Book a free consultation.",
+      "Expert 1-on-1 tutoring for Ontario Grade 9–12 & first-year university. Chemistry, physics, math & biology. Free consultation.",
     url: siteUrl("/"),
     siteName: "PAL's Academy",
     locale: "en_CA",
@@ -46,8 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PAL's Academy — Private Tutoring for Grade 9–12 & First-Year University",
-    description: "Verified 1-on-1 tutors across the GTA. Weekly online sessions, measurable results.",
+    title: "Chemistry, Physics & Math Tutoring in Toronto | PAL's Academy",
+    description:
+      "Expert 1-on-1 chemistry, physics, math & biology tutoring in Toronto. Verified tutors, weekly sessions. Free consultation.",
     images: [OG_IMAGE.url]
   },
   alternates: { canonical: "/" },
@@ -69,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "EducationalOrganization",
+              "@type": ["EducationalOrganization", "LocalBusiness"],
               "@id": siteUrl("/#organization"),
               name: "PAL's Academy",
               alternateName: "PALs Academy",
@@ -77,20 +78,37 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               logo: siteUrl("/logo-mark.svg"),
               image: siteUrl("/og"),
               email: "palseduacademy@gmail.com",
+              telephone: "+14377774828",
               description:
-                "Private 1-on-1 tutoring for Grade 9–12 and first-year university students across the Greater Toronto Area. Verified tutors, weekly online sessions, measurable results.",
+                "Private 1-on-1 tutoring for Ontario Grade 9–12 and first-year university students — chemistry, physics, math, biology, English and more. Online sessions over Google Meet, serving the Greater Toronto Area.",
               foundingDate: "2025",
               slogan: "Tutoring, refined.",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Toronto",
+                addressRegion: "ON",
+                addressCountry: "CA"
+              },
+              priceRange: "$$",
+              currenciesAccepted: "CAD",
+              paymentAccepted: "Interac e-Transfer, PayPal",
               knowsAbout: [
                 "Chemistry tutoring",
                 "Physics tutoring",
                 "Biology tutoring",
+                "Math tutoring",
                 "Calculus tutoring",
                 "Functions and Advanced Functions",
                 "English tutoring",
-                "French tutoring",
                 "Computer Science tutoring",
+                "SCH4U",
+                "SPH4U",
+                "MHF4U",
+                "MCV4U",
+                "SBI4U",
+                "ENG4U",
                 "First-year university science",
+                "University tutoring",
                 "Ontario high school curriculum"
               ],
               areaServed: [
@@ -113,8 +131,42 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               },
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "Tutoring Packages",
-                url: siteUrl("/pricing")
+                name: "Tutoring Services",
+                url: siteUrl("/pricing"),
+                itemListElement: [
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Chemistry Tutoring",
+                      description: "1-on-1 SCH3U and SCH4U Ontario chemistry tutoring online"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Physics Tutoring",
+                      description: "1-on-1 SPH3U and SPH4U Ontario physics tutoring online"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Math Tutoring",
+                      description: "1-on-1 MHF4U, MCV4U and MDM4U Ontario math tutoring online"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Biology Tutoring",
+                      description: "1-on-1 SBI3U and SBI4U Ontario biology tutoring online"
+                    }
+                  }
+                ]
               }
             })
           }}
