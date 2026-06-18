@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Calendar, CheckCircle2, Circle, Loader2, Plus } from "lucide-react";
+import { Archive, Calendar, CheckCircle2, ChevronDown, Circle, Loader2, Plus, RotateCcw } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type A = {
@@ -10,6 +10,7 @@ type A = {
   description: string;
   dueDate: string;
   submitted: boolean;
+  completedAt: string | null;
 };
 
 type Props = {
@@ -18,6 +19,10 @@ type Props = {
   canSubmit: boolean;
   canCreate: boolean;
 };
+
+// A checked-off task lingers (struck through, at the bottom) for 24h, then
+// moves into the Archive so the live list never grows without bound.
+const ARCHIVE_AFTER_MS = 24 * 60 * 60 * 1000;
 
 function fmt(d: string) {
   return new Date(d).toLocaleString("en-CA", {
@@ -39,27 +44,44 @@ export default function AssignmentList({ classId, initial, canSubmit, canCreate 
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [showArchive, setShowArchive] = useState(false);
 
-  // Open work first (by due date), completed sinks to the bottom (most recent due last).
-  const sorted = useMemo(
-    () =>
-      [...items].sort((a, b) => {
+  // Split into the live list vs the archive (completed > 24h ago).
+  const { active, archived } = useMemo(() => {
+    const now = Date.now();
+    const isArchived = (a: A) =>
+      a.submitted && a.completedAt != null && now - +new Date(a.completedAt) > ARCHIVE_AFTER_MS;
+    const act = items
+      .filter((a) => !isArchived(a))
+      // Open work first (by due date), recently-completed sinks to the bottom.
+      .sort((a, b) => {
         if (a.submitted !== b.submitted) return a.submitted ? 1 : -1;
         return +new Date(a.dueDate) - +new Date(b.dueDate);
-      }),
-    [items]
-  );
+      });
+    const arc = items
+      .filter(isArchived)
+      .sort((a, b) => +new Date(b.completedAt!) - +new Date(a.completedAt!));
+    return { active: act, archived: arc };
+  }, [items]);
 
-  const openCount = items.filter((a) => !a.submitted).length;
-  const doneCount = items.length - openCount;
+  const openCount = active.filter((a) => !a.submitted).length;
+  const doneCount = active.length - openCount;
 
-  // Toggle completion on/off. POST marks complete, DELETE un-marks.
+  // Toggle completion on/off. POST marks complete, DELETE un-marks (also how a
+  // student "retrieves" an archived task — it comes back as open).
   async function toggle(id: string, currentlyDone: boolean) {
     if (busyId) return;
+    const prevItem = items.find((a) => a.id === id);
     setBusyId(id);
     setErr(null);
     // Optimistic flip.
-    setItems((prev) => prev.map((a) => (a.id === id ? { ...a, submitted: !currentlyDone } : a)));
+    setItems((prev) =>
+      prev.map((a) =>
+        a.id === id
+          ? { ...a, submitted: !currentlyDone, completedAt: currentlyDone ? null : new Date().toISOString() }
+          : a
+      )
+    );
     try {
       const res = await fetch(`/api/portal/classes/${classId}/assignments/${id}/submit`, {
         method: currentlyDone ? "DELETE" : "POST",
@@ -71,8 +93,14 @@ export default function AssignmentList({ classId, initial, canSubmit, canCreate 
         throw new Error(data.error || "Could not update");
       }
     } catch (e: any) {
-      // Roll back on failure.
-      setItems((prev) => prev.map((a) => (a.id === id ? { ...a, submitted: currentlyDone } : a)));
+      // Roll back on failure to the exact prior state.
+      setItems((prev) =>
+        prev.map((a) =>
+          a.id === id
+            ? { ...a, submitted: currentlyDone, completedAt: prevItem?.completedAt ?? null }
+            : a
+        )
+      );
       setErr(e.message || "Could not update");
     } finally {
       setBusyId(null);
@@ -99,7 +127,8 @@ export default function AssignmentList({ classId, initial, canSubmit, canCreate 
           title: data.assignment.title,
           description: data.assignment.description,
           dueDate: data.assignment.dueDate,
-          submitted: false
+          submitted: false,
+          completedAt: null
         }
       ]);
       setTitle("");
@@ -169,13 +198,15 @@ export default function AssignmentList({ classId, initial, canSubmit, canCreate 
         </form>
       )}
 
-      {items.length === 0 ? (
+      {active.length === 0 ? (
         <div className="mt-4 rounded-2xl border border-ink-100 bg-ivory-50 p-8 text-sm text-ink-600">
-          No assignments yet for this class.
+          {items.length === 0
+            ? "No assignments yet for this class."
+            : "Nothing active right now — your completed tasks are in the archive below."}
         </div>
       ) : (
         <ul className="mt-4 space-y-3">
-          {sorted.map((a) => {
+          {active.map((a) => {
             const overdue = !a.submitted && +new Date(a.dueDate) < Date.now();
             const busy = busyId === a.id;
             return (
@@ -273,6 +304,66 @@ export default function AssignmentList({ classId, initial, canSubmit, canCreate 
             );
           })}
         </ul>
+      )}
+
+      {/* Archived tasks — completed more than 24h ago. */}
+      {archived.length > 0 && (
+        <div className="mt-5 rounded-2xl border border-ink-100 bg-white/60">
+          <button
+            onClick={() => setShowArchive((v) => !v)}
+            aria-expanded={showArchive}
+            className="flex w-full items-center justify-between gap-3 px-5 py-3.5 text-left"
+          >
+            <span className="inline-flex items-center gap-2 text-sm text-ink-600">
+              <Archive className="h-4 w-4 text-ink-400" />
+              Archived tasks
+              <span className="rounded-full bg-ink-100 px-2 py-0.5 text-[11px] text-ink-600">
+                {archived.length}
+              </span>
+            </span>
+            <ChevronDown
+              className={cn("h-4 w-4 text-ink-400 transition-transform", showArchive && "rotate-180")}
+            />
+          </button>
+          {showArchive && (
+            <ul className="border-t border-ink-100 px-3 pb-3 pt-2">
+              {archived.map((a) => {
+                const busy = busyId === a.id;
+                return (
+                  <li
+                    key={a.id}
+                    className="flex items-center gap-3 rounded-xl px-2 py-2.5 hover:bg-ink-50"
+                  >
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-ink-300" />
+                    <div className="min-w-0 flex-1">
+                      <div className="truncate text-sm text-ink-500 line-through decoration-ink-300">
+                        {a.title}
+                      </div>
+                      {a.completedAt && (
+                        <div className="text-[11px] text-ink-400">Completed {fmt(a.completedAt)}</div>
+                      )}
+                    </div>
+                    {canSubmit && (
+                      <button
+                        onClick={() => toggle(a.id, true)}
+                        disabled={busy}
+                        className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-ink-200 px-3 py-1 text-[11px] uppercase tracking-wider2 text-ink-600 transition-colors hover:border-gold-400 hover:text-ink-900 disabled:opacity-50"
+                        title="Bring this task back to your active list"
+                      >
+                        {busy ? (
+                          <Loader2 className="h-3 w-3 animate-spin" />
+                        ) : (
+                          <RotateCcw className="h-3 w-3" />
+                        )}
+                        Retrieve
+                      </button>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
       )}
       {err && <div className="mt-3 text-sm text-accent-rose">{err}</div>}
     </div>

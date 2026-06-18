@@ -13,6 +13,11 @@ const EMPTY: Database = {
   assignments: [],
   submissions: [],
   messages: [],
+  masteryTopics: [],
+  confidenceLogs: [],
+  focusRequests: [],
+  wins: [],
+  studentPlans: [],
 };
 
 export function newId(prefix = "id"): string {

@@ -4,15 +4,22 @@ import {
   ArrowLeft,
   CalendarClock,
   ClipboardList,
+  Gauge,
   MessageSquare,
   Users,
   Video
 } from "lucide-react";
 import { getCurrentUser } from "@/lib/auth/current";
 import { ensureSeed } from "@/lib/store/seed";
+import { ensureProgressSeed } from "@/lib/store/seed-progress";
 import { canAccessClass, classBundle, classesForUser } from "@/lib/store/queries";
+import { classProgress } from "@/lib/store/progress";
 import PortalShell from "@/components/portal/PortalShell";
 import AssignmentList from "@/components/portal/AssignmentList";
+import MasteryMap from "@/components/portal/MasteryMap";
+import ConfidencePulse from "@/components/portal/ConfidencePulse";
+import FocusRequests from "@/components/portal/FocusRequests";
+import WinWall from "@/components/portal/WinWall";
 
 export const metadata = {
   title: "Class",
@@ -21,6 +28,7 @@ export const metadata = {
 
 export default async function ClassPage({ params }: { params: { id: string } }) {
   await ensureSeed();
+  await ensureProgressSeed();
   const user = await getCurrentUser();
   if (!user) redirect(`/auth/login?next=/portal/classes/${params.id}`);
   // Admins keep full portal access (per requirements) — they're not bounced to /admin here.
@@ -36,8 +44,8 @@ export default async function ClassPage({ params }: { params: { id: string } }) 
 
   if (!cls) notFound();
 
-  const mySubs = new Set(
-    submissions.filter((s) => s.studentId === user.id).map((s) => s.assignmentId)
+  const mySubMap = new Map(
+    submissions.filter((s) => s.studentId === user.id).map((s) => [s.assignmentId, s.submittedAt])
   );
 
   const decoratedAssignments = assignments.map((a) => ({
@@ -45,7 +53,8 @@ export default async function ClassPage({ params }: { params: { id: string } }) 
     title: a.title,
     description: a.description,
     dueDate: a.dueDate,
-    submitted: mySubs.has(a.id)
+    submitted: mySubMap.has(a.id),
+    completedAt: mySubMap.get(a.id) ?? null
   }));
 
   const nextDue = assignments.find((a) => +new Date(a.dueDate) >= Date.now());
@@ -55,8 +64,54 @@ export default async function ClassPage({ params }: { params: { id: string } }) 
   const tutor = participants.find((p) => p.role === "tutor");
   const students = participants.filter((p) => p.role === "student");
 
-  const conversationHref =
-    user.role === "admin" ? `/admin/messages?c=${cls.id}` : `/portal/messages?c=${cls.id}`;
+  // ── PAL's Progress data for this class ──────────────────────────────────
+  const isStudent = user.role === "student";
+  const canManage = user.role === "tutor" || user.role === "admin";
+  const progress = await classProgress(cls.id, isStudent ? user.id : undefined);
+  const nameById = new Map(participants.map((p) => [p.id, p.fullName]));
+
+  const masteryTopics = progress.topics.map((t) => ({
+    id: t.id,
+    label: t.label,
+    unit: t.unit ?? null,
+    status: t.status
+  }));
+
+  const myConfidence = progress.confidence.map((c) => ({
+    rating: c.rating,
+    note: c.note ?? null,
+    createdAt: c.createdAt
+  }));
+
+  // Tutor/admin: latest confidence per student, for an at-a-glance roster.
+  const latestConfByStudent = new Map<string, { rating: number; createdAt: string }>();
+  for (const c of progress.confidence) {
+    const prev = latestConfByStudent.get(c.studentId);
+    if (!prev || +new Date(c.createdAt) > +new Date(prev.createdAt))
+      latestConfByStudent.set(c.studentId, { rating: c.rating, createdAt: c.createdAt });
+  }
+  const confidenceRoster = students.map((s) => ({
+    name: s.fullName,
+    rating: latestConfByStudent.get(s.id)?.rating ?? null
+  }));
+
+  const focusItems = progress.focus.map((f) => ({
+    id: f.id,
+    body: f.body,
+    status: f.status,
+    studentName: isStudent ? null : nameById.get(f.studentId) ?? null,
+    createdAt: f.createdAt
+  }));
+
+  const winItems = progress.wins.map((w) => ({
+    id: w.id,
+    body: w.body,
+    byName: nameById.get(w.addedBy) ?? null,
+    createdAt: w.createdAt
+  }));
+
+  // Conversations live in one place now — the portal inbox — for every role.
+  const conversationHref = `/portal/messages?c=${cls.id}`;
 
   const overviewStats = [
     { icon: CalendarClock, label: "Schedule", value: cls.schedule },
@@ -139,6 +194,52 @@ export default async function ClassPage({ params }: { params: { id: string } }) 
           </div>
         </section>
 
+        {/* PAL's Progress — Mastery Map */}
+        <section className="mt-8">
+          <MasteryMap classId={cls.id} initial={masteryTopics} canEdit={canManage} />
+        </section>
+
+        {/* Confidence Pulse + Focus Requests */}
+        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          {isStudent ? (
+            <ConfidencePulse classId={cls.id} initial={myConfidence} canLog />
+          ) : (
+            <section className="rounded-2xl border border-ink-100 bg-ivory-50 p-6">
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider2 text-gold-600">
+                <Gauge className="h-3.5 w-3.5" /> Confidence Pulse
+              </div>
+              <h2 className="mt-1 font-serif text-2xl text-ink-800">How the class feels</h2>
+              <p className="mt-1 text-sm text-ink-600">
+                Each student&rsquo;s most recent self-rated confidence.
+              </p>
+              {confidenceRoster.length === 0 ? (
+                <div className="mt-4 text-sm text-ink-500">No students enrolled yet.</div>
+              ) : (
+                <ul className="mt-4 space-y-2">
+                  {confidenceRoster.map((r) => (
+                    <li
+                      key={r.name}
+                      className="flex items-center justify-between rounded-xl border border-ink-100 bg-white p-3.5"
+                    >
+                      <span className="text-sm text-ink-700">{r.name}</span>
+                      <span className="font-serif text-lg text-ink-800">
+                        {r.rating ?? "—"}
+                        {r.rating != null && <span className="text-sm text-ink-400">/5</span>}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          )}
+          <FocusRequests
+            classId={cls.id}
+            initial={focusItems}
+            canAdd={isStudent}
+            canManage={canManage}
+          />
+        </div>
+
         {/* Assignments — the focus of the course homepage, full width. */}
         <section className="mt-8">
           <AssignmentList
@@ -147,6 +248,11 @@ export default async function ClassPage({ params }: { params: { id: string } }) 
             canSubmit={user.role === "student"}
             canCreate={user.role === "tutor" || user.role === "admin"}
           />
+        </section>
+
+        {/* Win Wall */}
+        <section className="mt-8">
+          <WinWall classId={cls.id} initial={winItems} canAdd selfName={user.fullName} />
         </section>
 
         {/* Compact footer: members + conversation pointer. */}
@@ -162,7 +268,16 @@ export default async function ClassPage({ params }: { params: { id: string } }) 
               )}
               {students.map((p) => (
                 <li key={p.id} className="flex items-center justify-between">
-                  <span>{p.fullName}</span>
+                  {canManage ? (
+                    <Link
+                      href={`/portal/students/${p.id}`}
+                      className="text-ink-700 underline decoration-gold-400 underline-offset-2 hover:text-ink-900"
+                    >
+                      {p.fullName}
+                    </Link>
+                  ) : (
+                    <span>{p.fullName}</span>
+                  )}
                   <span className="text-[10px] uppercase tracking-wider2 text-ink-400">student</span>
                 </li>
               ))}

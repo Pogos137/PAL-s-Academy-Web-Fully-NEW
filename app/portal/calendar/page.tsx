@@ -44,8 +44,7 @@ export default async function CalendarPage() {
   await ensureSeed();
   const user = await getCurrentUser();
   if (!user) redirect("/auth/login?next=/portal/calendar");
-  if (user.role === "admin") redirect("/admin");
-  if (user.status !== "approved") redirect("/portal/pending");
+  if (user.status !== "approved" && user.role !== "admin") redirect("/portal/pending");
 
   const classes = await classesForUser(user);
   const db = await readDb();
@@ -85,8 +84,11 @@ export default async function CalendarPage() {
       <div>
         <h1 className="font-serif text-4xl text-ink-800">Calendar</h1>
         <p className="mt-2 text-sm text-ink-600">
-          Your recurring weekly sessions and every assignment due date, on one calendar. Click any
-          day for details.
+          {user.role === "student"
+            ? "Your recurring weekly sessions and every assignment due date, on one calendar. Click any day for details."
+            : user.role === "tutor"
+            ? "Every class you teach — weekly sessions and assignment due dates on one calendar. Click any day for details."
+            : "Every class's weekly sessions and assignment due dates across the academy, on one calendar. Click any day for details."}
         </p>
 
         <div className="mt-8">

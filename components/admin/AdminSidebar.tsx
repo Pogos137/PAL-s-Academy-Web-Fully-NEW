@@ -11,6 +11,7 @@ import {
   LogOut,
   Mailbox,
   MessageSquare,
+  Sparkles,
   Users,
   UserCheck
 } from "lucide-react";
@@ -18,6 +19,7 @@ import { cn } from "@/lib/utils";
 
 const items = [
   { href: "/admin", label: "Overview", icon: LayoutDashboard, exact: true },
+  { href: "/portal/students", label: "Student Progress", icon: Sparkles },
   { href: "/admin/enrollment", label: "Enrollment", icon: GraduationCap },
   { href: "/admin/classes", label: "Classes", icon: CalendarDays },
   { href: "/admin/messages", label: "Messages", icon: MessageSquare },

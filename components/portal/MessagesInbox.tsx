@@ -29,13 +29,16 @@ type Props = {
   initialActiveId?: string | null;
   /** Admin oversight view shows all class threads across the academy. */
   isAdmin?: boolean;
+  /** Admin/tutor: student names link through to their profile. */
+  canViewProfiles?: boolean;
 };
 
 export default function MessagesInbox({
   threads,
   currentUserId,
   initialActiveId,
-  isAdmin = false
+  isAdmin = false,
+  canViewProfiles = false
 }: Props) {
   const firstId =
     initialActiveId && threads.some((t) => t.id === initialActiveId)
@@ -151,9 +154,23 @@ export default function MessagesInbox({
                 </button>
                 <div>
                   <div className="font-serif text-lg text-ink-800">{active.subject}</div>
-                  <div className="flex items-center gap-1.5 text-xs text-ink-500">
+                  <div className="flex flex-wrap items-center gap-1.5 text-xs text-ink-500">
                     <Users className="h-3 w-3 text-gold-600" />
-                    {active.participants.map((p) => p.fullName).join(" · ")}
+                    {active.participants.map((p, i) => (
+                      <span key={p.id} className="inline-flex items-center">
+                        {i > 0 && <span className="px-1 text-ink-300">·</span>}
+                        {canViewProfiles && p.role === "student" ? (
+                          <Link
+                            href={`/portal/students/${p.id}`}
+                            className="text-ink-600 underline decoration-gold-400 underline-offset-2 hover:text-ink-900"
+                          >
+                            {p.fullName}
+                          </Link>
+                        ) : (
+                          <span>{p.fullName}</span>
+                        )}
+                      </span>
+                    ))}
                   </div>
                   <div className="mt-1 inline-flex items-center gap-1 text-[10px] uppercase tracking-wider2 text-ink-500">
                     <ShieldCheck aria-hidden="true" focusable="false" className="h-3 w-3 text-gold-600" />

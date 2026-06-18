@@ -7,8 +7,11 @@ import {
   BookOpenCheck,
   CalendarClock,
   GraduationCap,
+  LayoutDashboard,
   LogOut,
   MessageSquare,
+  Sparkles,
+  Users,
   Video
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -20,16 +23,39 @@ type Props = {
   children: React.ReactNode;
 };
 
-const navItems = [
-  { href: "/portal", label: "Dashboard", icon: GraduationCap, exact: true },
-  { href: "/portal/calendar", label: "Calendar", icon: CalendarClock },
-  { href: "/portal/messages", label: "Messages", icon: MessageSquare }
-];
+type NavItem = { href: string; label: string; icon: typeof GraduationCap; exact?: boolean };
+
+// Nav adapts to role: students get their personal Progress + Dashboard;
+// tutors/admins get a Students directory for oversight.
+function navFor(role: string): NavItem[] {
+  if (role === "admin") {
+    return [
+      { href: "/portal/students", label: "Students", icon: Users },
+      { href: "/portal/calendar", label: "Calendar", icon: CalendarClock },
+      { href: "/portal/messages", label: "Messages", icon: MessageSquare }
+    ];
+  }
+  if (role === "tutor") {
+    return [
+      { href: "/portal", label: "Dashboard", icon: GraduationCap, exact: true },
+      { href: "/portal/students", label: "Students", icon: Users },
+      { href: "/portal/calendar", label: "Calendar", icon: CalendarClock },
+      { href: "/portal/messages", label: "Messages", icon: MessageSquare }
+    ];
+  }
+  return [
+    { href: "/portal", label: "Dashboard", icon: GraduationCap, exact: true },
+    { href: "/portal/progress", label: "Progress", icon: Sparkles },
+    { href: "/portal/calendar", label: "Calendar", icon: CalendarClock },
+    { href: "/portal/messages", label: "Messages", icon: MessageSquare }
+  ];
+}
 
 export default function PortalShell({ user, classes, children }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const [loggingOut, setLoggingOut] = useState(false);
+  const navItems = navFor(user.role);
 
   async function signOut() {
     setLoggingOut(true);
@@ -116,6 +142,15 @@ export default function PortalShell({ user, classes, children }: Props) {
               </ul>
             )}
           </div>
+
+          {user.role === "admin" && (
+            <Link
+              href="/admin"
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-ink-200 bg-ink-900 px-4 py-2.5 text-sm text-ivory transition-colors hover:border-gold-300"
+            >
+              <LayoutDashboard className="h-4 w-4" /> Admin Console
+            </Link>
+          )}
 
           <button
             onClick={signOut}
