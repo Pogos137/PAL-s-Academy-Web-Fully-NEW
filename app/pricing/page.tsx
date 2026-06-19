@@ -22,7 +22,9 @@ import { siteUrl } from "@/lib/utils";
 export const metadata = buildMetadata({
   title: "Pricing & Packages",
   description:
-    "Transparent monthly tutoring prices in the GTA — Starter $200, Core $360, Intensive $480, PAL's Circle $120/mo. Verified tutors, all CAD, cancel any time. Book free.",
+    "Simple package pricing for PAL's Academy. Four packages plus PAL's Plus add-ons — designed for ambitious students in Toronto.",
+  ogDescription:
+    "Elite private tutoring for Grade 9–12 and first-year university in Toronto. Book your free consultation.",
   path: "/pricing"
 });
 
@@ -31,7 +33,10 @@ type Tier = {
   tagline: string;
   price: string;
   cadence: string;
+  /** Label directly under the price, e.g. "5-session package". */
   sessions: string;
+  /** Secondary line, e.g. "1 session per week · ~5 weeks". */
+  secondary: string;
   bullets: string[];
   cta: string;
   highlight?: boolean;
@@ -40,29 +45,29 @@ type Tier = {
 const tiers: Tier[] = [
   {
     name: "Starter",
-    tagline: "Try the cadence",
-    price: "$200",
-    cadence: "/ month",
-    sessions: "1 weekly 1-on-1",
+    tagline: "Choose your cadence",
+    price: "$375",
+    cadence: "CAD",
+    sessions: "5-session package",
+    secondary: "1 session per week · ~5 weeks",
     bullets: [
-      "Same verified tutor each week",
       "60-min Google Meet sessions",
       "Lesson notes after every call",
-      "Cancel any time"
+      "Full 5-session package, billed upfront"
     ],
     cta: "Start with Starter"
   },
   {
     name: "Core",
     tagline: "The signature plan",
-    price: "$360",
-    cadence: "/ month",
-    sessions: "2 weekly 1-on-1",
+    price: "$750",
+    cadence: "CAD",
+    sessions: "10-session package",
+    secondary: "2 sessions per week · ~5 weeks",
     bullets: [
-      "Same verified tutor each week",
-      "Mid-month parent check-in",
+      "Mid-package parent check-in",
       "Priority scheduling for tests",
-      "Best value per session"
+      "Best value per session — 10-session package"
     ],
     cta: "Start with Core",
     highlight: true
@@ -70,14 +75,14 @@ const tiers: Tier[] = [
   {
     name: "Intensive",
     tagline: "For ambitious goals",
-    price: "$480",
-    cadence: "/ month",
-    sessions: "3 weekly 1-on-1",
+    price: "$1,125",
+    cadence: "CAD",
+    sessions: "15-session package",
+    secondary: "3 sessions per week · ~5 weeks",
     bullets: [
-      "Same tutor, locked schedule",
       "Weekly written progress note",
       "Exam-prep mode at term-end",
-      "Strongest grade lift, fastest"
+      "Strongest grade lift — 15-session package"
     ],
     cta: "Start Intensive"
   }
@@ -89,14 +94,15 @@ const tiers: Tier[] = [
 const circle: Tier = {
   name: "PAL's Circle",
   tagline: "Group sessions",
-  price: "$120",
-  cadence: "/ month",
-  sessions: "1 weekly group of 3–4",
+  price: "$420",
+  cadence: "CAD",
+  sessions: "12-session package",
+  secondary: "1 group session per week · ~12 weeks · per student",
   bullets: [
     "Same subject & grade level",
     "Curated, capped at 4 students",
     "Collaborative learning + accountability",
-    "Lowest entry point to the academy"
+    "Lowest entry point — 12-session group package"
   ],
   cta: "Join a Circle"
 };
@@ -152,21 +158,11 @@ const pricingSchema = {
     itemListElement: [...tiers, circle].map((t) => ({
       "@type": "Offer",
       name: t.name,
-      description: `${t.sessions} — ${t.tagline}`,
+      description: `${t.sessions} — ${t.secondary}`,
       price: t.price.replace(/[^0-9.]/g, ""),
       priceCurrency: "CAD",
       url: siteUrl("/pricing"),
-      availability: "https://schema.org/InStock",
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: t.price.replace(/[^0-9.]/g, ""),
-        priceCurrency: "CAD",
-        referenceQuantity: {
-          "@type": "QuantitativeValue",
-          value: 1,
-          unitCode: "MON"
-        }
-      }
+      availability: "https://schema.org/InStock"
     }))
   }
 };
@@ -181,14 +177,14 @@ export default function PricingPage() {
         <div className="bg-radial-gold pointer-events-none absolute inset-0" />
         <div className="container-luxe relative">
           <Reveal>
-            <div className="eyebrow text-gold-300">Honest, monthly pricing</div>
+            <div className="eyebrow text-gold-300">Simple package pricing</div>
             <h1 className="display mt-6 max-w-4xl text-balance text-5xl sm:text-6xl lg:text-7xl">
-              Honest pricing. <span className="text-gold-300 italic">No contracts, no surprises.</span>
+              Honest pricing. <span className="text-gold-300 italic">Clear from the first session.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-ink-100/90">
-              Three core 1-on-1 plans plus a small-group Circle. The same verified tutors, the
-              same standard of care across every plan — only cadence changes. Add PAL&rsquo;s
-              Plus perks to fit your week.
+              Four packages. The same verified tutors, the same standard across every plan — only
+              cadence changes. Each 1-on-1 package covers 5 weeks of sessions. PAL&rsquo;s Plus
+              perks can be added at any point.
             </p>
           </Reveal>
         </div>
@@ -204,14 +200,14 @@ export default function PricingPage() {
               the results.
             </p>
           </Reveal>
-          <Stagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <Stagger className="grid gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
             {tiers.map((t) => (
               <StaggerItem key={t.name}>
                 <div
                   className={
                     "relative flex h-full flex-col rounded-3xl border p-8 transition-all duration-500 " +
                     (t.highlight
-                      ? "mt-8 border-gold-300 bg-ink-900 text-ivory shadow-luxe hover:-translate-y-1 md:mt-0"
+                      ? "border-gold-300 bg-ink-900 text-ivory shadow-luxe hover:-translate-y-1"
                       : "border-ink-100 bg-ivory-50 text-ink-800 hover:border-gold-300 hover:shadow-luxe")
                   }
                 >
@@ -245,6 +241,9 @@ export default function PricingPage() {
                   >
                     {t.sessions}
                   </div>
+                  <div className={"mt-1 text-xs " + (t.highlight ? "text-ink-200" : "text-ink-500")}>
+                    {t.secondary}
+                  </div>
 
                   <ul className="mt-7 space-y-3 text-sm">
                     {t.bullets.map((b) => (
@@ -273,7 +272,7 @@ export default function PricingPage() {
                         (t.highlight ? "text-ink-300" : "text-ink-400")
                       }
                     >
-                      Cancel any time. No contracts. No lock-in.
+                      Billed upfront in CAD · sessions scheduled after payment.
                     </p>
                   </div>
                 </div>
@@ -298,7 +297,7 @@ export default function PricingPage() {
               <Gift className="mt-0.5 h-5 w-5 shrink-0 text-[#114E40]" />
               <p className="text-sm leading-relaxed text-ink-700">
                 <span className="font-medium text-ink-800">Refer a family</span> and receive one
-                complimentary session — applied to your next billing cycle automatically.
+                complimentary session — added to your package.
               </p>
             </div>
           </Reveal>
@@ -473,7 +472,10 @@ export default function PricingPage() {
           <Reveal delay={0.1}>
             <div className="rounded-3xl border border-ivory/10 bg-ink-700/50 p-8 backdrop-blur">
               <Users className="h-6 w-6 text-gold-300" />
-              <div className="mt-4 font-serif text-2xl">$120 / month per student</div>
+              <div className="mt-4 font-serif text-2xl">$420 CAD per student</div>
+              <div className="mt-1 text-sm text-ink-200">
+                12-session package · 1 group session per week · ~12 weeks
+              </div>
               <ul className="mt-6 space-y-3 text-sm text-ink-100">
                 {[
                   "1 weekly small-group session",
@@ -503,9 +505,11 @@ export default function PricingPage() {
         <div className="container-luxe">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center text-sm text-ink-500">
-              All prices in CAD, billed monthly upfront via Interac e-Transfer (PayPal as
-              backup). No sessions are scheduled until payment is confirmed. Cancel any time —
-              no contracts, no lock-in.
+              All prices in CAD. Packages are billed in full upfront via Interac e-Transfer
+              (PayPal accepted as backup). Sessions are scheduled only after payment is
+              confirmed. PAL&rsquo;s Plus add-ons are billed monthly for the duration of the
+              active package. Families who refer another student receive one complimentary
+              session added to their package.
             </div>
           </Reveal>
         </div>

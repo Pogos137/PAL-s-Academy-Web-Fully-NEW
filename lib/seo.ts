@@ -20,6 +20,9 @@ type PageMetaInput = {
   description: string;
   /** Absolute path for this route, e.g. "/pricing". Used for canonical + og:url. */
   path: string;
+  /** Optional override for the social (og/twitter) description. When omitted,
+   *  the meta `description` is reused — so existing pages are unaffected. */
+  ogDescription?: string;
 };
 
 /**
@@ -28,8 +31,9 @@ type PageMetaInput = {
  * automatically site-wide by app/opengraph-image.tsx + app/twitter-image.tsx,
  * so individual pages do not need to declare an image.
  */
-export function buildMetadata({ title, description, path }: PageMetaInput): Metadata {
+export function buildMetadata({ title, description, path, ogDescription }: PageMetaInput): Metadata {
   const socialTitle = `${title} · ${SITE_NAME}`;
+  const socialDescription = ogDescription ?? description;
   return {
     title,
     description,
@@ -37,7 +41,7 @@ export function buildMetadata({ title, description, path }: PageMetaInput): Meta
     openGraph: {
       type: "website",
       title: socialTitle,
-      description,
+      description: socialDescription,
       url: siteUrl(path),
       siteName: SITE_NAME,
       locale: "en_CA",
@@ -46,7 +50,7 @@ export function buildMetadata({ title, description, path }: PageMetaInput): Meta
     twitter: {
       card: "summary_large_image",
       title: socialTitle,
-      description,
+      description: socialDescription,
       images: [OG_IMAGE.url]
     }
   };
