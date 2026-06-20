@@ -23,6 +23,15 @@ type PageMetaInput = {
   /** Optional override for the social (og/twitter) description. When omitted,
    *  the meta `description` is reused — so existing pages are unaffected. */
   ogDescription?: string;
+  /** OpenGraph type. Defaults to "website"; blog posts pass "article" so social
+   *  platforms and AI crawlers classify the page as editorial content. */
+  ogType?: "website" | "article";
+  /** Article publish date (ISO). Emitted as og:article:published_time. */
+  publishedTime?: string;
+  /** Article last-modified date (ISO). Emitted as og:article:modified_time. */
+  modifiedTime?: string;
+  /** Article author name(s). Emitted as og:article:author. */
+  authors?: string[];
 };
 
 /**
@@ -31,15 +40,30 @@ type PageMetaInput = {
  * automatically site-wide by app/opengraph-image.tsx + app/twitter-image.tsx,
  * so individual pages do not need to declare an image.
  */
-export function buildMetadata({ title, description, path, ogDescription }: PageMetaInput): Metadata {
+export function buildMetadata({
+  title,
+  description,
+  path,
+  ogDescription,
+  ogType = "website",
+  publishedTime,
+  modifiedTime,
+  authors
+}: PageMetaInput): Metadata {
   const socialTitle = `${title} · ${SITE_NAME}`;
   const socialDescription = ogDescription ?? description;
+  // Only attach article-specific OG fields when this is an article, so static
+  // pages keep their clean `type: "website"` graph.
+  const articleOg =
+    ogType === "article"
+      ? { type: "article" as const, publishedTime, modifiedTime, authors }
+      : { type: "website" as const };
   return {
     title,
     description,
     alternates: { canonical: path },
     openGraph: {
-      type: "website",
+      ...articleOg,
       title: socialTitle,
       description: socialDescription,
       url: siteUrl(path),

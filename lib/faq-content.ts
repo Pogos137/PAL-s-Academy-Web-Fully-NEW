@@ -77,6 +77,31 @@ export const faqs: Faq[] = [
     a: "Yes — we support first-year university students in life sciences and quantitative subjects, including calculus, linear algebra, biology, chemistry, physics, and introductory programming in Python, Java, and C."
   },
   {
+    id: "cities",
+    q: "Which areas of the GTA do you serve?",
+    a: "Because sessions run live online over Google Meet, we tutor students anywhere in the Greater Toronto Area — including Toronto, Mississauga, Markham, Vaughan, Brampton, North York, Scarborough, and Etobicoke. There's no commute and no travel fee, and each student is matched to the best tutor for their exact course rather than whoever happens to live nearby."
+  },
+  {
+    id: "online-vs-inperson",
+    q: "What's the difference between online and in-person tutoring?",
+    a: "The teaching is the same; the logistics are better. Sessions run live on Google Meet with a shared digital whiteboard, so the tutor and student work through problems together in real time — with no commute for either side. Going online also lets us pair each student with a specialist in their exact course instead of limiting the pool to nearby tutors. For most students the experience is equal to in-person, and often more consistent."
+  },
+  {
+    id: "course-codes",
+    q: "Can you tutor specific Ontario course codes like MCV4U or SCH4U?",
+    a: "Yes — we tutor by course code, so the help lines up exactly with what a student's teacher is assessing. That includes MCV4U Calculus & Vectors, MHF4U Advanced Functions, MDM4U Data Management, SCH4U Chemistry, SPH4U Physics, SBI4U Biology, ENG4U English, and ICS3U/4U Computer Science, plus the Grade 9–11 courses that lead into them."
+  },
+  {
+    id: "subject-city-cost",
+    q: "How much does Grade 12 chemistry or physics tutoring cost in the GTA?",
+    a: "Pricing is the same across every subject, so SCH4U Chemistry, SPH4U Physics, or any other course is billed by package rather than by subject: Starter $375 (5 sessions), Core $750 (10 sessions), and Intensive $1,125 (15 sessions), with the small-group PAL's Circle at $420 per student. All sessions are 1-on-1 (or small-group for the Circle), live online, and billed upfront in CAD."
+  },
+  {
+    id: "admissions-prep",
+    q: "Do you help with university prerequisite courses and admissions?",
+    a: "We focus on the Grade 11 and 12 courses that admissions actually weighs — the prerequisites and top-six courses that shape Ontario university offers. We don't write applications or promise admission, but strengthening marks in required courses like MCV4U, SCH4U, or SBI4U is exactly where focused tutoring helps most. Always confirm current program requirements with the university and through Ontario Universities' Info (OUInfo)."
+  },
+  {
     id: "book",
     q: "How do I book a free consultation?",
     a: "Book a free 20-minute consultation from our booking page. We'll talk through where the gap actually is, answer your questions, and outline a weekly plan — no pressure and no sales pitch."

@@ -131,39 +131,59 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               },
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "Tutoring Services",
+                name: "Tutoring Packages",
                 url: siteUrl("/pricing"),
                 itemListElement: [
                   {
                     "@type": "Offer",
+                    name: "Starter — 5 one-on-one sessions",
+                    price: "375",
+                    priceCurrency: "CAD",
+                    category: "1-on-1 Tutoring",
+                    url: siteUrl("/pricing"),
                     itemOffered: {
                       "@type": "Service",
-                      name: "Chemistry Tutoring",
-                      description: "1-on-1 SCH3U and SCH4U Ontario chemistry tutoring online"
+                      name: "Starter Tutoring Package",
+                      description: "Five 1-on-1 Ontario-curriculum tutoring sessions online over Google Meet"
                     }
                   },
                   {
                     "@type": "Offer",
+                    name: "Core — 10 one-on-one sessions",
+                    price: "750",
+                    priceCurrency: "CAD",
+                    category: "1-on-1 Tutoring",
+                    url: siteUrl("/pricing"),
                     itemOffered: {
                       "@type": "Service",
-                      name: "Physics Tutoring",
-                      description: "1-on-1 SPH3U and SPH4U Ontario physics tutoring online"
+                      name: "Core Tutoring Package",
+                      description: "Ten 1-on-1 Ontario-curriculum tutoring sessions online over Google Meet"
                     }
                   },
                   {
                     "@type": "Offer",
+                    name: "Intensive — 15 one-on-one sessions",
+                    price: "1125",
+                    priceCurrency: "CAD",
+                    category: "1-on-1 Tutoring",
+                    url: siteUrl("/pricing"),
                     itemOffered: {
                       "@type": "Service",
-                      name: "Math Tutoring",
-                      description: "1-on-1 MHF4U, MCV4U and MDM4U Ontario math tutoring online"
+                      name: "Intensive Tutoring Package",
+                      description: "Fifteen 1-on-1 Ontario-curriculum tutoring sessions online over Google Meet"
                     }
                   },
                   {
                     "@type": "Offer",
+                    name: "PAL's Circle — 12-session small group (per student)",
+                    price: "420",
+                    priceCurrency: "CAD",
+                    category: "Small-group Tutoring",
+                    url: siteUrl("/pricing"),
                     itemOffered: {
                       "@type": "Service",
-                      name: "Biology Tutoring",
-                      description: "1-on-1 SBI3U and SBI4U Ontario biology tutoring online"
+                      name: "PAL's Circle Small-Group Package",
+                      description: "Twelve small-group sessions (3–4 students, capped at 4) online over Google Meet"
                     }
                   }
                 ]

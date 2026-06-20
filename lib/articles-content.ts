@@ -43,6 +43,12 @@ export type Article = {
   publishedISO: string;
   /** Human-readable publish date. */
   publishedLabel: string;
+  /** Optional ISO date of the last substantive revision. When set, it feeds
+   *  Article.dateModified and shows a "Last updated" line on the page. Leave
+   *  unset for posts that haven't been revised since publishing. */
+  updatedISO?: string;
+  /** Optional human-readable last-updated date, shown beside the byline. */
+  updatedLabel?: string;
   /** One-line summary for the index card + meta fallback. */
   excerpt: string;
   /** Lead paragraphs (may include inline links). */
@@ -69,11 +75,13 @@ export const articles: Article[] = [
     readMinutes: 7,
     publishedISO: "2026-06-18",
     publishedLabel: "June 18, 2026",
+    updatedISO: "2026-06-20",
+    updatedLabel: "June 20, 2026",
     excerpt:
       "How University of Toronto admissions work for Ontario students — prerequisites, the role of your average, and how to confirm exactly what your program requires.",
     intro: [
       "The University of Toronto is the destination on a lot of GTA students' lists, and its admissions are competitive. But competitive doesn't mean mysterious — U of T publishes what each program requires, and understanding the structure early lets you plan your Grade 11 and 12 courses around it instead of scrambling later.",
-      "This is a practical 2026 guide to how U of T admission works for Ontario high-school applicants. One caveat up front: specific requirements and averages change year to year and differ by program, so treat this as a map of how the system works — and always confirm the current details on U of T's official admissions pages before making decisions."
+      "This is a practical 2026 guide to how U of T admission works for Ontario high-school applicants. One caveat up front: specific requirements and averages change year to year and differ by program, so treat this as a map of how the system works — and always confirm the current details on [U of T's official admissions pages](https://future.utoronto.ca/) before making decisions."
     ],
     sections: [
       {
@@ -94,7 +102,7 @@ export const articles: Article[] = [
         heading: "Competitive vs. minimum — they're not the same",
         body: [
           "A published minimum is the door; the competitive average is what actually gets students in when a program has more qualified applicants than spots. The most in-demand U of T programs — many in engineering, computer science, and the health sciences — tend to admit well above any stated minimum.",
-          "We're deliberately not quoting numbers here, because they shift each cycle. The reliable move is to check the most recent published ranges on U of T's admissions site and through Ontario Universities' Info (OUInfo), rather than trusting a figure a friend mentioned last year."
+          "We're deliberately not quoting numbers here, because they shift each cycle. The reliable move is to check the most recent published ranges on U of T's admissions site and through [Ontario Universities' Info (OUInfo)](https://www.ontariouniversitiesinfo.ca/), rather than trusting a figure a friend mentioned last year."
         ]
       },
       {
@@ -107,7 +115,7 @@ export const articles: Article[] = [
       {
         heading: "Plan the timeline backward from applications",
         body: [
-          "Ontario applicants generally apply through OUAC in the fall and winter of Grade 12, with offers arriving through the spring. That means your Grade 11 marks and early Grade 12 performance shape the picture admissions first sees.",
+          "Ontario applicants generally apply through [OUAC](https://www.ouac.on.ca/) in the fall and winter of Grade 12, with offers arriving through the spring. That means your Grade 11 marks and early Grade 12 performance shape the picture admissions first sees.",
           "The students who navigate this calmly are the ones who started planning in Grade 11 — course selection, prerequisites, and a realistic shortlist — rather than treating it all as a Grade 12 emergency."
         ]
       },
@@ -362,6 +370,8 @@ export const articles: Article[] = [
     readMinutes: 8,
     publishedISO: "2026-06-17",
     publishedLabel: "June 17, 2026",
+    updatedISO: "2026-06-20",
+    updatedLabel: "June 20, 2026",
     excerpt:
       "Raising a university average is possible with the time most students have left — if you focus on the right courses. A practical, honest plan for Ontario families.",
     intro: [
@@ -373,7 +383,7 @@ export const articles: Article[] = [
         heading: "Know exactly which courses count",
         body: [
           "Ontario universities calculate admission averages from your top six Grade 12 U and M courses, and almost every program requires specific ones — ENG4U for nearly everything, plus prerequisites like MHF4U, MCV4U, SCH4U, SPH4U, or SBI4U depending on the program. The first move isn't studying harder; it's knowing precisely which six courses your target programs will count, because effort spent on a course outside that set does little for your average.",
-          "Check the admission requirements for your specific programs directly on each university's site or through the Ontario Universities' Info (OUInfo) portal. Requirements and the exact courses counted can differ between programs at the same school, so confirm rather than assume."
+          "Check the admission requirements for your specific programs directly on each university's site or through the [Ontario Universities' Info (OUInfo)](https://www.ontariouniversitiesinfo.ca/) portal. Requirements and the exact courses counted can differ between programs at the same school, so confirm rather than assume."
         ]
       },
       {
@@ -442,6 +452,8 @@ export const articles: Article[] = [
     readMinutes: 7,
     publishedISO: "2026-06-03",
     publishedLabel: "June 3, 2026",
+    updatedISO: "2026-06-20",
+    updatedLabel: "June 20, 2026",
     excerpt:
       "Advanced Functions is where the Grade 12 math average is often won or lost. A unit-by-unit guide to studying MHF4U so the foundation actually holds.",
     intro: [
@@ -452,7 +464,7 @@ export const articles: Article[] = [
       {
         heading: "What MHF4U actually covers",
         body: [
-          "Advanced Functions is organized around a few function families: polynomial and rational functions, exponential and logarithmic functions, and trigonometric functions. Woven through them are two recurring skills — transformations (shifting, stretching, and reflecting graphs) and an introduction to rates of change that sets up calculus.",
+          "Advanced Functions is organized around a few function families: polynomial and rational functions, exponential and logarithmic functions, and trigonometric functions. Woven through them are two recurring skills — transformations (shifting, stretching, and reflecting graphs) and an introduction to rates of change that sets up calculus. The full set of expectations is published in [Ontario's official curriculum](https://www.dcp.edu.gov.on.ca/en/), and we work from it by course code.",
           "On paper the units look separate. In practice they share one spine: if you understand a function's behaviour — its domain, its end behaviour, where it's increasing or decreasing — you can reason about almost any question on it. Students who memorize procedures unit by unit struggle; students who understand the families move through the course far more calmly."
         ]
       },
@@ -759,6 +771,8 @@ export const articles: Article[] = [
     readMinutes: 5,
     publishedISO: "2026-05-27",
     publishedLabel: "May 27, 2026",
+    updatedISO: "2026-06-20",
+    updatedLabel: "June 20, 2026",
     excerpt:
       "A plain-English guide to how Ontario admission averages are built — the Top 6, prerequisite courses, and where to focus your energy.",
     intro: [
@@ -783,7 +797,7 @@ export const articles: Article[] = [
       {
         heading: "Where to actually put your energy",
         body: [
-          "Protect your prerequisite marks first — they're the ones you can't drop. Then build a Top 6 that plays to your strengths while meeting every program requirement you care about. And remember that English (ENG4U) is a near-universal requirement, so it belongs on the priority list even for STEM applicants.",
+          "Protect your prerequisite marks first — they're the ones you can't drop. Then build a Top 6 that plays to your strengths while meeting every program requirement you care about. And remember that English (ENG4U) is a near-universal requirement, so it belongs on the priority list even for STEM applicants. You can confirm each program's exact requirements through [Ontario Universities' Info](https://www.ontariouniversitiesinfo.ca/), and applications themselves run through [OUAC](https://www.ouac.on.ca/).",
           "If a prerequisite course is the one giving you trouble, that's the highest-leverage place to get help. A [free consultation](/booking) is a good way to figure out where your energy will pay off most before the school year gets away from you."
         ]
       }

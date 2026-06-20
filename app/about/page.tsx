@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "About",
   description:
-    "PAL's Academy delivers verified one-to-one online tutoring for Ontario high-school and first-year university students across the GTA. Measurable results since 2025.",
+    "Verified 1-on-1 online tutoring for Ontario Grade 9–12 and first-year university students across the GTA — one tutor, one plan, built on the Ontario curriculum by course code.",
   path: "/about"
 });
 
@@ -25,7 +25,7 @@ const principles = [
   {
     icon: GraduationCap,
     title: "Hired for who they are.",
-    body: "Tutors are interviewed for mastery of subject, calm in delivery, and follow-through with parents — not just transcripts. We turn away most applicants."
+    body: "The bar is deliberately high: every tutor scores 90+ in what they teach, and is interviewed for clarity and follow-through and reference-checked before they ever meet a student — not judged on transcripts alone."
   },
   {
     icon: Sparkles,
@@ -34,11 +34,14 @@ const principles = [
   }
 ];
 
+// Honest, verifiable standards — not track-record metrics. PAL's Academy is a
+// young, deliberately small practice; we state the bar we hold, not numbers we
+// can't yet stand behind.
 const facts = [
-  { stat: "150+", label: "students served to date" },
-  { stat: "92%", label: "of students lift one full letter grade" },
-  { stat: "4.9/5", label: "average parent rating" },
-  { stat: "<7%", label: "tutor acceptance rate" }
+  { stat: "1:1", label: "One student, one tutor — every session" },
+  { stat: "90+", label: "Minimum subject score to tutor it" },
+  { stat: "Online", label: "Live on Google Meet, across the GTA" },
+  { stat: "Free", label: "Your first consultation, no obligation" }
 ];
 
 export default function AboutPage() {
@@ -83,9 +86,10 @@ export default function AboutPage() {
                 deliver that — and only that — well.
               </p>
               <p className="mt-4 text-ink-600">
-                Every package we offer shares the same standard: verified tutors, lesson notes
-                after every session, and a monthly written recap to parents. The only thing
-                that changes between plans is cadence.
+                Every package we offer shares the same standard: verified tutors who work the
+                Ontario curriculum by course code, lesson notes after every session, and a
+                monthly written recap to parents. The only thing that changes between plans is
+                cadence.
               </p>
             </div>
           </Reveal>
@@ -133,10 +137,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* FACTS */}
+      {/* STANDARDS */}
       <section className="relative bg-ivory py-24">
         <div className="container-luxe">
           <Reveal>
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <div className="eyebrow justify-center">The standard</div>
+              <h2 className="display mt-4 text-4xl text-ink-800 sm:text-5xl">
+                What doesn&rsquo;t change between students.
+              </h2>
+            </div>
             <div className="grid gap-8 rounded-3xl border border-ink-100 bg-ivory-50 px-8 py-12 sm:grid-cols-2 sm:px-12 lg:grid-cols-4">
               {facts.map(({ stat, label }) => (
                 <div key={label}>

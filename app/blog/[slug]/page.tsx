@@ -6,6 +6,7 @@ import { ArrowRight, ArrowLeft, Clock, Check } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 import JsonLd from "@/components/seo/JsonLd";
+import { ArticleByline, ArticleExpertise } from "@/components/sections/ArticleEEAT";
 import { buildMetadata, SITE_NAME } from "@/lib/seo";
 import { siteUrl } from "@/lib/utils";
 import { getArticle, articleSlugs } from "@/lib/articles-content";
@@ -23,13 +24,21 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
   return buildMetadata({
     title: a.metaTitle,
     description: a.metaDescription,
-    path: `/blog/${a.slug}`
+    path: `/blog/${a.slug}`,
+    ogType: "article",
+    publishedTime: a.publishedISO,
+    modifiedTime: a.updatedISO ?? a.publishedISO,
+    authors: [SITE_NAME]
   });
 }
 
-// Parse inline [label](/path) markdown links into nodes. Internal links (those
-// starting with "/") use next/link; everything else renders as plain text.
-const LINK_RE = /\[([^\]]+)\]\((\/[^)]+)\)/g;
+// Parse inline [label](href) markdown links into nodes. Internal links (href
+// starting with "/") use next/link; external links (http/https) render as a
+// real anchor that opens in a new tab — used for authoritative citations
+// (Ontario curriculum, OUAC, university admissions) that strengthen EEAT.
+const LINK_RE = /\[([^\]]+)\]\(((?:\/|https?:\/\/)[^)]+)\)/g;
+const LINK_CLASS =
+  "font-medium text-gold-600 underline-offset-4 transition-colors hover:text-gold-700 hover:underline";
 
 function renderParagraph(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
@@ -38,15 +47,27 @@ function renderParagraph(text: string): ReactNode[] {
   LINK_RE.lastIndex = 0;
   while ((m = LINK_RE.exec(text)) !== null) {
     if (m.index > last) nodes.push(text.slice(last, m.index));
-    nodes.push(
-      <Link
-        key={`${m.index}-${m[2]}`}
-        href={m[2]}
-        className="font-medium text-gold-600 underline-offset-4 transition-colors hover:text-gold-700 hover:underline"
-      >
-        {m[1]}
-      </Link>
-    );
+    const [, label, href] = m;
+    const key = `${m.index}-${href}`;
+    if (href.startsWith("/")) {
+      nodes.push(
+        <Link key={key} href={href} className={LINK_CLASS}>
+          {label}
+        </Link>
+      );
+    } else {
+      nodes.push(
+        <a
+          key={key}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={LINK_CLASS}
+        >
+          {label}
+        </a>
+      );
+    }
     last = m.index + m[0].length;
   }
   if (last < text.length) nodes.push(text.slice(last));
@@ -71,7 +92,7 @@ export default function ArticlePage({ params }: { params: Params }) {
         description: a.metaDescription,
         url: siteUrl(path),
         datePublished: a.publishedISO,
-        dateModified: a.publishedISO,
+        dateModified: a.updatedISO ?? a.publishedISO,
         articleSection: a.category,
         inLanguage: "en-CA",
         image: siteUrl("/og"),
@@ -117,11 +138,17 @@ export default function ArticlePage({ params }: { params: Params }) {
               {a.title}
             </h1>
             <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-ink-100/70">
+              <ArticleByline />
               <time dateTime={a.publishedISO}>{a.publishedLabel}</time>
               <span className="inline-flex items-center gap-1.5">
                 <Clock className="h-4 w-4 text-gold-300/70" />
                 {a.readMinutes} min read
               </span>
+              {a.updatedISO && (
+                <time dateTime={a.updatedISO} className="text-gold-300/80">
+                  Updated {a.updatedLabel}
+                </time>
+              )}
             </div>
           </Reveal>
         </div>
@@ -171,6 +198,9 @@ export default function ArticlePage({ params }: { params: Params }) {
                 </div>
               </div>
             ))}
+
+            {/* EEAT — authorship + expertise credential */}
+            <ArticleExpertise />
 
             {/* related at PAL's */}
             {a.related.length > 0 && (
