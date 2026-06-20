@@ -4,8 +4,9 @@
 // FAQPage structured data). Copy follows brand voice — calm, expert, honest,
 // no grade guarantees — and every fact (prices, course codes, free consult,
 // 90+ tutors, Google Meet) is grounded in the knowledge base. Pricing here must
-// stay in sync with /pricing: Starter $200, Core $360, Intensive $480,
-// PAL's Circle $120 — all CAD, billed monthly, cancel any time.
+// stay in sync with /pricing: Starter $375 (5 sessions), Core $750 (10),
+// Intensive $1,125 (15), PAL's Circle $420/student (12) — all CAD, billed
+// upfront as a package (no monthly/cancel-anytime framing).
 
 export type SubjectFaq = { q: string; a: string };
 export type SubjectOutcome = { title: string; body: string };
@@ -97,7 +98,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does chemistry tutoring cost?",
-        a: "Plans run from $200/month for one weekly 1-on-1 up to $480/month for three weekly sessions, with a small-group PAL's Circle at $120/month. All in CAD, billed monthly, cancel any time."
+        a: "Tutoring is priced by package, billed upfront in CAD — a Starter is $375 (5 one-on-one sessions), a Core $750 (10), and an Intensive $1,125 (15). A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
       }
     ],
     related: ["physics-tutoring", "biology-tutoring", "math-tutoring"]
@@ -157,7 +158,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does physics tutoring cost?",
-        a: "From $200/month for one weekly 1-on-1 up to $480/month for three, or $120/month in a small-group PAL's Circle. All in CAD, billed monthly, no lock-in."
+        a: "Packages run from $375 for a Starter (5 sessions) to $1,125 for an Intensive (15 sessions), with a $750 Core in between — each billed upfront in CAD. A small-group PAL's Circle is $420 per student. See the pricing page for the full breakdown."
       }
     ],
     related: ["chemistry-tutoring", "calculus-vectors-tutoring", "math-tutoring"]
@@ -217,7 +218,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does biology tutoring cost?",
-        a: "From $200/month for one weekly session to $480/month for three, with a $120/month small-group option. All in CAD, billed monthly, cancel any time."
+        a: "Three one-on-one packages — Starter ($375, 5 sessions), Core ($750, 10) and Intensive ($1,125, 15) — each billed upfront in CAD, plus a small-group PAL's Circle at $420 per student. Full details are on our pricing page."
       }
     ],
     related: ["chemistry-tutoring", "physics-tutoring", "math-tutoring"]
@@ -277,7 +278,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does math tutoring cost?",
-        a: "From $200/month for one weekly 1-on-1 to $480/month for three, or $120/month in a small-group PAL's Circle. All in CAD, billed monthly, no contract."
+        a: "Our one-on-one packages are $375 (Starter, 5 sessions), $750 (Core, 10) and $1,125 (Intensive, 15), billed upfront in CAD. A small-group PAL's Circle is $420 per student. The pricing page has everything laid out."
       }
     ],
     related: ["calculus-vectors-tutoring", "advanced-functions-tutoring", "physics-tutoring"]
@@ -336,7 +337,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does MCV4U tutoring cost?",
-        a: "From $200/month for one weekly 1-on-1 up to $480/month for three weekly sessions; a small-group PAL's Circle is $120/month. All in CAD, billed monthly."
+        a: "Packages start at $375 for a five-session Starter and reach $1,125 for a fifteen-session Intensive, with a $750 ten-session Core between them — each billed upfront in CAD. The small-group PAL's Circle is $420 per student. See our pricing page."
       }
     ],
     related: ["advanced-functions-tutoring", "math-tutoring", "physics-tutoring"]
@@ -395,7 +396,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does MHF4U tutoring cost?",
-        a: "From $200/month for one weekly session to $480/month for three, or $120/month in a small group. All in CAD, billed monthly, cancel any time."
+        a: "Pricing is by package: Starter $375 (5 sessions), Core $750 (10) and Intensive $1,125 (15), all billed upfront in CAD, plus a $420-per-student small-group PAL's Circle. Full pricing lives on our pricing page."
       }
     ],
     related: ["calculus-vectors-tutoring", "math-tutoring", "chemistry-tutoring"]
@@ -454,7 +455,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does English tutoring cost?",
-        a: "From $200/month for one weekly 1-on-1 to $480/month for three, with a $120/month small-group option. All in CAD, billed monthly, no lock-in."
+        a: "Our packages run from $375 for a Starter (5 sessions) to $1,125 for an Intensive (15 sessions), billed upfront in CAD, with a small-group PAL's Circle at $420 per student. Full details are on the pricing page."
       }
     ],
     related: ["math-tutoring", "biology-tutoring", "computer-science-tutoring"]
@@ -513,10 +514,69 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does computer science tutoring cost?",
-        a: "From $200/month for one weekly session to $480/month for three, or $120/month in a small group. All in CAD, billed monthly, cancel any time."
+        a: "Pricing is by package: Starter $375 (5 sessions), Core $750 (10) and Intensive $1,125 (15), all billed upfront in CAD, plus a $420-per-student small-group PAL's Circle. Full pricing lives on our pricing page."
       }
     ],
     related: ["math-tutoring", "calculus-vectors-tutoring", "advanced-functions-tutoring"]
+  },
+  {
+    slug: "data-management-tutoring",
+    subject: "Data Management",
+    serviceType: "Data Management tutoring",
+    metaTitle: "MDM4U Data Management Tutoring",
+    metaDescription:
+      "Private 1-on-1 MDM4U Data Management tutoring across the GTA — probability, statistics, and the culminating project. Verified tutors, online. Book a free consultation.",
+    eyebrow: "MDM4U · Statistics & probability",
+    h1: "MDM4U Data Management tutoring that makes statistics click.",
+    heroIntro:
+      "MDM4U is the Grade 12 math course students underestimate — until the probability unit and the culminating project arrive. It counts as a Grade 12 U mathematics credit for many university programs, especially in business, the social sciences, and health. We match your student with a tutor who scored 90+ in Data Management and can make probability and statistics feel intuitive rather than abstract.",
+    topics: [
+      "Counting & probability",
+      "Probability distributions",
+      "One-variable statistics",
+      "Two-variable statistics & correlation",
+      "The normal distribution",
+      "Sampling & bias",
+      "The culminating data-management project"
+    ],
+    whyTitle: "A real Grade 12 U math credit — not a soft option.",
+    whyBody: [
+      "MDM4U counts as a Grade 12 U mathematics course for admission to many university programs, and a strong mark can lift a math-heavy average or round out an application for business, social science, and health programs. Students who treat it as the 'easy' math course are often surprised by how much reasoning the statistics and probability units actually demand.",
+      "We work the Ontario curriculum in step with your student's class, and give particular attention to the culminating project — a major, independent piece of statistical analysis that can swing the final grade. Our tutors help students choose a workable question, analyse the data correctly, and present conclusions clearly."
+    ],
+    outcomes: [
+      {
+        title: "Probability that makes sense",
+        body: "Counting, distributions, and the normal curve taught from intuition, not just formulas."
+      },
+      {
+        title: "A project that lands",
+        body: "Guidance on the culminating investigation — question, data, analysis, presentation — without ever doing it for them."
+      },
+      {
+        title: "Statistics you'll reuse",
+        body: "The statistical literacy first-year university business and social-science courses quietly assume."
+      }
+    ],
+    faqs: [
+      {
+        q: "Do you tutor MDM4U Data Management?",
+        a: "Yes — your student is matched with a tutor who scored 90+ in MDM4U and follows their class unit by unit, including the culminating project."
+      },
+      {
+        q: "Does MDM4U count for university admission?",
+        a: "For many programs, yes — it's a Grade 12 U mathematics credit. Always confirm the specific math prerequisites for your target programs, since requirements differ from program to program."
+      },
+      {
+        q: "Can you help with the MDM4U culminating project?",
+        a: "Yes. We coach the process — choosing a workable question, analysing the data correctly, and presenting it clearly — while keeping the work genuinely the student's own."
+      },
+      {
+        q: "How much does MDM4U tutoring cost?",
+        a: "Pricing is by package: Starter $375 (5 sessions), Core $750 (10) and Intensive $1,125 (15), all billed upfront in CAD, plus a $420-per-student small-group PAL's Circle. Full pricing lives on our pricing page."
+      }
+    ],
+    related: ["math-tutoring", "advanced-functions-tutoring", "calculus-vectors-tutoring"]
   }
 ];
 

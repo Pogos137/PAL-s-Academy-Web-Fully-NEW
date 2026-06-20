@@ -11,8 +11,9 @@
 //     service offered to each community, not a history we don't have yet.
 //   • Local facts (school boards, nearby campuses) are public, verifiable, and
 //     deliberately kept to high-confidence items (boards + universities).
-//   • Pricing must stay in sync with /pricing: Starter $200, Core $360,
-//     Intensive $480, PAL's Circle $120 — all CAD, billed monthly, cancel any time.
+//   • Pricing must stay in sync with /pricing: Starter $375 (5 sessions),
+//     Core $750 (10), Intensive $1,125 (15), PAL's Circle $420/student (12) —
+//     all CAD, billed upfront as a package (no monthly/cancel-anytime framing).
 
 export type LocationFaq = { q: string; a: string };
 export type LocationHighlight = { title: string; body: string };
@@ -42,6 +43,10 @@ export type LocationContent = {
   localBody: string[];
   /** Three "why online works" highlight cards. */
   highlights: LocationHighlight[];
+  /** Optional: real neighbourhoods/areas within the city we support, rendered as
+   *  a geo-relevance section. Public geographic facts only — never implies a
+   *  physical location or office in the neighbourhood. */
+  neighbourhoods?: string[];
   /** City-specific FAQs → visible list + FAQPage schema. */
   faqs: LocationFaq[];
   /** Slugs of nearby city pages for internal linking. */
@@ -72,7 +77,22 @@ export const locations: LocationContent[] = [
     ],
     localBody: [
       "Toronto is the most competitive admissions market in the country. Students across the TDSB and TCDSB are aiming at the University of Toronto, Toronto Metropolitan, and out-of-province programs where a single Grade 12 mark in chemistry, calculus, or English can decide an offer. The pressure is real, and it rarely shows up as a knowledge problem — it shows up as a confidence problem.",
-      "We work the actual Ontario curriculum your student is sitting in, by course code, and we keep the same tutor every week so nothing has to be re-explained from scratch. Because sessions run online over Google Meet, a downtown student and a North York student get the same tutor quality with zero commute — no fighting the 401 or the subway to get to a lesson."
+      "We work the actual Ontario curriculum your student is sitting in, by course code, and we keep the same tutor every week so nothing has to be re-explained from scratch. Because sessions run online over Google Meet, a student in Yorkville and a student in Scarborough get the same tutor quality with zero commute — no fighting the 401 or the subway to get to a lesson.",
+      "That reach matters in a city this spread out. We support families from Midtown, Forest Hill, and Rosedale to Leaside, Riverdale, the Beaches, and High Park, and out through North York and Etobicoke — without anyone needing to travel. Whether your student is in a competitive academic stream downtown or a fast-moving west-end classroom, the tutor is matched to the course, not to the postal code.",
+      "The courses that most often decide a Toronto student's options are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/chemistry-tutoring), [SPH4U Physics](/subjects/physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — alongside ENG4U English, which nearly every program counts. These are exactly the courses our tutors specialise in, each having earned 90+ in the subject they teach.",
+      "We don't promise a letter grade by a date. What we do is find where the understanding actually broke — usually a unit or two before the marks slipped — and rebuild from there, with written lesson notes after each session so parents can see what changed. For most Toronto students, momentum returns within the first few weeks, and a clearer grade picture follows by the end of the reporting term."
+    ],
+    neighbourhoods: [
+      "Yorkville",
+      "Midtown",
+      "The Annex",
+      "Forest Hill",
+      "Rosedale",
+      "Leaside",
+      "Riverdale",
+      "The Beaches",
+      "High Park",
+      "Davisville"
     ],
     highlights: [
       {
@@ -103,7 +123,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "From $200/month for one weekly session up to $480/month for three, or $120/month in a small group — all in CAD, billed monthly, cancel any time."
+        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
       }
     ],
     nearby: ["north-york", "etobicoke", "scarborough"]
@@ -130,7 +150,21 @@ export const locations: LocationContent[] = [
     ],
     localBody: [
       "Mississauga's Peel and Dufferin-Peel schools are large and fast-moving, and it's easy for a student to fall a step behind in a packed SCH4U or MCV4U class and never quite catch up. With the University of Toronto Mississauga campus on the doorstep, the marks students earn in Grade 11 and 12 matter directly for where they land next.",
-      "We tutor the exact course your student is taking, by code, with the same tutor every week. Sessions are online over Google Meet, so a student near Square One and one out by Meadowvale get identical tutor quality — and parents get an hour of tutoring back instead of spending it driving across the city."
+      "We tutor the exact course your student is taking, by code, with the same tutor every week. Sessions are online over Google Meet, so a student near Square One and one out by Meadowvale get identical tutor quality — and parents get an hour of tutoring back instead of spending it driving across the city.",
+      "Because there's no commute, where you live in Mississauga doesn't change the help your student gets. We work with families from Port Credit and Lorne Park to Erin Mills, Churchill Meadows, Streetsville, and Meadowvale — matching the tutor to the course rather than to whichever learning centre happens to be nearby.",
+      "The courses that carry the most weight here are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/chemistry-tutoring), [SPH4U Physics](/subjects/physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — alongside ENG4U English. For students continuing at UTM, we also support first-year university chemistry, biology, and calculus.",
+      "We won't promise a grade by a date. Instead, the tutor finds the unit where the understanding first slipped and rebuilds from there, sending written notes after each session so you can follow the progress. Most Mississauga families notice steadier confidence within a few weeks and a clearer mark by the end of the term."
+    ],
+    neighbourhoods: [
+      "Port Credit",
+      "Streetsville",
+      "Erin Mills",
+      "Meadowvale",
+      "Lorne Park",
+      "City Centre / Square One",
+      "Churchill Meadows",
+      "Clarkson",
+      "Cooksville"
     ],
     highlights: [
       {
@@ -161,7 +195,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "From $200/month for one weekly session up to $480/month for three, or $120/month in a small group — all CAD, billed monthly, cancel any time."
+        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
       }
     ],
     nearby: ["etobicoke", "brampton", "toronto"]
@@ -188,7 +222,20 @@ export const locations: LocationContent[] = [
     ],
     localBody: [
       "Markham students compete hard — for the top marks in YRDSB and York Catholic classrooms, and for spots in the most selective university programs. In that environment, a single weak unit in advanced functions or chemistry can feel like it threatens the whole plan, and the stress can do more damage than the gap itself.",
-      "Our job is to make the hard parts make sense, calmly, with the same tutor every week working the exact Ontario course your student is taking. Sessions are online over Google Meet, so the time goes into learning rather than into driving across Markham — and your student keeps a tutor who actually knows where they are in the course."
+      "Our job is to make the hard parts make sense, calmly, with the same tutor every week working the exact Ontario course your student is taking. Sessions are online over Google Meet, so the time goes into learning rather than into driving across Markham — and your student keeps a tutor who actually knows where they are in the course.",
+      "Markham is large, and demand for strong tutoring runs through all of it. Because sessions are online, students in Unionville, Cornell, Berczy Village, Markham Village, Cathedraltown, and Greensborough all get the same 90+ tutor — no drive to a plaza learning centre, no waitlist tied to a single location.",
+      "The courses that decide the most here are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/chemistry-tutoring), [SPH4U Physics](/subjects/physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — together with ENG4U English. We also support first-year university math and science for students heading to York, U of T, or Seneca.",
+      "We don't trade in grade guarantees. The tutor finds where the understanding actually broke, rebuilds it properly, and sends lesson notes after every session so the progress is visible. For most Markham students, the first thing to return is confidence — and a steadier mark follows it."
+    ],
+    neighbourhoods: [
+      "Unionville",
+      "Cornell",
+      "Markham Village",
+      "Berczy Village",
+      "Cathedraltown",
+      "Greensborough",
+      "Wismer",
+      "Milliken Mills"
     ],
     highlights: [
       {
@@ -219,7 +266,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "From $200/month for one weekly session up to $480/month for three, or $120/month in a small group — all CAD, billed monthly, cancel any time."
+        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
       }
     ],
     nearby: ["vaughan", "north-york", "scarborough"]
@@ -246,7 +293,19 @@ export const locations: LocationContent[] = [
     ],
     localBody: [
       "Across Vaughan's YRDSB and York Catholic schools, the courses that decide university offers — advanced functions, calculus, chemistry, biology — move quickly, and a student who misses the foundation of a unit often spends the rest of it guessing. With York University and the wider GTA campuses close by, those Grade 11 and 12 marks carry real weight.",
-      "We slow the hard parts down and rebuild them properly, with the same tutor each week teaching the exact Ontario course your student is taking. Because everything runs online over Google Meet, a student in Woodbridge and one in Maple get the same tutor quality with no commute and no wasted evenings."
+      "We slow the hard parts down and rebuild them properly, with the same tutor each week teaching the exact Ontario course your student is taking. Because everything runs online over Google Meet, a student in Woodbridge and one in Maple get the same tutor quality with no commute and no wasted evenings.",
+      "Vaughan is spread across several distinct communities, and online tutoring reaches all of them equally. We work with families in Woodbridge, Maple, Thornhill, Kleinburg, Concord, and Vellore Village — the tutor is chosen for the course your student is in, not for how close they happen to live.",
+      "The heaviest-weighted courses are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/chemistry-tutoring), [SPH4U Physics](/subjects/physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — plus ENG4U English. First-year university math and science support is there too for students moving on to York or U of T.",
+      "There are no grade guarantees from us — just honest work. The tutor traces the gap back to where it started, rebuilds the foundation, and leaves written notes after each session so you can see what changed. For most Vaughan students, confidence steadies first, and the mark follows."
+    ],
+    neighbourhoods: [
+      "Woodbridge",
+      "Maple",
+      "Thornhill",
+      "Kleinburg",
+      "Concord",
+      "Vellore Village",
+      "Patterson"
     ],
     highlights: [
       {
@@ -277,7 +336,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "From $200/month for one weekly session up to $480/month for three, or $120/month in a small group — all CAD, billed monthly, cancel any time."
+        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
       }
     ],
     nearby: ["markham", "north-york", "brampton"]
@@ -304,7 +363,20 @@ export const locations: LocationContent[] = [
     ],
     localBody: [
       "In Brampton's Peel and Dufferin-Peel schools, science and math classes are often full and fast, and one missed foundation in chemistry or functions can quietly undermine an entire term. For students aiming at competitive university programs, the Grade 11 and 12 marks are what open or close the door.",
-      "We give those students one-on-one attention on the exact course they're taking, with the same tutor every week. Sessions are online over Google Meet, so a student anywhere in Brampton gets the same tutor quality without a commute — and parents reclaim the evenings they'd otherwise spend driving."
+      "We give those students one-on-one attention on the exact course they're taking, with the same tutor every week. Sessions are online over Google Meet, so a student anywhere in Brampton gets the same tutor quality without a commute — and parents reclaim the evenings they'd otherwise spend driving.",
+      "Brampton is one of the fastest-growing cities in the country, and online tutoring keeps up with it everywhere. We work with families from Springdale and Mount Pleasant to Bramalea, Heart Lake, Castlemore, and Credit Valley — matching the tutor to the course rather than to a fixed location.",
+      "The marks that matter most come from the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/chemistry-tutoring), [SPH4U Physics](/subjects/physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — together with ENG4U English. We also support first-year university chemistry, biology, and calculus for students continuing locally or downtown.",
+      "We don't promise a number by a date. The tutor finds where the understanding first broke, rebuilds it patiently, and shares lesson notes after every session so the progress is clear. Most Brampton families see confidence return within a few weeks and a steadier grade by the end of the term."
+    ],
+    neighbourhoods: [
+      "Springdale",
+      "Bramalea",
+      "Mount Pleasant",
+      "Heart Lake",
+      "Castlemore",
+      "Credit Valley",
+      "Fletcher's Meadow",
+      "Sandalwood"
     ],
     highlights: [
       {
@@ -335,7 +407,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "From $200/month for one weekly session up to $480/month for three, or $120/month in a small group — all CAD, billed monthly, cancel any time."
+        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
       }
     ],
     nearby: ["mississauga", "vaughan", "toronto"]
@@ -393,7 +465,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "From $200/month for one weekly session up to $480/month for three, or $120/month in a small group — all CAD, billed monthly, cancel any time."
+        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
       }
     ],
     nearby: ["toronto", "vaughan", "markham"]
@@ -451,7 +523,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "From $200/month for one weekly session up to $480/month for three, or $120/month in a small group — all CAD, billed monthly, cancel any time."
+        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
       }
     ],
     nearby: ["toronto", "markham", "north-york"]
@@ -509,7 +581,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "From $200/month for one weekly session up to $480/month for three, or $120/month in a small group — all CAD, billed monthly, cancel any time."
+        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
       }
     ],
     nearby: ["toronto", "mississauga", "north-york"]

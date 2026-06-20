@@ -35,7 +35,7 @@ const sections = [
   {
     h: "4. Pricing & payment",
     p: [
-      "All prices are listed in Canadian dollars and are billed monthly, in advance, via Interac e-Transfer (PayPal available as a backup). No sessions are scheduled until payment for the upcoming period is confirmed.",
+      "All prices are listed in Canadian dollars. Tutoring packages are billed in full upfront, before the first session, via Interac e-Transfer (PayPal available as a backup). No sessions are scheduled until payment is confirmed.",
       "Optional PAL's Plus add-ons are billed month-to-month and may be paused or removed at any time. Prices may change with reasonable notice; changes never affect a period you have already paid for."
     ]
   },
@@ -45,7 +45,7 @@ const sections = [
       "Sessions follow a recurring weekly schedule agreed with your tutor.",
       "Standard rescheduling is free with at least 48 hours' notice. With less than 48 hours' notice, that week's session is forfeited.",
       "Families with the Flex Reschedule add-on may reschedule with as little as 12 hours' notice, up to twice per month.",
-      "You may cancel your enrolment at any time before your next billing date; cancellation stops future billing and is not retroactive."
+      "Tutoring packages are purchased upfront and do not auto-renew — once your sessions are used, you simply choose whether to start another package. PAL's Plus add-ons can be cancelled before their next monthly charge."
     ]
   },
   {

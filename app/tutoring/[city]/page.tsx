@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, MapPin, GraduationCap } from "lucide-react";
@@ -9,12 +10,43 @@ import { buildMetadata } from "@/lib/seo";
 import { siteUrl } from "@/lib/utils";
 import { getLocation, locationSlugs } from "@/lib/locations-content";
 import { subjects } from "@/lib/subjects-content";
+import {
+  getIntersectionByCityAndSubjectSlug,
+  intersectionPath
+} from "@/lib/intersections-content";
 
 type Params = { city: string };
 
 // Six most-requested subjects, surfaced on every city page as internal links
 // into the subject landing pages (city → subject is a strong relevance signal).
 const featuredSubjects = subjects.slice(0, 6);
+
+// Parse inline [label](/path) markdown links in local-context copy into
+// next/link nodes — contextual city → subject internal links (strong SEO
+// signal). Mirrors the parser in app/blog/[slug]/page.tsx.
+const LINK_RE = /\[([^\]]+)\]\((\/[^)]+)\)/g;
+
+function renderParagraph(text: string): ReactNode[] {
+  const nodes: ReactNode[] = [];
+  let last = 0;
+  let m: RegExpExecArray | null;
+  LINK_RE.lastIndex = 0;
+  while ((m = LINK_RE.exec(text)) !== null) {
+    if (m.index > last) nodes.push(text.slice(last, m.index));
+    nodes.push(
+      <Link
+        key={`${m.index}-${m[2]}`}
+        href={m[2]}
+        className="font-medium text-gold-600 underline-offset-4 transition-colors hover:text-gold-700 hover:underline"
+      >
+        {m[1]}
+      </Link>
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return nodes;
+}
 
 // Prerender all city pages at build time.
 export function generateStaticParams(): Params[] {
@@ -40,10 +72,31 @@ export default function LocationPage({ params }: { params: Params }) {
     .map((slug) => getLocation(slug))
     .filter((n): n is NonNullable<typeof n> => Boolean(n));
 
-  // Service (area-served) + FAQPage + BreadcrumbList in one graph for this page.
+  // LocalBusiness (city-scoped) + Service (area-served) + FAQPage + BreadcrumbList
+  // in one graph. The LocalBusiness keeps PAL's real Toronto base address and uses
+  // areaServed for the city — honest for an online business serving that city,
+  // never a fabricated per-city office.
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": siteUrl(`${path}#localbusiness`),
+        name: "PAL's Academy",
+        description: `Online 1-on-1 tutoring for ${l.city} students in Grade 9–12 and first-year university.`,
+        url: siteUrl(path),
+        telephone: "+14377774828",
+        email: "palseduacademy@gmail.com",
+        priceRange: "$$",
+        currenciesAccepted: "CAD",
+        areaServed: { "@type": "City", name: l.city },
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Toronto",
+          addressRegion: "ON",
+          addressCountry: "CA"
+        }
+      },
       {
         "@type": "Service",
         serviceType: "Private tutoring",
@@ -57,15 +110,11 @@ export default function LocationPage({ params }: { params: Params }) {
           url: siteUrl("/")
         },
         offers: {
-          "@type": "Offer",
+          "@type": "AggregateOffer",
           priceCurrency: "CAD",
-          price: "200",
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: "200",
-            priceCurrency: "CAD",
-            referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" }
-          },
+          lowPrice: "375",
+          highPrice: "1125",
+          offerCount: 3,
           availability: "https://schema.org/InStock",
           url: siteUrl("/pricing")
         }
@@ -142,7 +191,7 @@ export default function LocationPage({ params }: { params: Params }) {
               <div className="space-y-5">
                 {l.localBody.map((p, i) => (
                   <p key={i} className="leading-relaxed text-ink-600">
-                    {p}
+                    {renderParagraph(p)}
                   </p>
                 ))}
               </div>
@@ -180,6 +229,30 @@ export default function LocationPage({ params }: { params: Params }) {
               </ul>
             </div>
           </div>
+
+          {l.neighbourhoods && l.neighbourhoods.length > 0 && (
+            <Reveal>
+              <div className="mt-14 rounded-2xl border border-ink-100 bg-ivory-50 p-7">
+                <h3 className="font-serif text-xl text-ink-800">
+                  Neighbourhoods we support across {l.city}
+                </h3>
+                <p className="mt-2 text-sm text-ink-600">
+                  Sessions run online over Google Meet, so students in every part of {l.city}{" "}
+                  get the same tutor quality — with no commute. We work with families across:
+                </p>
+                <ul className="mt-5 flex flex-wrap gap-2.5">
+                  {l.neighbourhoods.map((n) => (
+                    <li
+                      key={n}
+                      className="rounded-full border border-ink-100 bg-ivory px-3.5 py-1.5 text-sm text-ink-700"
+                    >
+                      {n}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          )}
         </div>
       </section>
 
@@ -217,23 +290,29 @@ export default function LocationPage({ params }: { params: Params }) {
             </h2>
           </Reveal>
           <Stagger className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuredSubjects.map((s) => (
-              <StaggerItem key={s.slug}>
-                <Link
-                  href={`/subjects/${s.slug}`}
-                  className="group flex h-full flex-col rounded-2xl border border-ink-100 bg-ivory-50 p-7 transition-all duration-500 hover:border-gold-300 hover:shadow-luxe"
-                >
-                  <div className="eyebrow">{s.eyebrow}</div>
-                  <h3 className="mt-4 font-serif text-2xl text-ink-800">
-                    {s.subject} tutoring
-                  </h3>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium text-gold-600">
-                    Explore {s.subject.toLowerCase()}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              </StaggerItem>
-            ))}
+            {featuredSubjects.map((s) => {
+              // If a dedicated city × subject page exists, link there (highest-
+              // intent target); otherwise fall back to the GTA-wide subject page.
+              const x = getIntersectionByCityAndSubjectSlug(l.slug, s.slug);
+              const href = x ? intersectionPath(x) : `/subjects/${s.slug}`;
+              return (
+                <StaggerItem key={s.slug}>
+                  <Link
+                    href={href}
+                    className="group flex h-full flex-col rounded-2xl border border-ink-100 bg-ivory-50 p-7 transition-all duration-500 hover:border-gold-300 hover:shadow-luxe"
+                  >
+                    <div className="eyebrow">{s.eyebrow}</div>
+                    <h3 className="mt-4 font-serif text-2xl text-ink-800">
+                      {s.subject} tutoring{x ? ` in ${l.city}` : ""}
+                    </h3>
+                    <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium text-gold-600">
+                      Explore {s.subject.toLowerCase()}
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                </StaggerItem>
+              );
+            })}
           </Stagger>
           <Reveal>
             <div className="mt-12 text-center">

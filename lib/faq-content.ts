@@ -9,7 +9,7 @@ export const faqs: Faq[] = [
   {
     id: "cost",
     q: "How much does private tutoring cost in Toronto?",
-    a: "PAL's Academy tutoring starts at $120/month for a small-group PAL's Circle and runs from $200/month (Starter, one weekly 1-on-1) to $480/month (Intensive, three weekly 1-on-1). Every plan uses the same verified tutors and is billed monthly in CAD with no lock-in — you can cancel any time."
+    a: "PAL's Academy is priced by package, billed upfront in CAD. One-on-one packages run from $375 for a Starter (5 sessions) through a $750 Core (10 sessions) to $1,125 for an Intensive (15 sessions). A small-group PAL's Circle is $420 per student. Every package uses the same verified tutors and the same standard."
   },
   {
     id: "online-effective",
@@ -49,17 +49,17 @@ export const faqs: Faq[] = [
   {
     id: "group",
     q: "Do you offer group sessions?",
-    a: "Yes. PAL's Circle is a curated small group of three to four students at the same grade and subject, capped at four, for $120/month. It uses the same tutor screening as our 1-on-1 plans and is the most affordable way into the academy."
+    a: "Yes. PAL's Circle is a curated small group of three to four students at the same grade and subject, capped at four, offered as a 12-session package at $420 per student. It uses the same tutor screening as our 1-on-1 plans and is the most affordable way into the academy."
   },
   {
     id: "billing",
     q: "How is billing handled?",
-    a: "Plans are billed monthly, upfront, in CAD by Interac e-Transfer (with PayPal as a backup). No sessions are scheduled until payment is confirmed, and there's no long-term contract — you can pause or cancel between months."
+    a: "Packages are billed in full upfront, in CAD by Interac e-Transfer (with PayPal as a backup). No sessions are scheduled until payment is confirmed. Optional PAL's Plus add-ons are billed monthly for the length of your active package."
   },
   {
     id: "minimum-commitment",
     q: "Is there a minimum commitment?",
-    a: "No. Every plan is billed month to month with no long-term contract — you can pause or cancel between months. We'd rather earn the next month than lock you into one."
+    a: "The smallest commitment is a single Starter package — five 1-on-1 sessions for $375. There's no subscription and no long-term contract beyond the package you choose; when it's finished, you decide whether to continue."
   },
   {
     id: "cancel-session",

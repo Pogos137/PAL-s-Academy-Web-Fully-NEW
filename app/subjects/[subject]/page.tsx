@@ -8,6 +8,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildMetadata } from "@/lib/seo";
 import { siteUrl } from "@/lib/utils";
 import { getSubject, subjectSlugs } from "@/lib/subjects-content";
+import { getLocation } from "@/lib/locations-content";
+import { intersectionsForSubjectSlug, intersectionPath } from "@/lib/intersections-content";
 
 type Params = { subject: string };
 
@@ -34,6 +36,9 @@ export default function SubjectPage({ params }: { params: Params }) {
   const related = s.related
     .map((slug) => getSubject(slug))
     .filter((r): r is NonNullable<typeof r> => Boolean(r));
+  // City × subject intersection pages that target this subject (e.g. chemistry
+  // → /tutoring/toronto/chemistry). Drives subject → high-intent local pages.
+  const cityLinks = intersectionsForSubjectSlug(s.slug);
 
   // Service + FAQPage + BreadcrumbList in one graph for this page.
   const structuredData = {
@@ -52,15 +57,11 @@ export default function SubjectPage({ params }: { params: Params }) {
           url: siteUrl("/")
         },
         offers: {
-          "@type": "Offer",
+          "@type": "AggregateOffer",
           priceCurrency: "CAD",
-          price: "200",
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: "200",
-            priceCurrency: "CAD",
-            referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" }
-          },
+          lowPrice: "375",
+          highPrice: "1125",
+          offerCount: 3,
           availability: "https://schema.org/InStock",
           url: siteUrl("/pricing")
         }
@@ -215,6 +216,43 @@ export default function SubjectPage({ params }: { params: Params }) {
           </Stagger>
         </div>
       </section>
+
+      {/* TUTORING BY CITY — city × subject intersection links */}
+      {cityLinks.length > 0 && (
+        <section className="relative bg-ink-50 py-24">
+          <div className="container-luxe">
+            <Reveal>
+              <div className="eyebrow">{s.subject} tutoring by city</div>
+              <h2 className="display mt-4 text-4xl text-ink-800 sm:text-5xl">
+                {s.subject} tutoring across the GTA
+              </h2>
+            </Reveal>
+            <Stagger className="mt-12 grid gap-6 md:grid-cols-3">
+              {cityLinks.map((c) => {
+                const loc = getLocation(c.citySlug);
+                if (!loc) return null;
+                return (
+                  <StaggerItem key={c.citySlug}>
+                    <Link
+                      href={intersectionPath(c)}
+                      className="group flex h-full flex-col rounded-2xl border border-ink-100 bg-ivory p-7 transition-all duration-500 hover:border-gold-300 hover:shadow-luxe"
+                    >
+                      <div className="eyebrow">{loc.region}</div>
+                      <h3 className="mt-4 font-serif text-2xl text-ink-800">
+                        {s.subject} tutor {loc.city}
+                      </h3>
+                      <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium text-gold-600">
+                        Explore
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </Link>
+                  </StaggerItem>
+                );
+              })}
+            </Stagger>
+          </div>
+        </section>
+      )}
 
       {/* RELATED SUBJECTS — internal linking */}
       {related.length > 0 && (

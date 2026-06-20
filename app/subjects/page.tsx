@@ -6,9 +6,11 @@ import { buildMetadata } from "@/lib/seo";
 import { subjects } from "@/lib/subjects-content";
 
 export const metadata = buildMetadata({
-  title: "Subjects",
+  title: "Subjects We Tutor: Chemistry, Physics, Math & More in the GTA",
   description:
-    "Private tutoring for Grade 9–12 and first-year university in the GTA — math, sciences, English, French, and CS, including SCH4U, MCV4U, and ENG4U. Book a free session.",
+    "Private tutoring for Grade 9–12 and first-year university in the GTA — math, sciences, English, French, and CS, including SCH4U, MCV4U, and ENG4U. Book a free consultation.",
+  ogDescription:
+    "Every subject PAL's Academy tutors across the GTA — chemistry, physics, math, biology, English & CS, by Ontario course code. Book a free consultation.",
   path: "/subjects"
 });
 
