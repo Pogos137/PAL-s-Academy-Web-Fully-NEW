@@ -13,7 +13,7 @@ const cols = [
       { href: "/tutoring", label: "Tutoring by city" },
       { href: "/blog", label: "Guides" },
       { href: "/pricing", label: "Pricing" },
-      { href: "/testimonials", label: "Testimonials" },
+      { href: "/testimonials", label: "Our Promise" },
       { href: "/faq", label: "FAQ" }
     ]
   },

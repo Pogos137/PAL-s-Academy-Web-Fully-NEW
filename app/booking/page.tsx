@@ -159,7 +159,7 @@ export default function BookingPage() {
                   View packages
                 </Link>
                 <Link href="/testimonials" className="btn btn-ghost-dark">
-                  Read parent stories
+                  What to expect
                 </Link>
               </div>
             </div>
