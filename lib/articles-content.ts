@@ -9,9 +9,9 @@
 //     cutoffs (those vary year to year).
 //   • PAL's Academy is pre-launch — NEVER imply a track record, alumni, or
 //     results we don't have. Delivery is online-only via Google Meet.
-//   • Pricing referenced anywhere must match /pricing: Starter $375 (5 sessions),
-//     Core $750 (10), Intensive $1,125 (15), PAL's Circle $420/student (12) —
-//     CAD, billed upfront as a package.
+//   • NO DOLLAR FIGURES anywhere. Packages are quoted on the free consultation
+//     so they can be scoped to the student — point readers to a call, never a
+//     published number.
 //
 // Body paragraphs may contain inline links in markdown form: [label](/path).
 // The article page parses these into internal <Link>s (strong SEO signal).

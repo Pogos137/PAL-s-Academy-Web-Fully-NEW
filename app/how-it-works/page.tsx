@@ -192,8 +192,8 @@ export default function HowItWorksPage() {
                   Book your free consultation
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
-                <Link href="/pricing" className="btn btn-ghost-dark">
-                  See pricing
+                <Link href="/contact" className="btn btn-ghost-dark">
+                  Talk to us
                 </Link>
               </div>
             </div>

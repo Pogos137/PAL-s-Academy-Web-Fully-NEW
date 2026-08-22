@@ -129,61 +129,47 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 areaServed: "CA",
                 availableLanguage: ["English", "French"]
               },
+              // Services we offer, without prices — packages are quoted on the
+              // free consultation so they can be scoped to the student.
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "Tutoring Packages",
-                url: siteUrl("/pricing"),
+                name: "Tutoring Services",
+                url: siteUrl("/booking"),
                 itemListElement: [
                   {
                     "@type": "Offer",
-                    name: "Starter — 5 one-on-one sessions",
-                    price: "375",
-                    priceCurrency: "CAD",
+                    name: "1-on-1 Ontario-curriculum tutoring",
                     category: "1-on-1 Tutoring",
-                    url: siteUrl("/pricing"),
+                    url: siteUrl("/booking"),
                     itemOffered: {
                       "@type": "Service",
-                      name: "Starter Tutoring Package",
-                      description: "Five 1-on-1 Ontario-curriculum tutoring sessions online over Google Meet"
+                      name: "1-on-1 Tutoring",
+                      description:
+                        "One-on-one Ontario-curriculum tutoring for Grade 9–12 and first-year university, live online over Google Meet"
                     }
                   },
                   {
                     "@type": "Offer",
-                    name: "Core — 10 one-on-one sessions",
-                    price: "750",
-                    priceCurrency: "CAD",
-                    category: "1-on-1 Tutoring",
-                    url: siteUrl("/pricing"),
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Core Tutoring Package",
-                      description: "Ten 1-on-1 Ontario-curriculum tutoring sessions online over Google Meet"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    name: "Intensive — 15 one-on-one sessions",
-                    price: "1125",
-                    priceCurrency: "CAD",
-                    category: "1-on-1 Tutoring",
-                    url: siteUrl("/pricing"),
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Intensive Tutoring Package",
-                      description: "Fifteen 1-on-1 Ontario-curriculum tutoring sessions online over Google Meet"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    name: "PAL's Circle — 12-session small group (per student)",
-                    price: "420",
-                    priceCurrency: "CAD",
+                    name: "PAL's Circle — small-group tutoring",
                     category: "Small-group Tutoring",
-                    url: siteUrl("/pricing"),
+                    url: siteUrl("/booking"),
                     itemOffered: {
                       "@type": "Service",
-                      name: "PAL's Circle Small-Group Package",
-                      description: "Twelve small-group sessions (3–4 students, capped at 4) online over Google Meet"
+                      name: "PAL's Circle Small-Group Tutoring",
+                      description:
+                        "Small-group sessions (3–4 students at the same grade and subject, capped at 4) online over Google Meet"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    name: "Free consultation",
+                    category: "Consultation",
+                    url: siteUrl("/booking"),
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Free 20-Minute Consultation",
+                      description:
+                        "A free 20-minute call to diagnose where the student is losing marks and outline a weekly plan"
                     }
                   }
                 ]

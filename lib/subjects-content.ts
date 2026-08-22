@@ -2,11 +2,12 @@
 // /subjects/<slug>. Each entry powers one page: hero, "what we cover", "why it
 // matters", outcome cards, and a subject-specific FAQ (which also feeds the
 // FAQPage structured data). Copy follows brand voice — calm, expert, honest,
-// no grade guarantees — and every fact (prices, course codes, free consult,
-// 90+ tutors, Google Meet) is grounded in the knowledge base. Pricing here must
-// stay in sync with /pricing: Starter $375 (5 sessions), Core $750 (10),
-// Intensive $1,125 (15), PAL's Circle $420/student (12) — all CAD, billed
-// upfront as a package (no monthly/cancel-anytime framing).
+// no grade guarantees — and every fact (course codes, free consult, 90+ tutors,
+// Google Meet) is grounded in the knowledge base.
+//
+// NO DOLLAR FIGURES. Packages are quoted on the free consultation so they can be
+// scoped to the student. Cost questions stay (high-intent queries) but answer by
+// explaining the package model and pointing to a call — never a number.
 
 export type SubjectFaq = { q: string; a: string };
 export type SubjectOutcome = { title: string; body: string };
@@ -98,7 +99,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does chemistry tutoring cost?",
-        a: "Tutoring is priced by package, billed upfront in CAD — a Starter is $375 (5 one-on-one sessions), a Core $750 (10), and an Intensive $1,125 (15). A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
+        a: "Pricing is by package rather than by the hour, and it is the same across every subject, so a harder course never costs more per session. What changes is how many sessions your student needs, which is exactly what we work out together on the free consultation. Call (437) 777-4828 and we'll quote it for you."
       }
     ],
     related: ["physics-tutoring", "biology-tutoring", "math-tutoring"]
@@ -158,7 +159,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does physics tutoring cost?",
-        a: "Packages run from $375 for a Starter (5 sessions) to $1,125 for an Intensive (15 sessions), with a $750 Core in between — each billed upfront in CAD. A small-group PAL's Circle is $420 per student. See the pricing page for the full breakdown."
+        a: "Pricing is by package rather than by the hour, and it is the same across every subject, so a harder course never costs more per session. What changes is how many sessions your student needs, which is exactly what we work out together on the free consultation. Call (437) 777-4828 and we'll quote it for you."
       }
     ],
     related: ["chemistry-tutoring", "calculus-vectors-tutoring", "math-tutoring"]
@@ -218,7 +219,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does biology tutoring cost?",
-        a: "Three one-on-one packages — Starter ($375, 5 sessions), Core ($750, 10) and Intensive ($1,125, 15) — each billed upfront in CAD, plus a small-group PAL's Circle at $420 per student. Full details are on our pricing page."
+        a: "Pricing is by package rather than by the hour, and it is the same across every subject, so a harder course never costs more per session. What changes is how many sessions your student needs, which is exactly what we work out together on the free consultation. Call (437) 777-4828 and we'll quote it for you."
       }
     ],
     related: ["chemistry-tutoring", "physics-tutoring", "math-tutoring"]
@@ -278,7 +279,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does math tutoring cost?",
-        a: "Our one-on-one packages are $375 (Starter, 5 sessions), $750 (Core, 10) and $1,125 (Intensive, 15), billed upfront in CAD. A small-group PAL's Circle is $420 per student. The pricing page has everything laid out."
+        a: "Pricing is by package rather than by the hour, and it is the same across every subject, so a harder course never costs more per session. What changes is how many sessions your student needs, which is exactly what we work out together on the free consultation. Call (437) 777-4828 and we'll quote it for you."
       }
     ],
     related: ["calculus-vectors-tutoring", "advanced-functions-tutoring", "physics-tutoring"]
@@ -337,7 +338,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does MCV4U tutoring cost?",
-        a: "Packages start at $375 for a five-session Starter and reach $1,125 for a fifteen-session Intensive, with a $750 ten-session Core between them — each billed upfront in CAD. The small-group PAL's Circle is $420 per student. See our pricing page."
+        a: "Pricing is by package rather than by the hour, and it is the same across every subject, so a harder course never costs more per session. What changes is how many sessions your student needs, which is exactly what we work out together on the free consultation. Call (437) 777-4828 and we'll quote it for you."
       }
     ],
     related: ["advanced-functions-tutoring", "math-tutoring", "physics-tutoring"]
@@ -396,7 +397,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does MHF4U tutoring cost?",
-        a: "Pricing is by package: Starter $375 (5 sessions), Core $750 (10) and Intensive $1,125 (15), all billed upfront in CAD, plus a $420-per-student small-group PAL's Circle. Full pricing lives on our pricing page."
+        a: "Pricing is by package rather than by the hour, and it is the same across every subject, so a harder course never costs more per session. What changes is how many sessions your student needs, which is exactly what we work out together on the free consultation. Call (437) 777-4828 and we'll quote it for you."
       }
     ],
     related: ["calculus-vectors-tutoring", "math-tutoring", "chemistry-tutoring"]
@@ -455,7 +456,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does English tutoring cost?",
-        a: "Our packages run from $375 for a Starter (5 sessions) to $1,125 for an Intensive (15 sessions), billed upfront in CAD, with a small-group PAL's Circle at $420 per student. Full details are on the pricing page."
+        a: "Pricing is by package rather than by the hour, and it is the same across every subject, so a harder course never costs more per session. What changes is how many sessions your student needs, which is exactly what we work out together on the free consultation. Call (437) 777-4828 and we'll quote it for you."
       }
     ],
     related: ["math-tutoring", "biology-tutoring", "computer-science-tutoring"]
@@ -514,7 +515,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does computer science tutoring cost?",
-        a: "Pricing is by package: Starter $375 (5 sessions), Core $750 (10) and Intensive $1,125 (15), all billed upfront in CAD, plus a $420-per-student small-group PAL's Circle. Full pricing lives on our pricing page."
+        a: "Pricing is by package rather than by the hour, and it is the same across every subject, so a harder course never costs more per session. What changes is how many sessions your student needs, which is exactly what we work out together on the free consultation. Call (437) 777-4828 and we'll quote it for you."
       }
     ],
     related: ["math-tutoring", "calculus-vectors-tutoring", "advanced-functions-tutoring"]
@@ -573,7 +574,7 @@ export const subjects: SubjectContent[] = [
       },
       {
         q: "How much does MDM4U tutoring cost?",
-        a: "Pricing is by package: Starter $375 (5 sessions), Core $750 (10) and Intensive $1,125 (15), all billed upfront in CAD, plus a $420-per-student small-group PAL's Circle. Full pricing lives on our pricing page."
+        a: "Pricing is by package rather than by the hour, and it is the same across every subject, so a harder course never costs more per session. What changes is how many sessions your student needs, which is exactly what we work out together on the free consultation. Call (437) 777-4828 and we'll quote it for you."
       }
     ],
     related: ["math-tutoring", "advanced-functions-tutoring", "calculus-vectors-tutoring"]

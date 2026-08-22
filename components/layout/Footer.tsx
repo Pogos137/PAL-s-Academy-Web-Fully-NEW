@@ -12,7 +12,6 @@ const cols = [
       { href: "/subjects", label: "Subjects" },
       { href: "/tutoring", label: "Tutoring by city" },
       { href: "/blog", label: "Guides" },
-      { href: "/pricing", label: "Pricing" },
       { href: "/testimonials", label: "Our Promise" },
       { href: "/faq", label: "FAQ" }
     ]

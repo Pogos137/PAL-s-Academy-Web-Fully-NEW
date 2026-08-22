@@ -55,15 +55,6 @@ export default function SubjectPage({ params }: { params: Params }) {
           "@type": "EducationalOrganization",
           name: "PAL's Academy",
           url: siteUrl("/")
-        },
-        offers: {
-          "@type": "AggregateOffer",
-          priceCurrency: "CAD",
-          lowPrice: "375",
-          highPrice: "1125",
-          offerCount: 3,
-          availability: "https://schema.org/InStock",
-          url: siteUrl("/pricing")
         }
       },
       {
@@ -113,8 +104,8 @@ export default function SubjectPage({ params }: { params: Params }) {
                 Book free consultation
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/pricing" className="btn btn-ghost-dark">
-                See pricing
+              <Link href="/contact" className="btn btn-ghost-dark">
+                Talk to us
               </Link>
             </div>
           </Reveal>

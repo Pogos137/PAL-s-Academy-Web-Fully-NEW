@@ -38,7 +38,7 @@ export default function FaqPage() {
               The things families ask us first.
             </h1>
             <p className="mt-6 max-w-2xl text-ink-100/90">
-              Straight answers about pricing, online sessions, subjects, and how tutoring with
+              Straight answers about how we work, online sessions, subjects, and how tutoring with
               PAL&rsquo;s Academy actually works across the Greater Toronto Area.
             </p>
           </Reveal>

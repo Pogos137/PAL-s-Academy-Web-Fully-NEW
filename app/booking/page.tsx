@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Calendar, Check, Clock, Lock, Shield } from "lucide-react";
+import { Calendar, Check, Clock, Lock, Phone, Shield } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import Calendly from "@/components/sections/Calendly";
 import LeadForm from "@/components/sections/LeadForm";
@@ -23,7 +23,7 @@ const stack = [
   "A real diagnosis of where your student is actually losing marks",
   "A weekly plan you could start Monday — even without us",
   "A tutor match preview based on subject, temperament, and schedule",
-  "Transparent pricing and the perks bundled into our packages"
+  "A package scoped to what your student actually needs — quoted on the call"
 ];
 
 export default function BookingPage() {
@@ -140,26 +140,28 @@ export default function BookingPage() {
         </div>
       </section>
 
-      {/* PAY/PACKAGE TEASER */}
+      {/* DIRECT CONTACT — for families who would rather just call */}
       <section className="relative overflow-hidden bg-ink-900 py-24 text-ivory">
         <div className="bg-radial-gold pointer-events-none absolute inset-0" />
         <div className="container-luxe relative grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <div>
-              <div className="eyebrow text-gold-300">Ready to skip the call?</div>
+              <div className="eyebrow text-gold-300">Prefer to talk now?</div>
               <h2 className="display mt-6 text-4xl sm:text-5xl">
-                Already sure? Reserve your tutor today.
+                Skip the form. Just call us.
               </h2>
               <p className="mt-4 max-w-md text-ink-200">
-                If you already know what your student needs, you can lock in a package and
-                start within the week. We&rsquo;ll match the tutor inside 48 hours.
+                If you already know what your student needs, one short call is faster than
+                anything on this page. We&rsquo;ll scope the right package with you and match
+                a tutor inside 48 hours.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/pricing" className="btn btn-gold">
-                  View packages
-                </Link>
-                <Link href="/testimonials" className="btn btn-ghost-dark">
-                  What to expect
+                <a href="tel:+14377774828" className="btn btn-gold">
+                  <Phone className="h-4 w-4" />
+                  (437) 777-4828
+                </a>
+                <Link href="/contact" className="btn btn-ghost-dark">
+                  Send a message
                 </Link>
               </div>
             </div>
@@ -168,7 +170,7 @@ export default function BookingPage() {
           <Reveal delay={0.1}>
             <div className="rounded-3xl border border-ivory/10 bg-ink-700/50 p-8 backdrop-blur">
               <div className="flex items-center justify-between">
-                <div className="font-serif text-2xl">Quarterly Plan</div>
+                <div className="font-serif text-2xl">What a plan looks like</div>
                 <span className="rounded-full border border-gold-300 px-3 py-1 text-[10px] uppercase tracking-wider2 text-gold-300">
                   Most chosen
                 </span>
@@ -178,16 +180,17 @@ export default function BookingPage() {
                   "12 weekly 60-min sessions",
                   "Same verified tutor throughout",
                   "Monthly parent recap",
-                  "Bonus perks discussed at consultation"
+                  "Package and perks scoped on your consultation"
                 ].map((l) => (
                   <li key={l} className="flex items-start gap-3">
                     <Check className="mt-1 h-4 w-4 text-gold-300" /> {l}
                   </li>
                 ))}
               </ul>
-              <Link href="/pricing" className="btn btn-gold mt-8 w-full">
-                See pricing & checkout
-              </Link>
+              <a href="tel:+14377774828" className="btn btn-gold mt-8 w-full">
+                <Phone className="h-4 w-4" />
+                Call to get started
+              </a>
             </div>
           </Reveal>
         </div>

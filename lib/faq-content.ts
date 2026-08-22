@@ -1,7 +1,12 @@
 // Single source of truth for FAQ content. Consumed by:
 //  - app/faq/page.tsx        (full list + FAQPage structured data)
-//  - components/sections/FaqAccordion.tsx (curated subset on home + pricing)
+//  - components/sections/FaqAccordion.tsx (curated subset on the homepage)
 // Keeping one array means the visible copy and the schema can never drift.
+//
+// NOTE: no dollar figures anywhere in this file. Packages are quoted on the free
+// consultation so they can be scoped to the student — cost questions stay (they
+// are high-intent search queries) but answer by explaining the model and pointing
+// to a call, never a number.
 
 export type Faq = { id: string; q: string; a: string };
 
@@ -9,7 +14,7 @@ export const faqs: Faq[] = [
   {
     id: "cost",
     q: "How much does private tutoring cost in Toronto?",
-    a: "PAL's Academy is priced by package, billed upfront in CAD. One-on-one packages run from $375 for a Starter (5 sessions) through a $750 Core (10 sessions) to $1,125 for an Intensive (15 sessions). A small-group PAL's Circle is $420 per student. Every package uses the same verified tutors and the same standard."
+    a: "PAL's Academy is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs, which subject, and whether they choose 1-on-1 or a small-group PAL's Circle — so we quote it on the free consultation once we understand the gap, instead of publishing a number that fits nobody. Call us at (437) 777-4828 and we'll walk you through it in a few minutes."
   },
   {
     id: "online-effective",
@@ -49,7 +54,7 @@ export const faqs: Faq[] = [
   {
     id: "group",
     q: "Do you offer group sessions?",
-    a: "Yes. PAL's Circle is a curated small group of three to four students at the same grade and subject, capped at four, offered as a 12-session package at $420 per student. It uses the same tutor screening as our 1-on-1 plans and is the most affordable way into the academy."
+    a: "Yes. PAL's Circle is a curated small group of three to four students at the same grade and subject, capped at four, offered as a multi-session package. It uses the same tutor screening as our 1-on-1 plans and is the most affordable way into the academy — we'll quote it on your consultation."
   },
   {
     id: "billing",
@@ -59,12 +64,12 @@ export const faqs: Faq[] = [
   {
     id: "minimum-commitment",
     q: "Is there a minimum commitment?",
-    a: "The smallest commitment is a single Starter package — five 1-on-1 sessions for $375. There's no subscription and no long-term contract beyond the package you choose; when it's finished, you decide whether to continue."
+    a: "The smallest commitment is a single starter package of five 1-on-1 sessions. There's no subscription and no long-term contract beyond the package you choose; when it's finished, you decide whether to continue."
   },
   {
     id: "cancel-session",
     q: "What if we need to cancel or reschedule a session?",
-    a: "Standard rescheduling is free with at least 48 hours' notice. Families whose weeks shift often can add Flex Reschedule for $15/month, which lets you move a session with as little as 12 hours' notice, up to twice a month."
+    a: "Standard rescheduling is free with at least 48 hours' notice. Families whose weeks shift often can add Flex Reschedule, an optional add-on that lets you move a session with as little as 12 hours' notice, up to twice a month."
   },
   {
     id: "recorded",
@@ -94,7 +99,7 @@ export const faqs: Faq[] = [
   {
     id: "subject-city-cost",
     q: "How much does Grade 12 chemistry or physics tutoring cost in the GTA?",
-    a: "Pricing is the same across every subject, so SCH4U Chemistry, SPH4U Physics, or any other course is billed by package rather than by subject: Starter $375 (5 sessions), Core $750 (10 sessions), and Intensive $1,125 (15 sessions), with the small-group PAL's Circle at $420 per student. All sessions are 1-on-1 (or small-group for the Circle), live online, and billed upfront in CAD."
+    a: "Pricing is the same across every subject — SCH4U Chemistry, SPH4U Physics, or any other course is billed by package rather than by subject, so a harder course never costs more per session. What changes is how many sessions your student needs, which is what we work out together on the free consultation. All sessions are 1-on-1 (or small-group for PAL's Circle), live online, and billed in CAD. Call (437) 777-4828 for a quote."
   },
   {
     id: "admissions-prep",
@@ -108,7 +113,7 @@ export const faqs: Faq[] = [
   }
 ];
 
-// The curated set shown in the inline accordion on the homepage and pricing page
+// The curated set shown in the inline accordion on the homepage
 // (before the final CTA). Eight high-objection questions, in the order a hesitant
 // parent tends to ask them.
 const HOMEPAGE_FAQ_IDS = [

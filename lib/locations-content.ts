@@ -11,9 +11,10 @@
 //     service offered to each community, not a history we don't have yet.
 //   • Local facts (school boards, nearby campuses) are public, verifiable, and
 //     deliberately kept to high-confidence items (boards + universities).
-//   • Pricing must stay in sync with /pricing: Starter $375 (5 sessions),
-//     Core $750 (10), Intensive $1,125 (15), PAL's Circle $420/student (12) —
-//     all CAD, billed upfront as a package (no monthly/cancel-anytime framing).
+//   • NO DOLLAR FIGURES anywhere. Packages are quoted on the free consultation
+//     so they can be scoped to the student. Cost questions stay (they are
+//     high-intent queries) but answer by explaining the package model and
+//     pointing to a call — never a number.
 
 export type LocationFaq = { q: string; a: string };
 export type LocationHighlight = { title: string; body: string };
@@ -123,7 +124,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
       }
     ],
     nearby: ["north-york", "etobicoke", "scarborough"]
@@ -195,7 +196,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
       }
     ],
     nearby: ["etobicoke", "brampton", "toronto"]
@@ -266,7 +267,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
       }
     ],
     nearby: ["vaughan", "north-york", "scarborough"]
@@ -336,7 +337,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
       }
     ],
     nearby: ["markham", "north-york", "brampton"]
@@ -407,7 +408,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
       }
     ],
     nearby: ["mississauga", "vaughan", "toronto"]
@@ -465,7 +466,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
       }
     ],
     nearby: ["toronto", "vaughan", "markham"]
@@ -523,7 +524,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
       }
     ],
     nearby: ["toronto", "markham", "north-york"]
@@ -581,7 +582,7 @@ export const locations: LocationContent[] = [
       },
       {
         q: "What does it cost?",
-        a: "Our packages are billed upfront in CAD: a Starter is $375 for five 1-on-1 sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. A small-group PAL's Circle is $420 per student. Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
       }
     ],
     nearby: ["toronto", "mississauga", "north-york"]

@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Terms of Service",
   description:
-    "The terms governing PAL's Academy tutoring services — scheduling, monthly payment, rescheduling, and use of the student portal across the Greater Toronto Area.",
+    "The terms governing PAL's Academy tutoring services — scheduling, payment, rescheduling, and use of the student portal across the Greater Toronto Area.",
   path: "/terms"
 });
 
@@ -33,10 +33,11 @@ const sections = [
     ]
   },
   {
-    h: "4. Pricing & payment",
+    h: "4. Fees & payment",
     p: [
-      "All prices are listed in Canadian dollars. Tutoring packages are billed in full upfront, before the first session, via Interac e-Transfer (PayPal available as a backup). No sessions are scheduled until payment is confirmed.",
-      "Optional PAL's Plus add-ons are billed month-to-month and may be paused or removed at any time. Prices may change with reasonable notice; changes never affect a period you have already paid for."
+      "Packages are quoted individually during your free consultation, in Canadian dollars, so the plan can be scoped to your student. Your quote is confirmed in writing before you commit to anything.",
+      "Tutoring packages are billed in full upfront, before the first session, via Interac e-Transfer (PayPal available as a backup). No sessions are scheduled until payment is confirmed.",
+      "Optional PAL's Plus add-ons are billed month-to-month and may be paused or removed at any time. Fees may change with reasonable notice; changes never affect a package or period you have already paid for."
     ]
   },
   {
@@ -102,7 +103,7 @@ export default function TermsPage() {
               Clear terms, <span className="text-gold-300 italic">fairly written.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-ink-100/90">
-              The straightforward agreement that covers tutoring, scheduling, payment, and your
+              The straightforward agreement that covers tutoring, scheduling, fees, and your
               use of the student portal.
             </p>
             <p className="mt-4 text-xs uppercase tracking-wider2 text-gold-300">

@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 const nav = [
   { href: "/how-it-works", label: "How it works" },
   { href: "/subjects", label: "Subjects" },
-  { href: "/pricing", label: "Pricing" },
   { href: "/testimonials", label: "Our Promise" },
   { href: "/faq", label: "FAQ" }
 ];
@@ -37,7 +36,7 @@ export default function Header() {
 
   // Pages whose hero starts with a dark background. On every other route
   // the header should always render in dark-text mode, even at the top.
-  const darkHeroRoutes = ["/", "/booking", "/pricing", "/testimonials", "/careers", "/how-it-works", "/subjects", "/faq", "/about", "/contact", "/privacy", "/terms", "/auth/login", "/auth/signup", "/portal", "/portal/pending"];
+  const darkHeroRoutes = ["/", "/booking", "/testimonials", "/careers", "/how-it-works", "/subjects", "/faq", "/about", "/contact", "/privacy", "/terms", "/auth/login", "/auth/signup", "/portal", "/portal/pending"];
   const hasDarkHero = darkHeroRoutes.some((r) => r === "/" ? pathname === "/" : pathname?.startsWith(r));
   const onDark = hasDarkHero && !scrolled;
 

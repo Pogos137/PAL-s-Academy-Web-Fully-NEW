@@ -7,6 +7,14 @@ const nextConfig = {
       { protocol: "https", hostname: "ui-avatars.com" }
     ]
   },
+  async redirects() {
+    return [
+      // The pricing page was retired — quoting is handled on a call so we can
+      // scope the package to the student. /pricing is already indexed, so send
+      // it permanently to contact rather than letting it 404.
+      { source: "/pricing", destination: "/contact", permanent: true }
+    ];
+  },
   experimental: {
     // The admin console + portal must always show live data. By default Next's
     // in-browser Router Cache reuses a previously-rendered page for up to 30s on

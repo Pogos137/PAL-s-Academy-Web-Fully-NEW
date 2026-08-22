@@ -11,8 +11,10 @@
 // so the pages are substantive rather than templated stubs.
 //
 // HONESTY GUARDRAILS (see CLAUDE.md): online-only delivery via Google Meet,
-// pre-launch (no fabricated track record), pricing must match /pricing
-// (Starter $375 / Core $750 / Intensive $1,125, upfront packages).
+// pre-launch (no fabricated track record), and NO DOLLAR FIGURES — packages are
+// quoted on the free consultation so they can be scoped to the student. Cost
+// questions stay (high-intent queries) but answer by explaining the package
+// model and pointing to a call.
 
 export type IntersectionFaq = { q: string; a: string };
 
@@ -59,7 +61,7 @@ export const intersections: Intersection[] = [
       },
       {
         q: "How much does chemistry tutoring in Toronto cost?",
-        a: "Our packages are billed upfront in CAD: a Starter is $375 for five sessions, a Core $750 for ten, and an Intensive $1,125 for fifteen. Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What it costs depends on how many sessions your student needs and whether you choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation instead of publishing a number that fits nobody. Call (437) 777-4828 for a straight answer."
       }
     ]
   },
@@ -86,7 +88,7 @@ export const intersections: Intersection[] = [
       },
       {
         q: "What does physics tutoring in Toronto cost?",
-        a: "Packages are billed upfront in CAD — Starter $375 (5 sessions), Core $750 (10), Intensive $1,125 (15). Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What it costs depends on how many sessions your student needs and whether you choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation instead of publishing a number that fits nobody. Call (437) 777-4828 for a straight answer."
       }
     ]
   },
@@ -113,7 +115,7 @@ export const intersections: Intersection[] = [
       },
       {
         q: "How much is math tutoring in Toronto?",
-        a: "Packages are billed upfront in CAD: Starter $375 (5 sessions), Core $750 (10), Intensive $1,125 (15). Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What it costs depends on how many sessions your student needs and whether you choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation instead of publishing a number that fits nobody. Call (437) 777-4828 for a straight answer."
       }
     ]
   },
@@ -140,7 +142,7 @@ export const intersections: Intersection[] = [
       },
       {
         q: "What does chemistry tutoring in Mississauga cost?",
-        a: "Packages are billed upfront in CAD — Starter $375 (5 sessions), Core $750 (10), Intensive $1,125 (15). Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What it costs depends on how many sessions your student needs and whether you choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation instead of publishing a number that fits nobody. Call (437) 777-4828 for a straight answer."
       }
     ]
   },
@@ -167,7 +169,7 @@ export const intersections: Intersection[] = [
       },
       {
         q: "How much does chemistry tutoring in Markham cost?",
-        a: "Packages are billed upfront in CAD: Starter $375 (5 sessions), Core $750 (10), Intensive $1,125 (15). Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What it costs depends on how many sessions your student needs and whether you choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation instead of publishing a number that fits nobody. Call (437) 777-4828 for a straight answer."
       }
     ]
   },
@@ -194,7 +196,7 @@ export const intersections: Intersection[] = [
       },
       {
         q: "What does math tutoring in Mississauga cost?",
-        a: "Packages are billed upfront in CAD — Starter $375 (5 sessions), Core $750 (10), Intensive $1,125 (15). Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What it costs depends on how many sessions your student needs and whether you choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation instead of publishing a number that fits nobody. Call (437) 777-4828 for a straight answer."
       }
     ]
   },
@@ -221,7 +223,7 @@ export const intersections: Intersection[] = [
       },
       {
         q: "How much does physics tutoring in Vaughan cost?",
-        a: "Packages are billed upfront in CAD: Starter $375 (5 sessions), Core $750 (10), Intensive $1,125 (15). Full pricing is on our pricing page."
+        a: "Tutoring is priced by package rather than by the hour, in CAD. What it costs depends on how many sessions your student needs and whether you choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation instead of publishing a number that fits nobody. Call (437) 777-4828 for a straight answer."
       }
     ]
   }
