@@ -6,6 +6,8 @@ import { buildThreadsForUser } from "@/lib/store/threads";
 import PortalShell from "@/components/portal/PortalShell";
 import MessagesInbox from "@/components/portal/MessagesInbox";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Messages",
   robots: { index: false, follow: false }

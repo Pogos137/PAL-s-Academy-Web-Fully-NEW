@@ -8,6 +8,8 @@ import { classesForUser } from "@/lib/store/queries";
 import { studentsOverview } from "@/lib/store/progress";
 import PortalShell from "@/components/portal/PortalShell";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Students",
   robots: { index: false, follow: false }

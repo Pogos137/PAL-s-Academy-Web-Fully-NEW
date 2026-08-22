@@ -21,6 +21,8 @@ import PortalShell from "@/components/portal/PortalShell";
 import PlanEditor from "@/components/portal/PlanEditor";
 import { MASTERY_META, sparklinePoints } from "@/components/portal/progress-meta";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Student profile",
   robots: { index: false, follow: false }

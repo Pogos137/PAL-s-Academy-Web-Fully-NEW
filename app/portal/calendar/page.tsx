@@ -7,6 +7,8 @@ import { readDb } from "@/lib/store/db";
 import PortalShell from "@/components/portal/PortalShell";
 import PortalCalendar, { type DueEvent, type SessionDef } from "@/components/portal/PortalCalendar";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Calendar",
   robots: { index: false, follow: false }

@@ -9,6 +9,8 @@ import { studentGrowth } from "@/lib/store/progress";
 import PortalShell from "@/components/portal/PortalShell";
 import { MASTERY_META, sparklinePoints } from "@/components/portal/progress-meta";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Your Progress",
   robots: { index: false, follow: false }

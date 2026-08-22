@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Hourglass } from "lucide-react";
 import { getCurrentUser } from "@/lib/auth/current";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Awaiting approval",
   robots: { index: false, follow: false }

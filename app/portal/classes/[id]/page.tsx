@@ -21,6 +21,8 @@ import ConfidencePulse from "@/components/portal/ConfidencePulse";
 import FocusRequests from "@/components/portal/FocusRequests";
 import WinWall from "@/components/portal/WinWall";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Class",
   robots: { index: false, follow: false }

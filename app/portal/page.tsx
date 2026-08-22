@@ -9,6 +9,8 @@ import { studentGrowth, sessionsRemaining } from "@/lib/store/progress";
 import { readDb } from "@/lib/store/db";
 import PortalShell, { ClassQuickStat } from "@/components/portal/PortalShell";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Student Portal",
   robots: { index: false, follow: false }
