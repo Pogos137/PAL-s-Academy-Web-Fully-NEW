@@ -16,16 +16,20 @@ export default function Monogram({ className, tone = "gold" }: { className?: str
       aria-label="PAL's Academy mark"
     >
       <rect x="0" y="0" width="56" height="56" rx="14" fill={bg} />
-      <path d="M11 25.5 L28 18 L45 25.5 L28 33 Z" fill={fg} />
+      {/* The mark is a two-tone "P": the stem carries the tile's foreground,
+          the bowl is always gold. Replaced the mortarboard cap in Aug 2026 —
+          that symbol is the category default and was colliding with other
+          tutoring brands. Keep the stem and bowl as separate strokes so the
+          two colours stay independent of the tile. */}
+      <path d="M19 44 V13" stroke={fg} strokeWidth="5" strokeLinecap="round" />
       <path
-        d="M19 29 V36 C19 38.5 23 41 28 41 C33 41 37 38.5 37 36 V29"
-        stroke={fg}
-        strokeWidth="2.4"
+        d="M19 13 H29 A9 9 0 0 1 29 31 H19"
+        stroke="#C99A2A"
+        strokeWidth="5"
         strokeLinecap="round"
+        strokeLinejoin="round"
         fill="none"
       />
-      <path d="M45 25.5 V34" stroke="#C99A2A" strokeWidth="2.4" strokeLinecap="round" />
-      <circle cx="45" cy="36.4" r="2.4" fill="#C99A2A" />
     </svg>
   );
 }
