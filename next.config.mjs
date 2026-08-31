@@ -9,11 +9,6 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // The pricing page was retired — quoting is handled on a call so we can
-      // scope the package to the student. /pricing is already indexed, so send
-      // it permanently to contact rather than letting it 404.
-      { source: "/pricing", destination: "/contact", permanent: true },
-
       // The Aug-2026 SEO brief specified three new landing pages at these
       // slugs. Pages for all three clusters already exist under /tutoring/
       // with months of crawl history, so building the brief's URLs as well
