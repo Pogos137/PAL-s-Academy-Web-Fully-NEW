@@ -15,7 +15,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "How It Works",
   description:
-    "Four simple steps to measurable grade improvement for GTA students: free consultation, verified tutor matching, weekly online sessions, and visible monthly progress.",
+    "Four steps to tutoring that fits your student: a free consultation, a tutor matched to the course, weekly online sessions, and notes after each one.",
   path: "/how-it-works"
 });
 

@@ -28,17 +28,17 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Chemistry, Physics & Math Tutoring in Toronto | PAL's Academy",
+    default: "PAL's Academy | Chemistry, Physics & Math Tutoring in Toronto",
     template: "%s · PAL's Academy"
   },
   description:
-    "Expert 1-on-1 tutoring for Ontario Grade 9–12 & first-year university. Chemistry, physics, math & biology. Verified tutors. Free first consultation — book today.",
+    "One-on-one and small-group tutoring in chemistry, physics, biology and senior math for Grade 9–12 and first-year university in the GTA. Free consultation.",
   authors: [{ name: "PAL's Academy" }],
   openGraph: {
     type: "website",
-    title: "Chemistry, Physics & Math Tutoring in Toronto | PAL's Academy",
+    title: "PAL's Academy | Chemistry, Physics & Math Tutoring in Toronto",
     description:
-      "Expert 1-on-1 tutoring for Ontario Grade 9–12 & first-year university. Chemistry, physics, math & biology. Free consultation.",
+      "One-on-one and small-group chemistry, physics, biology and senior math tutoring for Grade 9–12 and first-year university in Toronto and the GTA.",
     url: siteUrl("/"),
     siteName: "PAL's Academy",
     locale: "en_CA",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chemistry, Physics & Math Tutoring in Toronto | PAL's Academy",
+    title: "PAL's Academy | Chemistry, Physics & Math Tutoring in Toronto",
     description:
-      "Expert 1-on-1 chemistry, physics, math & biology tutoring in Toronto. Verified tutors, weekly sessions. Free consultation.",
+      "One-on-one and small-group chemistry, physics, biology and senior math tutoring for Grade 9–12 and first-year university in Toronto and the GTA.",
     images: [OG_IMAGE.url]
   },
   alternates: { canonical: "/" },
@@ -70,12 +70,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": ["EducationalOrganization", "LocalBusiness"],
+              "@type": "EducationalOrganization",
               "@id": siteUrl("/#organization"),
               name: "PAL's Academy",
               alternateName: "PALs Academy",
               url: siteUrl("/"),
-              logo: siteUrl("/logo-mark.svg"),
+              logo: siteUrl("/logo-mark-500.png"),
               image: siteUrl("/og"),
               email: "palseduacademy@gmail.com",
               telephone: "+14377774828",
@@ -89,9 +89,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 addressRegion: "ON",
                 addressCountry: "CA"
               },
-              priceRange: "$$",
               currenciesAccepted: "CAD",
-              paymentAccepted: "Interac e-Transfer, PayPal",
+              paymentAccepted: "Interac e-Transfer",
               knowsAbout: [
                 "Chemistry tutoring",
                 "Physics tutoring",

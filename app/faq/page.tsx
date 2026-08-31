@@ -6,9 +6,9 @@ import { buildMetadata } from "@/lib/seo";
 import { faqs } from "@/lib/faq-content";
 
 export const metadata = buildMetadata({
-  title: "Frequently Asked Questions",
+  title: "Tutoring FAQ | Pricing, Sessions & Policies",
   description:
-    "Answers about private tutoring with PAL's Academy in the GTA — pricing, online sessions, Ontario curriculum subjects, tutor vetting, and how to book a free consultation.",
+    "Answers on PAL's Academy pricing, packages, scheduling and rescheduling policy for Toronto and GTA tutoring students. Book a free consultation.",
   path: "/faq"
 });
 

@@ -72,31 +72,18 @@ export default function LocationPage({ params }: { params: Params }) {
     .map((slug) => getLocation(slug))
     .filter((n): n is NonNullable<typeof n> => Boolean(n));
 
-  // LocalBusiness (city-scoped) + Service (area-served) + FAQPage + BreadcrumbList
-  // in one graph. The LocalBusiness keeps PAL's real Toronto base address and uses
-  // areaServed for the city — honest for an online business serving that city,
-  // never a fabricated per-city office.
+  // Service (area-served) + FAQPage + BreadcrumbList in one graph.
+  //
+  // Deliberately NOT LocalBusiness. Sessions run online over Google Meet, so
+  // there is no public storefront to visit in any of these cities. LocalBusiness
+  // signals a place a customer can walk into and expects a genuine street
+  // address; emitting eight of them for one online business is the doorway
+  // pattern Google's structured-data policy targets. EducationalOrganization
+  // (site-wide, in app/layout.tsx) plus per-city Service carries the same local
+  // relevance without the manual-action risk.
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": siteUrl(`${path}#localbusiness`),
-        name: "PAL's Academy",
-        description: `Online 1-on-1 tutoring for ${l.city} students in Grade 9–12 and first-year university.`,
-        url: siteUrl(path),
-        telephone: "+14377774828",
-        email: "palseduacademy@gmail.com",
-        priceRange: "$$",
-        currenciesAccepted: "CAD",
-        areaServed: { "@type": "City", name: l.city },
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Toronto",
-          addressRegion: "ON",
-          addressCountry: "CA"
-        }
-      },
       {
         "@type": "Service",
         serviceType: "Private tutoring",
@@ -106,6 +93,7 @@ export default function LocationPage({ params }: { params: Params }) {
         areaServed: { "@type": "City", name: l.city },
         provider: {
           "@type": "EducationalOrganization",
+          "@id": siteUrl("/#organization"),
           name: "PAL's Academy",
           url: siteUrl("/")
         }

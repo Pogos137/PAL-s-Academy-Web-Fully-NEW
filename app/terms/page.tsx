@@ -36,7 +36,7 @@ const sections = [
     h: "4. Fees & payment",
     p: [
       "Packages are quoted individually during your free consultation, in Canadian dollars, so the plan can be scoped to your student. Your quote is confirmed in writing before you commit to anything.",
-      "Tutoring packages are billed in full upfront, before the first session, via Interac e-Transfer (PayPal available as a backup). No sessions are scheduled until payment is confirmed.",
+      "Tutoring packages are billed in full upfront, before the first session, by Interac e-Transfer. That is the only payment method we accept. No sessions are scheduled until payment is confirmed.",
       "Optional PAL's Plus add-ons are billed month-to-month and may be paused or removed at any time. Fees may change with reasonable notice; changes never affect a package or period you have already paid for."
     ]
   },

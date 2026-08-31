@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run check:prices && next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check:prices": "node scripts/check-no-public-prices.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",

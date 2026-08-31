@@ -4,6 +4,20 @@ import Monogram from "@/components/ui/Monogram";
 const PHONE_DISPLAY = "(437) 777-4828";
 const PHONE_TEL = "+14377774828";
 
+// The highest-intent city × subject pages. GSC shows these clusters pulling
+// impressions with no clicks, and every one of them had zero site-wide internal
+// links pointing at it — pages nothing links to get crawled less and rank worse
+// regardless of how good the copy is. Rendered as a strip rather than a fifth
+// column so the footer grid keeps its five-track layout.
+const popular = [
+  { href: "/tutoring/toronto/chemistry", label: "Chemistry tutor Toronto" },
+  { href: "/tutoring/toronto/physics", label: "Physics tutor Toronto" },
+  { href: "/tutoring/mississauga/math", label: "Math tutor Mississauga" },
+  { href: "/tutoring/toronto/math", label: "Math tutor Toronto" },
+  { href: "/tutoring/mississauga/chemistry", label: "Chemistry tutor Mississauga" },
+  { href: "/blog/sch4u-vs-sph4u-which-is-harder", label: "SCH4U or SPH4U?" }
+];
+
 const cols = [
   {
     title: "Learn",
@@ -62,8 +76,8 @@ export default function Footer() {
             </div>
           </div>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-ink-200">
-            Measurable grade improvement for Grade 9&ndash;12 and first-year university
-            students across the Greater Toronto Area.
+            One-on-one tutoring for Grade 9&ndash;12 and first-year university students
+            across the Greater Toronto Area.
           </p>
           <div className="gold-rule mt-8" />
           <a
@@ -97,6 +111,26 @@ export default function Footer() {
             </ul>
           </div>
         ))}
+      </div>
+
+      <div className="relative border-t border-ivory/10">
+        <div className="container-luxe py-8">
+          <div className="text-[10px] uppercase tracking-wider2 text-gold-400">
+            Popular searches
+          </div>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
+            {popular.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="text-sm text-ink-200 transition-colors hover:text-gold-300"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <div className="relative border-t border-ivory/10">

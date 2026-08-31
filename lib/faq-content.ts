@@ -14,7 +14,7 @@ export const faqs: Faq[] = [
   {
     id: "cost",
     q: "How much does private tutoring cost in Toronto?",
-    a: "PAL's Academy is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs, which subject, and whether they choose 1-on-1 or a small-group PAL's Circle — so we quote it on the free consultation once we understand the gap, instead of publishing a number that fits nobody. Call us at (437) 777-4828 and we'll walk you through it in a few minutes."
+    a: "PAL's Academy does not publish rates, and any figure you find quoted for us elsewhere online is out of date — our packages were restructured and older numbers no longer apply. Tutoring is priced by package rather than by the hour, in CAD, and what a family pays depends on how many sessions their student actually needs, which subject, and whether they choose 1-on-1 or a small-group PAL's Circle. We quote it on the free consultation once we understand the gap. Call us at (437) 777-4828 and we'll walk you through it in a few minutes."
   },
   {
     id: "online-effective",
@@ -59,7 +59,7 @@ export const faqs: Faq[] = [
   {
     id: "billing",
     q: "How is billing handled?",
-    a: "Packages are billed in full upfront, in CAD by Interac e-Transfer (with PayPal as a backup). No sessions are scheduled until payment is confirmed. Optional PAL's Plus add-ons are billed monthly for the length of your active package."
+    a: "Packages are billed in full upfront, in CAD, by Interac e-Transfer. That is the only payment method we accept. No sessions are scheduled until payment is confirmed. Optional PAL's Plus add-ons are billed monthly for the length of your active package."
   },
   {
     id: "minimum-commitment",
@@ -69,7 +69,7 @@ export const faqs: Faq[] = [
   {
     id: "cancel-session",
     q: "What if we need to cancel or reschedule a session?",
-    a: "Standard rescheduling is free with at least 48 hours' notice. Families whose weeks shift often can add Flex Reschedule, an optional add-on that lets you move a session with as little as 12 hours' notice, up to twice a month."
+    a: "Rescheduling is free with at least 48 hours' notice. Inside 48 hours the session is forfeited, unless you have the optional Flex Reschedule add-on — that lets you move a session with as little as 12 hours' notice, up to twice a month."
   },
   {
     id: "recorded",
@@ -105,6 +105,11 @@ export const faqs: Faq[] = [
     id: "admissions-prep",
     q: "Do you help with university prerequisite courses and admissions?",
     a: "We focus on the Grade 11 and 12 courses that admissions actually weighs — the prerequisites and top-six courses that shape Ontario university offers. We don't write applications or promise admission, but strengthening marks in required courses like MCV4U, SCH4U, or SBI4U is exactly where focused tutoring helps most. Always confirm current program requirements with the university and through Ontario Universities' Info (OUInfo)."
+  },
+  {
+    id: "near-me",
+    q: "Is there a PAL's Academy tutor near me?",
+    a: "Almost certainly, because proximity isn't the constraint it used to be. Sessions run live online over Google Meet, so we tutor students anywhere in the Greater Toronto Area — Toronto, Mississauga, Markham, Vaughan, Brampton, North York, Scarborough, Etobicoke and the towns around them — with no travel fee and no commute. It also means your student is matched to the best tutor for their exact course rather than the closest one who is free."
   },
   {
     id: "book",

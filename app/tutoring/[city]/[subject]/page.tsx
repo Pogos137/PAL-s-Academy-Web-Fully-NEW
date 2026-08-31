@@ -13,6 +13,7 @@ import {
   getIntersection,
   intersectionParams,
   intersectionsForSubjectSlug,
+  intersectionsForCity,
   intersectionPath
 } from "@/lib/intersections-content";
 
@@ -46,6 +47,12 @@ export default function CitySubjectPage({ params }: { params: Params }) {
   const otherCities = intersectionsForSubjectSlug(x.subjectSlug).filter(
     (i) => i.citySlug !== x.citySlug
   );
+  // Other subjects in THIS city — the "browse other subjects" cross-link. Without
+  // it these pages only ever pointed sideways to the same subject elsewhere, so a
+  // parent landing on chemistry-in-Toronto had no route to physics-in-Toronto.
+  const otherSubjects = intersectionsForCity(x.citySlug).filter(
+    (i) => i.subjectSlug !== x.subjectSlug
+  );
 
   // Service (subject + areaServed=city) + FAQPage + BreadcrumbList in one graph.
   const structuredData = {
@@ -60,6 +67,7 @@ export default function CitySubjectPage({ params }: { params: Params }) {
         areaServed: { "@type": "City", name: location.city },
         provider: {
           "@type": "EducationalOrganization",
+          "@id": siteUrl("/#organization"),
           name: "PAL's Academy",
           url: siteUrl("/")
         }
@@ -303,6 +311,30 @@ export default function CitySubjectPage({ params }: { params: Params }) {
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-ink-600">
                       {subject.subject} tutoring for {oLoc.city} students, online.
+                    </p>
+                    <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium text-gold-600">
+                      Explore
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                </StaggerItem>
+              );
+            })}
+            {otherSubjects.map((o) => {
+              const oSub = getSubject(o.subjectSlug);
+              if (!oSub) return null;
+              return (
+                <StaggerItem key={`subject-${o.subject}`}>
+                  <Link
+                    href={intersectionPath(o)}
+                    className="group flex h-full flex-col rounded-2xl border border-ink-100 bg-ivory p-7 transition-all duration-500 hover:border-gold-300 hover:shadow-luxe"
+                  >
+                    <div className="eyebrow">Other subjects</div>
+                    <h3 className="mt-4 font-serif text-2xl text-ink-800">
+                      {oSub.subject} tutor {location.city}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-ink-600">
+                      {oSub.subject} tutoring for {location.city} students, online.
                     </p>
                     <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium text-gold-600">
                       Explore

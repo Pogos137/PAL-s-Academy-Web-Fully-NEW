@@ -53,6 +53,7 @@ export default function SubjectPage({ params }: { params: Params }) {
         areaServed: "Greater Toronto Area",
         provider: {
           "@type": "EducationalOrganization",
+          "@id": siteUrl("/#organization"),
           name: "PAL's Academy",
           url: siteUrl("/")
         }

@@ -62,6 +62,14 @@ export const intersections: Intersection[] = [
       {
         q: "How much does chemistry tutoring in Toronto cost?",
         a: "Tutoring is priced by package rather than by the hour, in CAD. What it costs depends on how many sessions your student needs and whether you choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation instead of publishing a number that fits nobody. Call (437) 777-4828 for a straight answer."
+      },
+      {
+        q: "I searched for a chemistry tutor near me — do you cover my area of Toronto?",
+        a: "Yes. Because sessions run live online over Google Meet, \"near me\" stops being a constraint — we tutor students in every Toronto neighbourhood, from Etobicoke and North York to Scarborough, the Beaches and downtown, with no travel fee and no commute. It also means your student is matched to the best chemistry tutor for their course rather than whoever happens to live a few streets away."
+      },
+      {
+        q: "SCH4U or SPH4U — which should we get help with first?",
+        a: "If both marks are slipping, start with the one that is a prerequisite for the program your student is applying to, then the one where the gap runs deeper. They fail differently: chemistry usually breaks because a concept a unit or two back never landed, while physics usually breaks on process rather than knowledge. Our guide on whether SCH4U or SPH4U is harder walks through both, and the consultation is where we look at your student\'s actual marks and say which to tackle first."
       }
     ]
   },
@@ -89,6 +97,14 @@ export const intersections: Intersection[] = [
       {
         q: "What does physics tutoring in Toronto cost?",
         a: "Tutoring is priced by package rather than by the hour, in CAD. What it costs depends on how many sessions your student needs and whether you choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation instead of publishing a number that fits nobody. Call (437) 777-4828 for a straight answer."
+      },
+      {
+        q: "I searched for a physics tutor near me — do you cover my part of Toronto?",
+        a: "Yes. Sessions are live online over Google Meet, so we tutor students across every Toronto neighbourhood — Etobicoke, North York, Scarborough, East York, downtown — with no travel fee and no commute for either side. Being online is also why we can match your student to a tutor who scored 90+ in SPH4U specifically, rather than the closest available tutor."
+      },
+      {
+        q: "SPH4U or SCH4U — which is harder, and which should we tutor first?",
+        a: "Neither is universally harder; they punish different weaknesses. SPH4U tends to expose a shaky habit of reasoning — students reach for a formula before identifying the principle — while SCH4U tends to expose a concept that never fully landed a unit or two earlier. Start with whichever is a prerequisite for the program your student wants. Our SCH4U vs SPH4U guide compares them properly, and we will look at the real marks with you on the consultation."
       }
     ]
   },
@@ -197,6 +213,14 @@ export const intersections: Intersection[] = [
       {
         q: "What does math tutoring in Mississauga cost?",
         a: "Tutoring is priced by package rather than by the hour, in CAD. What it costs depends on how many sessions your student needs and whether you choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation instead of publishing a number that fits nobody. Call (437) 777-4828 for a straight answer."
+      },
+      {
+        q: "Do you run a math program for Mississauga students, or just one-off sessions?",
+        a: "It is a programme, not drop-in help. Your student is matched to one tutor who stays with them, meets on the same weekly slot, and works a plan built around their actual course — MHF4U, MCV4U, MDM4U or the Grade 9–11 courses feeding into them. Written notes follow every session so you can see what was covered. Sessions are bought as a multi-session package rather than by the hour, which is what keeps the work sequential instead of scattered."
+      },
+      {
+        q: "I searched for a math tutor near me — which parts of Mississauga do you cover?",
+        a: "All of it, because the sessions are online. Port Credit, Streetsville, Meadowvale, Erin Mills, Churchill Meadows, Malton, Cooksville — a student anywhere in Mississauga gets the same tutor quality with no drive across the city, plus first-year UTM calculus support."
       }
     ]
   },
