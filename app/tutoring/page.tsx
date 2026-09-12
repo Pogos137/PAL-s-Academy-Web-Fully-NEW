@@ -27,7 +27,7 @@ export default function TutoringLocationsPage() {
             </h1>
             <p className="mt-6 max-w-2xl text-ink-100/90">
               We tutor Grade 9–12 and first-year university students right across the Greater
-              Toronto Area — delivered online over Google Meet, so every family gets the same
+              Toronto Area — delivered online, so every family gets the same
               tutor quality with no commute. Find your city below, or just book a free
               consultation and we&rsquo;ll take it from there.
             </p>

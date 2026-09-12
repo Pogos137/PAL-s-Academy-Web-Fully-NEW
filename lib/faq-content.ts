@@ -19,7 +19,7 @@ export const faqs: Faq[] = [
   {
     id: "online-effective",
     q: "Is online tutoring as effective as in-person?",
-    a: "For most students, yes. Sessions run live over Google Meet with a shared digital whiteboard, so the tutor and student work through problems together in real time. Going online also lets us match each student to the best tutor for their exact course rather than whoever happens to live nearby — and it removes commute time for busy families across the GTA."
+    a: "For most students, yes. Sessions run live online with a shared digital whiteboard, so the tutor and student work through problems together in real time. Going online also lets us match each student to the best tutor for their exact course rather than whoever happens to live nearby — and it removes commute time for busy families across the GTA."
   },
   {
     id: "subjects",
@@ -84,12 +84,12 @@ export const faqs: Faq[] = [
   {
     id: "cities",
     q: "Which areas of the GTA do you serve?",
-    a: "Because sessions run live online over Google Meet, we tutor students anywhere in the Greater Toronto Area — including Toronto, Mississauga, Markham, Vaughan, Brampton, North York, Scarborough, and Etobicoke. There's no commute and no travel fee, and each student is matched to the best tutor for their exact course rather than whoever happens to live nearby."
+    a: "Because sessions run live online, we tutor students anywhere in the Greater Toronto Area — including Toronto, Mississauga, Markham, Vaughan, Brampton, North York, Scarborough, and Etobicoke. There's no commute and no travel fee, and each student is matched to the best tutor for their exact course rather than whoever happens to live nearby."
   },
   {
     id: "online-vs-inperson",
     q: "What's the difference between online and in-person tutoring?",
-    a: "The teaching is the same; the logistics are better. Sessions run live on Google Meet with a shared digital whiteboard, so the tutor and student work through problems together in real time — with no commute for either side. Going online also lets us pair each student with a specialist in their exact course instead of limiting the pool to nearby tutors. For most students the experience is equal to in-person, and often more consistent."
+    a: "The teaching is the same; the logistics are better. Sessions run live online with a shared digital whiteboard, so the tutor and student work through problems together in real time — with no commute for either side. Going online also lets us pair each student with a specialist in their exact course instead of limiting the pool to nearby tutors. For most students the experience is equal to in-person, and often more consistent."
   },
   {
     id: "course-codes",
@@ -109,7 +109,7 @@ export const faqs: Faq[] = [
   {
     id: "near-me",
     q: "Is there a PAL's Academy tutor near me?",
-    a: "Almost certainly, because proximity isn't the constraint it used to be. Sessions run live online over Google Meet, so we tutor students anywhere in the Greater Toronto Area — Toronto, Mississauga, Markham, Vaughan, Brampton, North York, Scarborough, Etobicoke and the towns around them — with no travel fee and no commute. It also means your student is matched to the best tutor for their exact course rather than the closest one who is free."
+    a: "Almost certainly, because proximity isn't the constraint it used to be. Sessions run live online, so we tutor students anywhere in the Greater Toronto Area — Toronto, Mississauga, Markham, Vaughan, Brampton, North York, Scarborough, Etobicoke and the towns around them — with no travel fee and no commute. It also means your student is matched to the best tutor for their exact course rather than the closest one who is free."
   },
   {
     id: "book",

@@ -22,7 +22,7 @@ const sections = [
   {
     h: "2. Our services",
     p: [
-      "PAL's Academy provides private tutoring for Grade 9–12 and first-year university students, delivered in live one-on-one or small-group sessions over Google Meet. We match each student with a verified tutor and support learning through the student portal — classes, assignments, deadlines, and messaging.",
+      "PAL's Academy provides private tutoring for Grade 9–12 and first-year university students, delivered in live one-on-one or small-group sessions online. We match each student with a verified tutor and support learning through the student portal — classes, assignments, deadlines, and messaging.",
       "We strive for measurable academic progress, but we do not guarantee any specific grade, score, or admission outcome. Results depend on many factors, including student effort and attendance."
     ]
   },

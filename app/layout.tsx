@@ -27,8 +27,12 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  // The homepage deliberately does NOT target "<subject> tutoring Toronto".
+  // Those terms belong to /subjects/<subject> (subject) and
+  // /tutoring/<city>/<subject> (city). When the homepage also chased them it
+  // competed with its own children and Google ranked none of them well.
   title: {
-    default: "PAL's Academy | Chemistry, Physics & Math Tutoring in Toronto",
+    default: "PAL's Academy | GTA Tutoring for Grade 9–12 & University",
     template: "%s · PAL's Academy"
   },
   description:
@@ -36,7 +40,7 @@ export const metadata: Metadata = {
   authors: [{ name: "PAL's Academy" }],
   openGraph: {
     type: "website",
-    title: "PAL's Academy | Chemistry, Physics & Math Tutoring in Toronto",
+    title: "PAL's Academy | GTA Tutoring for Grade 9–12 & University",
     description:
       "One-on-one and small-group chemistry, physics, biology and senior math tutoring for Grade 9–12 and first-year university in Toronto and the GTA.",
     url: siteUrl("/"),
@@ -46,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PAL's Academy | Chemistry, Physics & Math Tutoring in Toronto",
+    title: "PAL's Academy | GTA Tutoring for Grade 9–12 & University",
     description:
       "One-on-one and small-group chemistry, physics, biology and senior math tutoring for Grade 9–12 and first-year university in Toronto and the GTA.",
     images: [OG_IMAGE.url]
@@ -80,7 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               email: "palseduacademy@gmail.com",
               telephone: "+14377774828",
               description:
-                "Private 1-on-1 tutoring for Ontario Grade 9–12 and first-year university students — chemistry, physics, math, biology, English and more. Online sessions over Google Meet, serving the Greater Toronto Area.",
+                "Private 1-on-1 tutoring for Ontario Grade 9–12 and first-year university students — chemistry, physics, math, biology, English and more. Online sessions, serving the Greater Toronto Area.",
               foundingDate: "2025",
               slogan: "Tutoring, refined.",
               address: {
@@ -144,7 +148,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       "@type": "Service",
                       name: "1-on-1 Tutoring",
                       description:
-                        "One-on-one Ontario-curriculum tutoring for Grade 9–12 and first-year university, live online over Google Meet"
+                        "One-on-one Ontario-curriculum tutoring for Grade 9–12 and first-year university, live online"
                     }
                   },
                   {
@@ -156,7 +160,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       "@type": "Service",
                       name: "PAL's Circle Small-Group Tutoring",
                       description:
-                        "Small-group sessions (3–4 students at the same grade and subject, capped at 4) online over Google Meet"
+                        "Small-group sessions (3–4 students at the same grade and subject, capped at 4) online"
                     }
                   },
                   {

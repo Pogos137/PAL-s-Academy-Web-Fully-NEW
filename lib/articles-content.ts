@@ -8,7 +8,7 @@
 //     admissions — NO invented statistics, no fake studies, no specific grade
 //     cutoffs (those vary year to year).
 //   • PAL's Academy is pre-launch — NEVER imply a track record, alumni, or
-//     results we don't have. Delivery is online-only via Google Meet.
+//     results we don't have. Delivery is online-only.
 //   • NO DOLLAR FIGURES anywhere. Packages are quoted on the free consultation
 //     so they can be scoped to the student — point readers to a call, never a
 //     published number.
@@ -903,7 +903,7 @@ export const articles: Article[] = [
       {
         heading: "How we run it",
         body: [
-          "Every PAL's Academy session is online over Google Meet, by design — one matched tutor, the same one each week, working the exact course your student is taking. We chose online not as a compromise but because it removes the commute and lets us match a student to the right tutor regardless of where in the GTA they live.",
+          "Every PAL's Academy session is online, by design — one matched tutor, the same one each week, working the exact course your student is taking. We chose online not as a compromise but because it removes the commute and lets us match a student to the right tutor regardless of where in the GTA they live.",
           "You can see the full approach on [how it works](/how-it-works), find your city on our [tutoring by city](/tutoring) pages, or just [book a free consultation](/booking) and judge the fit for yourself — no pressure, no pitch."
         ]
       }

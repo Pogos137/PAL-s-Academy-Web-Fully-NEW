@@ -14,7 +14,7 @@ const steps = [
   {
     n: "03",
     title: "Weekly live sessions",
-    body: "60-minute Google Meet sessions with notes, follow-ups, and a clear plan toward the next test, exam, or application."
+    body: "60-minute live online sessions with notes, follow-ups, and a clear plan toward the next test, exam, or application."
   },
   {
     n: "04",

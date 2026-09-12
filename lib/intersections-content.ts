@@ -10,7 +10,7 @@
 // topics, school boards, universities) from subjects-content + locations-content,
 // so the pages are substantive rather than templated stubs.
 //
-// HONESTY GUARDRAILS (see CLAUDE.md): online-only delivery via Google Meet,
+// HONESTY GUARDRAILS (see CLAUDE.md): online-only delivery,
 // pre-launch (no fabricated track record), and NO DOLLAR FIGURES — packages are
 // quoted on the free consultation so they can be scoped to the student. Cost
 // questions stay (high-intent queries) but answer by explaining the package
@@ -48,7 +48,7 @@ export const intersections: Intersection[] = [
     h1: "Chemistry tutoring for Toronto students.",
     intro: [
       "In Toronto's competitive university race, SCH4U chemistry is one of the marks that decides offers in life sciences, health, and engineering. We pair Toronto students with a chemistry tutor who scored 90+ in the exact course — SCH3U, SCH4U, or first-year university chemistry — and meet weekly online, so the help fits around school and transit instead of adding another commute.",
-      "Sessions run live over Google Meet with a shared whiteboard, so a student in Etobicoke and one downtown get the same tutor quality. We work the Ontario curriculum by course code, in the same order your student's TDSB or TCDSB teacher does — the mole, equilibrium, organic — so tutoring reinforces class rather than competing with it."
+      "Sessions run live online with a shared whiteboard, so a student in Etobicoke and one downtown get the same tutor quality. We work the Ontario curriculum by course code, in the same order your student's TDSB or TCDSB teacher does — the mole, equilibrium, organic — so tutoring reinforces class rather than competing with it."
     ],
     faqs: [
       {
@@ -65,7 +65,7 @@ export const intersections: Intersection[] = [
       },
       {
         q: "I searched for a chemistry tutor near me — do you cover my area of Toronto?",
-        a: "Yes. Because sessions run live online over Google Meet, \"near me\" stops being a constraint — we tutor students in every Toronto neighbourhood, from Etobicoke and North York to Scarborough, the Beaches and downtown, with no travel fee and no commute. It also means your student is matched to the best chemistry tutor for their course rather than whoever happens to live a few streets away."
+        a: "Yes. Because sessions run live online, \"near me\" stops being a constraint — we tutor students in every Toronto neighbourhood, from Etobicoke and North York to Scarborough, the Beaches and downtown, with no travel fee and no commute. It also means your student is matched to the best chemistry tutor for their course rather than whoever happens to live a few streets away."
       },
       {
         q: "SCH4U or SPH4U — which should we get help with first?",
@@ -83,7 +83,7 @@ export const intersections: Intersection[] = [
     h1: "Physics tutoring for Toronto students.",
     intro: [
       "SPH4U is one of the courses Toronto's engineering and physical-science programs watch most closely — and one where students most often mistake memorizing formulas for understanding. We match Toronto students with a physics tutor who earned 90+ in the course and teaches the reasoning behind the equations, weekly and online.",
-      "Because sessions run over Google Meet, your student keeps the same tutor every week regardless of where in the city you are or what the weather's doing. We follow the TDSB or TCDSB sequence by course code — kinematics, dynamics, fields, waves — so the work lines up with exactly what's being graded."
+      "Because sessions run online, your student keeps the same tutor every week regardless of where in the city you are or what the weather's doing. We follow the TDSB or TCDSB sequence by course code — kinematics, dynamics, fields, waves — so the work lines up with exactly what's being graded."
     ],
     faqs: [
       {
@@ -100,7 +100,7 @@ export const intersections: Intersection[] = [
       },
       {
         q: "I searched for a physics tutor near me — do you cover my part of Toronto?",
-        a: "Yes. Sessions are live online over Google Meet, so we tutor students across every Toronto neighbourhood — Etobicoke, North York, Scarborough, East York, downtown — with no travel fee and no commute for either side. Being online is also why we can match your student to a tutor who scored 90+ in SPH4U specifically, rather than the closest available tutor."
+        a: "Yes. Sessions are live online, so we tutor students across every Toronto neighbourhood — Etobicoke, North York, Scarborough, East York, downtown — with no travel fee and no commute for either side. Being online is also why we can match your student to a tutor who scored 90+ in SPH4U specifically, rather than the closest available tutor."
       },
       {
         q: "SPH4U or SCH4U — which is harder, and which should we tutor first?",
@@ -118,7 +118,7 @@ export const intersections: Intersection[] = [
     h1: "Math tutoring for Toronto students.",
     intro: [
       "From MCR3U Functions through MHF4U Advanced Functions and MCV4U Calculus & Vectors, the Grade 11 and 12 math courses gate most of Toronto's competitive STEM and commerce programs. We match students with a math tutor who scored 90+ in their exact course and meet weekly online to keep small gaps from compounding.",
-      "Math is where a missed foundation hurts most, because every unit builds on the last. Our tutors work the Ontario curriculum by course code and rebuild the foundation — clean algebra, function sense, confident problem-solving — so a shaky term turns into a steady upward line. Sessions are online over Google Meet, no commute required."
+      "Math is where a missed foundation hurts most, because every unit builds on the last. Our tutors work the Ontario curriculum by course code and rebuild the foundation — clean algebra, function sense, confident problem-solving — so a shaky term turns into a steady upward line. Sessions are online, no commute required."
     ],
     faqs: [
       {
@@ -145,7 +145,7 @@ export const intersections: Intersection[] = [
     h1: "Chemistry tutoring for Mississauga students.",
     intro: [
       "In Mississauga's large Peel and Dufferin-Peel science classes, it's easy to slip a step behind in SCH4U and never quite catch up. We pair students with a chemistry tutor who scored 90+ in the course and meet weekly online, so the foundation gets rebuilt before it costs a mark — and with UTM on the doorstep, those Grade 12 chemistry marks matter directly.",
-      "Sessions run over Google Meet, so a student near Square One and one out by Meadowvale get the same tutor quality with no drive across the city. We follow the Ontario curriculum by course code — the mole, equilibrium, organic — in step with your student's teacher, and support first-year UTM chemistry too."
+      "Sessions run online, so a student near Square One and one out by Meadowvale get the same tutor quality with no drive across the city. We follow the Ontario curriculum by course code — the mole, equilibrium, organic — in step with your student's teacher, and support first-year UTM chemistry too."
     ],
     faqs: [
       {
@@ -172,7 +172,7 @@ export const intersections: Intersection[] = [
     h1: "Chemistry tutoring for Markham students.",
     intro: [
       "Markham students compete hard, and SCH4U chemistry is one of the marks that decides spots in selective life-science and health programs. We match students with a chemistry tutor who scored 90+ in the exact course and meet weekly online, turning that drive into a mark that holds under pressure.",
-      "Because sessions are online over Google Meet, students in Unionville, Cornell or Berczy Village all get the same tutor — no waitlist tied to a plaza learning centre. We work the YRDSB or York Catholic sequence by course code, from the mole and stoichiometry through to organic, so tutoring matches what's being graded."
+      "Because sessions are online, students in Unionville, Cornell or Berczy Village all get the same tutor — no waitlist tied to a plaza learning centre. We work the YRDSB or York Catholic sequence by course code, from the mole and stoichiometry through to organic, so tutoring matches what's being graded."
     ],
     faqs: [
       {
@@ -199,7 +199,7 @@ export const intersections: Intersection[] = [
     h1: "Math tutoring for Mississauga students.",
     intro: [
       "MHF4U Advanced Functions and MCV4U Calculus & Vectors decide a lot of Mississauga university applications, and they move fast in packed Peel classrooms. We match students with a math tutor who scored 90+ in their exact course and meet weekly online, so a missed foundation gets caught before the whole term tilts.",
-      "Our tutors rebuild the algebra and function sense the rest of the course assumes, working by course code in step with the Peel or Dufferin-Peel sequence. Sessions are online over Google Meet — same tutor quality whether you're near Square One or out in Meadowvale, with no commute — and we support first-year UTM calculus too."
+      "Our tutors rebuild the algebra and function sense the rest of the course assumes, working by course code in step with the Peel or Dufferin-Peel sequence. Sessions are online — same tutor quality whether you're near Square One or out in Meadowvale, with no commute — and we support first-year UTM calculus too."
     ],
     faqs: [
       {
@@ -234,7 +234,7 @@ export const intersections: Intersection[] = [
     h1: "Physics tutoring for Vaughan students.",
     intro: [
       "SPH4U rewards understanding over memorization, and in Vaughan's YRDSB and York Catholic schools it's one of the courses that moves quickly past students who miss a foundation. We pair Vaughan students with a physics tutor who scored 90+ in the course and teaches the reasoning behind the equations, weekly and online.",
-      "Sessions run over Google Meet, so a student in Woodbridge and one in Maple get the same tutor with no commute or weather days. We follow the Ontario sequence by course code — kinematics, dynamics, energy, fields, waves — coaching the habit of picture, principle, then math that unfamiliar test problems demand."
+      "Sessions run online, so a student in Woodbridge and one in Maple get the same tutor with no commute or weather days. We follow the Ontario sequence by course code — kinematics, dynamics, energy, fields, waves — coaching the habit of picture, principle, then math that unfamiliar test problems demand."
     ],
     faqs: [
       {

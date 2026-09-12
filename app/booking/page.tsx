@@ -133,7 +133,7 @@ export default function BookingPage() {
             <div className="mx-auto mt-12 max-w-4xl">
               <Calendly url={calendlyUrl} />
               <p className="mt-4 text-center text-xs text-ink-400">
-                Powered by Calendly · Calls happen on Google Meet
+                Powered by Calendly · Calls happen online
               </p>
             </div>
           </Reveal>

@@ -40,7 +40,7 @@ const principles = [
 const facts = [
   { stat: "1:1", label: "One student, one tutor — every session" },
   { stat: "90+", label: "Minimum subject score to tutor it" },
-  { stat: "Online", label: "Live on Google Meet, across the GTA" },
+  { stat: "Online", label: "Live online, across the GTA" },
   { stat: "Free", label: "Your first consultation, no obligation" }
 ];
 
@@ -173,7 +173,7 @@ export default function AboutPage() {
               <p className="mt-5 text-ink-600">
                 Our students are Grade 9 through 12 and first-year university. They&rsquo;re
                 preparing for IB, AP, university applications, or simply the kind of marks
-                that keep options open. Sessions take place online via Google Meet — the same
+                that keep options open. Sessions take place live online — the same
                 standard of care, whether you&rsquo;re in Etobicoke or East York.
               </p>
             </div>

@@ -100,7 +100,7 @@ export default function HowItWorksPage() {
                 Sixty focused minutes, every week.
               </h2>
               <p className="mt-5 max-w-md text-ink-600">
-                Sessions run live on Google Meet with a shared whiteboard. The shape is the same
+                Sessions run live online with a shared whiteboard. The shape is the same
                 each week, so students always know what to expect.
               </p>
             </div>

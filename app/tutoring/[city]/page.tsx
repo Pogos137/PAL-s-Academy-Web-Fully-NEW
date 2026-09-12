@@ -74,7 +74,7 @@ export default function LocationPage({ params }: { params: Params }) {
 
   // Service (area-served) + FAQPage + BreadcrumbList in one graph.
   //
-  // Deliberately NOT LocalBusiness. Sessions run online over Google Meet, so
+  // Deliberately NOT LocalBusiness. Sessions run online, so
   // there is no public storefront to visit in any of these cities. LocalBusiness
   // signals a place a customer can walk into and expects a genuine street
   // address; emitting eight of them for one online business is the doorway
@@ -216,7 +216,7 @@ export default function LocationPage({ params }: { params: Params }) {
                   Neighbourhoods we support across {l.city}
                 </h3>
                 <p className="mt-2 text-sm text-ink-600">
-                  Sessions run online over Google Meet, so students in every part of {l.city}{" "}
+                  Sessions run online, so students in every part of {l.city}{" "}
                   get the same tutor quality — with no commute. We work with families across:
                 </p>
                 <ul className="mt-5 flex flex-wrap gap-2.5">

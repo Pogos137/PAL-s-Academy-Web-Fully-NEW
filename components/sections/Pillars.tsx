@@ -11,7 +11,7 @@ const items = [
   {
     icon: ShieldCheck,
     title: "Live, one-to-one, weekly",
-    body: "Calm Google Meet sessions on a regular cadence. No content mills, no rotating tutors — your student keeps the same mentor."
+    body: "Calm live online sessions on a regular cadence. No content mills, no rotating tutors — your student keeps the same mentor."
   },
   {
     icon: LineChart,
