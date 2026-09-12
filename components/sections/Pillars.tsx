@@ -10,7 +10,10 @@ const items = [
   },
   {
     icon: ShieldCheck,
-    title: "Live, one-to-one, weekly",
+    // Was "Live, one-to-one, weekly" — false for PAL's Circle, and it sat two
+    // sections below a hero that now names both formats. The commitment this
+    // pillar actually describes is cadence and tutor consistency, not group size.
+    title: "Live, weekly, same tutor",
     body: "Calm live online sessions on a regular cadence. No content mills, no rotating tutors — your student keeps the same mentor."
   },
   {

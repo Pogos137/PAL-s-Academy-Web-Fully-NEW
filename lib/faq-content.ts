@@ -54,7 +54,10 @@ export const faqs: Faq[] = [
   {
     id: "group",
     q: "Do you offer group sessions?",
-    a: "Yes. PAL's Circle is a curated small group of three to four students at the same grade and subject, capped at four, offered as a multi-session package. It uses the same tutor screening as our 1-on-1 plans and is the most affordable way into the academy — we'll quote it on your consultation."
+    // "the most affordable way into the academy" was a price-tier claim, which
+    // D-003 forbids in customer-facing copy. The knowledge base positions Circle
+    // as the entry point into the academy — deliberately not on price.
+    a: "Yes. PAL's Circle is a curated small group of three to four students at the same grade and subject, capped at four, offered as a multi-session package. It uses the same tutor screening as our 1-on-1 plans and is the usual way families start with us — we'll quote it on your consultation."
   },
   {
     id: "billing",

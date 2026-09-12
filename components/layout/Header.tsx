@@ -50,53 +50,62 @@ export default function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="container-header flex h-20 items-center justify-between gap-8">
-        <Link href="/" className="group flex shrink-0 items-center gap-3">
-          <Monogram
-            tone={onDark ? "gold" : "ink"}
-            className="h-9 w-9 transition-transform duration-500 group-hover:rotate-[8deg]"
-          />
-          <div className="leading-none">
-            <div
-              className={cn(
-                "font-serif text-xl tracking-tightish transition-colors",
-                onDark ? "text-ivory" : "text-ink-800"
-              )}
-            >
-              PAL&rsquo;s Academy
-            </div>
-            <div className="mt-1 text-[10px] uppercase tracking-wider2 text-gold-400">
-              Private Tutoring
-            </div>
-          </div>
-        </Link>
-
-        <nav className="hidden items-center gap-8 lg:flex xl:gap-10">
-          {nav.map((item) => {
-            const active = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
+      <div className="container-header flex h-20 items-center justify-between gap-6">
+        {/* Logo and nav are one left-hand group: justify-between then pushes
+            only the phone/CTA cluster to the right edge. Previously all three
+            were separate children, so the free space split evenly and the nav
+            drifted to the middle of the bar looking unanchored. */}
+        <div className="flex items-center gap-8 xl:gap-14">
+          <Link href="/" className="group flex shrink-0 items-center gap-3">
+            <Monogram
+              tone={onDark ? "gold" : "ink"}
+              className="h-9 w-9 transition-transform duration-500 group-hover:rotate-[8deg]"
+            />
+            <div className="leading-none">
+              <div
                 className={cn(
-                  "relative text-sm font-medium transition-colors",
-                  onDark
-                    ? "text-ivory/80 hover:text-ivory"
-                    : "text-ink-600 hover:text-ink-900",
-                  active && (onDark ? "text-ivory" : "text-ink-900")
+                  "font-serif text-xl tracking-tightish transition-colors",
+                  onDark ? "text-ivory" : "text-ink-800"
                 )}
               >
-                {item.label}
-                {active && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-gold-400"
-                  />
-                )}
-              </Link>
-            );
-          })}
-        </nav>
+                PAL&rsquo;s Academy
+              </div>
+              <div className="mt-1 text-[10px] uppercase tracking-wider2 text-gold-400">
+                Private Tutoring
+              </div>
+            </div>
+          </Link>
+
+          {/* Tighter item spacing between lg and xl. At exactly 1024px the bar
+              has no slack left, so the wider xl gap only kicks in once there
+              is room for it. */}
+          <nav className="hidden items-center gap-6 lg:flex xl:gap-10">
+            {nav.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "relative text-sm font-medium transition-colors",
+                    onDark
+                      ? "text-ivory/80 hover:text-ivory"
+                      : "text-ink-600 hover:text-ink-900",
+                    active && (onDark ? "text-ivory" : "text-ink-900")
+                  )}
+                >
+                  {item.label}
+                  {active && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute -bottom-1 left-0 right-0 h-px bg-gold-400"
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
 
         <div className="hidden shrink-0 items-center gap-5 lg:flex xl:gap-6">
           <a

@@ -31,7 +31,9 @@ export default function HomePage() {
       <Method />
       <FoundingFamily />
       <FaqAccordion />
-      <CTA note="We're accepting a limited number of students for the summer semester. Spots are allocated as tutors are matched, not held in reserve." />
+      {/* Deliberately seasonless. This used to name the summer semester, which
+          reads as neglected copy the moment the term turns over. */}
+      <CTA note="We're accepting a limited number of students this term. Spots are allocated as tutors are matched, not held in reserve." />
     </>
   );
 }

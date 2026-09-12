@@ -58,9 +58,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.25 }}
           className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-100/90"
         >
-          One-to-one weekly sessions with verified tutors for Grade 9–12 and first-year
-          university. Quiet, exacting, and measurably effective — designed for families who
-          treat education as an investment.
+          Weekly sessions with verified tutors for Grade 9–12 and first-year university,
+          one-to-one or in a group of four. Quiet, exacting, and measurably effective —
+          designed for families who treat education as an investment.
         </motion.p>
 
         <motion.div
@@ -83,25 +83,14 @@ export default function Hero() {
           </Link>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.7 }}
-          className="mt-20 max-w-2xl border-t border-ivory/10 pt-8"
-        >
-          <div className="inline-flex items-center gap-2 rounded-full border border-gold-300/40 bg-gold-300/10 px-4 py-1.5 text-[11px] font-medium uppercase tracking-wider2 text-gold-300">
-            <Sparkles className="h-3.5 w-3.5" />
-            Founding cohort · Summer 2026
-          </div>
-          <p className="mt-5 max-w-xl text-base leading-relaxed">
-            <span className="font-medium text-gold-300">
-              Now accepting founding families for the 2026 summer semester.
-            </span>{" "}
-            <span className="text-ink-200">
-              Spots are limited — intake closes when tutor capacity is reached.
-            </span>
-          </p>
-        </motion.div>
+        {/* The hero deliberately ends on the CTAs. It used to close on a
+            "Founding cohort · Summer 2026" banner, which was dated and was the
+            third repeat of a founding pitch the page already makes twice below
+            (FoundingFamily + the closing CTA note). Replacements were tried and
+            cut: every credibility angle available here is already a Pillar or a
+            Method step, so anything in this slot competed with the sections
+            below instead of adding to them. Don't refill it without a job that
+            nothing else on the page is already doing. */}
 
         <motion.div
           initial={{ opacity: 0 }}
