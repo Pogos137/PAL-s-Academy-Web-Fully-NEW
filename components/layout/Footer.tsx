@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Monogram from "@/components/ui/Monogram";
+import { PORTAL_ENABLED } from "@/lib/feature-flags";
 
 const PHONE_DISPLAY = "(437) 777-4828";
 const PHONE_TEL = "+14377774828";
@@ -45,8 +46,14 @@ const cols = [
     title: "Get Started",
     links: [
       { href: "/booking", label: "Book free consultation" },
-      { href: "/auth/login", label: "Student portal" },
-      { href: "/auth/signup", label: "Create account" }
+      // Re-appear the moment PORTAL_ENABLED goes back to true.
+      ...(PORTAL_ENABLED
+        ? [
+            { href: "/auth/login", label: "Student portal" },
+            { href: "/auth/signup", label: "Create account" }
+          ]
+        : []),
+      { href: "/contact", label: "Contact us" }
     ]
   },
   {

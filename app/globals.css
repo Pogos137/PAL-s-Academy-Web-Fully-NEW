@@ -23,6 +23,12 @@ body { font-family: var(--font-sans); }
 @layer components {
   .container-luxe { @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12; }
 
+  /* The nav bar spans the viewport rather than sitting inside the 1280px body
+     column, so the wordmark sits near the left edge and the phone number and
+     consultation button near the right instead of bunching in the middle on a
+     wide display. Capped so the bar does not stretch absurdly on ultrawides. */
+  .container-header { @apply mx-auto w-full max-w-[1920px] px-6 sm:px-8 lg:px-10 xl:px-16; }
+
   .eyebrow {
     @apply inline-flex items-center gap-2 text-[11px] uppercase tracking-wider2 font-medium text-gold-400;
   }
