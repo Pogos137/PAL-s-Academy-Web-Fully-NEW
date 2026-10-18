@@ -74,12 +74,13 @@ export const locations: LocationContent[] = [
       "University of Toronto (St. George)",
       "Toronto Metropolitan University",
       "York University",
+      "University of Toronto Scarborough (UTSC)",
       "OCAD University"
     ],
     localBody: [
       "Toronto is the most competitive admissions market in the country. Students across the TDSB and TCDSB are aiming at the University of Toronto, Toronto Metropolitan, and out-of-province programs where a single Grade 12 mark in chemistry, calculus, or English can decide an offer. The pressure is real, and it rarely shows up as a knowledge problem — it shows up as a confidence problem.",
       "We work the actual Ontario curriculum your student is sitting in, by course code, and we keep the same tutor every week so nothing has to be re-explained from scratch. Because sessions run online, a student in Yorkville and a student in Scarborough get the same tutor quality with zero commute — no fighting the 401 or the subway to get to a lesson.",
-      "That reach matters in a city this spread out. We support families from Midtown, Forest Hill, and Rosedale to Leaside, Riverdale, the Beaches, and High Park, and out through North York and Etobicoke — without anyone needing to travel. Whether your student is in a competitive academic stream downtown or a fast-moving west-end classroom, the tutor is matched to the course, not to the postal code.",
+      "That reach matters in a city this spread out. We support families from Midtown, Forest Hill and Rosedale to Leaside, Riverdale, the Beaches and High Park, and just as much across North York, Scarborough and Etobicoke. In North York that means students from Willowdale to Don Mills, many with York University close by. In Scarborough it runs from the Bluffs up to Malvern, with U of T Scarborough and Centennial College in the community. In Etobicoke it reaches from the Kingsway out to Rexdale. Wherever your student is, the tutor is matched to the course, not to the postal code.",
       "The courses that most often decide a Toronto student's options are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/sch4u-chemistry-tutoring), [SPH4U Physics](/subjects/sph4u-physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — alongside ENG4U English, which nearly every program counts. These are exactly the courses our tutors specialise in, each having earned 90+ in the subject they teach.",
       "We don't promise a letter grade by a date. What we do is find where the understanding actually broke — usually a unit or two before the marks slipped — and rebuild from there, with written lesson notes after each session so parents can see what changed. For most Toronto students, momentum returns within the first few weeks, and a clearer grade picture follows by the end of the reporting term."
     ],
@@ -93,7 +94,14 @@ export const locations: LocationContent[] = [
       "Riverdale",
       "The Beaches",
       "High Park",
-      "Davisville"
+      "Davisville",
+      "North York",
+      "Willowdale",
+      "Don Mills",
+      "Scarborough",
+      "Malvern",
+      "Etobicoke",
+      "The Kingsway"
     ],
     highlights: [
       {
@@ -115,6 +123,10 @@ export const locations: LocationContent[] = [
         a: "Right now every session runs online, so there's no commute and your student keeps the same tutor each week regardless of traffic or weather. An in-person option in the GTA is something we plan to add as we grow."
       },
       {
+        q: "Do you tutor students in North York, Scarborough and Etobicoke?",
+        a: "Yes. All three are part of Toronto, and because sessions run live online, a student in Willowdale, Malvern or the Kingsway gets the same tutor quality as one downtown, with no commute. Tutors follow the same TDSB and TCDSB course outlines, and first-year courses at York University and U of T Scarborough are covered too."
+      },
+      {
         q: "Which Toronto courses do you cover?",
         a: "Grade 9 to 12 across the Ontario curriculum: math from MPM2D through MCV4U and MDM4U, SCH4U, SPH4U and SBI4U on the science side, plus English, French and computer science. For students already at U of T, TMU or York, we also tutor first-year science and math."
       },
@@ -123,7 +135,7 @@ export const locations: LocationContent[] = [
         a: "Every family buys a package of sessions in CAD rather than paying by the hour, and the size of the package is what sets the cost: how many sessions your student needs, and whether 1-on-1 or a PAL's Circle group of three or four suits them. Subject never changes the price. We quote it on the free consultation, or call (437) 777-4828."
       }
     ],
-    nearby: ["north-york", "etobicoke", "scarborough"]
+    nearby: ["mississauga", "vaughan", "markham"]
   },
   {
     slug: "mississauga",
@@ -191,7 +203,7 @@ export const locations: LocationContent[] = [
         a: "Tutoring is a package of sessions in CAD, not an hourly rate. Its cost comes down to how many sessions your student needs and whether they work 1-on-1 or in a small PAL's Circle, and it is the same whichever subject they take. Call (437) 777-4828 or book the free consultation and we will quote it."
       }
     ],
-    nearby: ["etobicoke", "brampton", "toronto"]
+    nearby: ["toronto", "brampton"]
   },
   {
     slug: "markham",
@@ -258,7 +270,7 @@ export const locations: LocationContent[] = [
         a: "We price by package rather than by the hour, in CAD, and a harder subject never costs more. The total depends on the number of sessions your student needs and on 1-on-1 versus a PAL's Circle group of three or four, which is what the free consultation works out. You can also call (437) 777-4828."
       }
     ],
-    nearby: ["vaughan", "north-york", "scarborough"]
+    nearby: ["toronto", "vaughan"]
   },
   {
     slug: "vaughan",
@@ -324,7 +336,7 @@ export const locations: LocationContent[] = [
         a: "Sessions are sold in packages, in CAD, and the subject makes no difference to the price. What changes the total is how many sessions your student needs and whether 1-on-1 or a PAL's Circle is the right format. We quote it on the free consultation, or call (437) 777-4828."
       }
     ],
-    nearby: ["markham", "north-york", "brampton"]
+    nearby: ["toronto", "markham", "brampton"]
   },
   {
     slug: "brampton",
@@ -392,168 +404,6 @@ export const locations: LocationContent[] = [
       }
     ],
     nearby: ["mississauga", "vaughan", "toronto"]
-  },
-  {
-    slug: "north-york",
-    city: "North York",
-    region: "City of Toronto",
-    metaTitle: "North York Tutoring · Grade 9–12 & Uni",
-    metaDescription:
-      "Online 1-on-1 tutoring for North York students in Grade 9–12 and first-year university — math, sciences, English & CS, matched to a 90+ tutor. Book a free consultation.",
-    eyebrow: "Online · North York · TDSB & TCDSB",
-    h1: "Private tutoring for North York students.",
-    heroIntro:
-      "North York is home to some of Toronto's most demanding academic programs, and students here aim high. We match your student with a tutor who scored 90+ in their exact course and meet weekly, online, to keep the hard courses from becoming the deciding ones.",
-    boards: [
-      "Toronto District School Board (TDSB)",
-      "Toronto Catholic District School Board (TCDSB)"
-    ],
-    universities: [
-      "York University",
-      "University of Toronto",
-      "Seneca Polytechnic"
-    ],
-    localBody: [
-      "North York's TDSB and TCDSB schools include some of the city's strongest academic streams, and the competition for top marks is intense. With York University in the neighbourhood and U of T a short ride away, the chemistry, calculus and English marks students earn in Grade 12 translate directly into university options.",
-      "We work the exact Ontario course your student is taking, by code, with the same tutor each week so progress builds instead of resetting. Sessions run online, so students from Willowdale to Don Mills get the same tutor quality with no commute eating into study time."
-    ],
-    highlights: [
-      {
-        title: "No commute, ever",
-        body: "Sessions run online — no travel across North York, no transit time, just the lesson when it's scheduled."
-      },
-      {
-        title: "The Ontario curriculum, exactly",
-        body: "We tutor by course code so the work maps onto what your student's TDSB or TCDSB teacher is grading."
-      },
-      {
-        title: "The same tutor every week",
-        body: "One matched tutor, 90+ in the subject, every session — building on last week rather than starting fresh."
-      }
-    ],
-    faqs: [
-      {
-        q: "Do you offer in-person tutoring in North York?",
-        a: "Sessions are online for now, which keeps the same tutor each week with no commute. An in-person GTA option is on our roadmap as we grow."
-      },
-      {
-        q: "Which North York courses do you cover?",
-        a: "The full Grade 9–12 Ontario sequence — math, chemistry, physics, biology, English, French and computer science — plus first-year university math and science."
-      },
-      {
-        q: "What does it cost?",
-        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
-      }
-    ],
-    nearby: ["toronto", "vaughan", "markham"]
-  },
-  {
-    slug: "scarborough",
-    city: "Scarborough",
-    region: "City of Toronto",
-    metaTitle: "Scarborough Tutoring · Grade 9–12 & Uni",
-    metaDescription:
-      "Online 1-on-1 tutoring for Scarborough students in Grade 9–12 and first-year university — math, sciences, English & CS, matched to a 90+ tutor. Book a free consultation.",
-    eyebrow: "Online · Scarborough · TDSB & TCDSB",
-    h1: "Private tutoring for Scarborough students.",
-    heroIntro:
-      "With the University of Toronto Scarborough campus right in the community, the marks students earn here matter close to home. We match your student with a tutor who scored 90+ in their exact course and meet weekly, online, so the hard courses become a strength rather than a worry.",
-    boards: [
-      "Toronto District School Board (TDSB)",
-      "Toronto Catholic District School Board (TCDSB)"
-    ],
-    universities: [
-      "University of Toronto Scarborough (UTSC)",
-      "Centennial College",
-      "University of Toronto (St. George)"
-    ],
-    localBody: [
-      "Scarborough's TDSB and TCDSB schools serve a huge, diverse range of students, and in big classes the students who quietly fall behind in SCH4U or MCV4U are often the ones who needed only a little focused help. With UTSC and Centennial nearby, strong Grade 11 and 12 marks keep excellent local options open.",
-      "We give one-on-one attention on the exact Ontario course your student is taking, with the same tutor each week. Everything runs online, so a student near the Bluffs and one up by Malvern get identical tutor quality without spending the evening on a bus."
-    ],
-    highlights: [
-      {
-        title: "No commute, ever",
-        body: "Sessions run online from home — no travel across Scarborough, no transit time, just the lesson."
-      },
-      {
-        title: "The Ontario curriculum, exactly",
-        body: "We teach by course code so the work lines up with what your student's TDSB or TCDSB teacher is grading."
-      },
-      {
-        title: "The same tutor every week",
-        body: "One matched tutor, 90+ in the course, every session — the consistency that turns effort into results."
-      }
-    ],
-    faqs: [
-      {
-        q: "Do you offer in-person tutoring in Scarborough?",
-        a: "All sessions are online for now, which means no commute and the same tutor weekly. An in-person GTA option is planned as we grow."
-      },
-      {
-        q: "Which Scarborough courses do you cover?",
-        a: "The full Grade 9–12 Ontario sequence — math, chemistry, physics, biology, English, French and computer science — plus first-year university science and math, including UTSC courses."
-      },
-      {
-        q: "What does it cost?",
-        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
-      }
-    ],
-    nearby: ["toronto", "markham", "north-york"]
-  },
-  {
-    slug: "etobicoke",
-    city: "Etobicoke",
-    region: "City of Toronto",
-    metaTitle: "Etobicoke Tutoring · Grade 9–12 & Uni",
-    metaDescription:
-      "Online 1-on-1 tutoring for Etobicoke students in Grade 9–12 and first-year university — math, sciences, English & CS, matched to a 90+ tutor. Book a free consultation.",
-    eyebrow: "Online · Etobicoke · TDSB & TCDSB",
-    h1: "Private tutoring for Etobicoke students.",
-    heroIntro:
-      "Etobicoke students juggle demanding course loads with everything else a west-end life involves. We match your student with a tutor who scored 90+ in their exact course and meet weekly, online, so the toughest subjects get steady attention without adding a commute.",
-    boards: [
-      "Toronto District School Board (TDSB)",
-      "Toronto Catholic District School Board (TCDSB)"
-    ],
-    universities: [
-      "Humber College",
-      "University of Toronto",
-      "Toronto Metropolitan University"
-    ],
-    localBody: [
-      "Across Etobicoke's TDSB and TCDSB schools, the Grade 11 and 12 sciences and math courses are where university plans are quietly won or lost. A capable student who falls behind early in chemistry or functions can spend months compensating — when a few focused sessions would have fixed the foundation.",
-      "We tutor the exact course your student is taking, by code, with the same tutor every week. Because sessions are online, a student near the Kingsway and one out by Rexdale get the same tutor quality with no commute and no evenings lost to traffic on the Gardiner or the 427."
-    ],
-    highlights: [
-      {
-        title: "No commute, ever",
-        body: "Sessions run online — no driving across Etobicoke, no time lost to the 427, just the lesson on schedule."
-      },
-      {
-        title: "The Ontario curriculum, exactly",
-        body: "We teach by course code so each session matches what your student's TDSB or TCDSB teacher is grading."
-      },
-      {
-        title: "The same tutor every week",
-        body: "One matched tutor, 90+ in the subject, every session — steady progress instead of constant restarts."
-      }
-    ],
-    faqs: [
-      {
-        q: "Do you offer in-person tutoring in Etobicoke?",
-        a: "Sessions are online for now, which keeps the same tutor each week with no commute. An in-person option across the GTA is on our roadmap as we grow."
-      },
-      {
-        q: "Which Etobicoke courses do you cover?",
-        a: "The full Grade 9–12 Ontario sequence — math, chemistry, physics, biology, English, French and computer science — plus first-year university math and science."
-      },
-      {
-        q: "What does it cost?",
-        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
-      }
-    ],
-    nearby: ["toronto", "mississauga", "north-york"]
   }
 ];
 

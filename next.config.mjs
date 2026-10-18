@@ -17,7 +17,15 @@ const nextConfig = {
       // redirected instead, so links written against the brief still land.
       { source: "/chemistry-tutoring-toronto", destination: "/tutoring/toronto/chemistry", permanent: true },
       { source: "/physics-tutoring-toronto", destination: "/tutoring/toronto/physics", permanent: true },
-      { source: "/math-tutoring-mississauga", destination: "/tutoring/mississauga/math", permanent: true }
+      { source: "/math-tutoring-mississauga", destination: "/tutoring/mississauga/math", permanent: true },
+      // North York, Scarborough and Etobicoke are districts of the City of
+      // Toronto. Their pages were the thinnest on the site (42–47% of body text
+      // unique) and competed with /tutoring/toronto for the same families, so
+      // they were folded into it in Oct 2026. The Toronto page now covers all
+      // three by name.
+      { source: "/tutoring/north-york", destination: "/tutoring/toronto", permanent: true },
+      { source: "/tutoring/scarborough", destination: "/tutoring/toronto", permanent: true },
+      { source: "/tutoring/etobicoke", destination: "/tutoring/toronto", permanent: true }
     ];
   },
   experimental: {
