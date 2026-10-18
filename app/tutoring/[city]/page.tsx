@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, MapPin, GraduationCap } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 import JsonLd from "@/components/seo/JsonLd";
+import { renderParagraph } from "@/components/ui/InlineLinks";
 import { buildMetadata } from "@/lib/seo";
 import { siteUrl } from "@/lib/utils";
 import { getLocation, locationSlugs } from "@/lib/locations-content";
@@ -20,33 +20,6 @@ type Params = { city: string };
 // Six most-requested subjects, surfaced on every city page as internal links
 // into the subject landing pages (city → subject is a strong relevance signal).
 const featuredSubjects = subjects.slice(0, 6);
-
-// Parse inline [label](/path) markdown links in local-context copy into
-// next/link nodes — contextual city → subject internal links (strong SEO
-// signal). Mirrors the parser in app/blog/[slug]/page.tsx.
-const LINK_RE = /\[([^\]]+)\]\((\/[^)]+)\)/g;
-
-function renderParagraph(text: string): ReactNode[] {
-  const nodes: ReactNode[] = [];
-  let last = 0;
-  let m: RegExpExecArray | null;
-  LINK_RE.lastIndex = 0;
-  while ((m = LINK_RE.exec(text)) !== null) {
-    if (m.index > last) nodes.push(text.slice(last, m.index));
-    nodes.push(
-      <Link
-        key={`${m.index}-${m[2]}`}
-        href={m[2]}
-        className="font-medium text-gold-600 underline-offset-4 transition-colors hover:text-gold-700 hover:underline"
-      >
-        {m[1]}
-      </Link>
-    );
-    last = m.index + m[0].length;
-  }
-  if (last < text.length) nodes.push(text.slice(last));
-  return nodes;
-}
 
 // Prerender all city pages at build time.
 export function generateStaticParams(): Params[] {

@@ -5,6 +5,7 @@ import { ArrowRight, Check, MapPin, GraduationCap } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 import JsonLd from "@/components/seo/JsonLd";
+import { renderParagraph } from "@/components/ui/InlineLinks";
 import { buildMetadata } from "@/lib/seo";
 import { siteUrl } from "@/lib/utils";
 import { getSubject } from "@/lib/subjects-content";
@@ -18,6 +19,38 @@ import {
 } from "@/lib/intersections-content";
 
 type Params = { city: string; subject: string };
+
+// The course-code pages that own each subject's Grade 12 codes. Linked from the
+// "Explore more" grid so city × subject pages pass relevance to the page that
+// should rank for "SCH4U tutoring", rather than only to the general subject page.
+const COURSE_PAGES: Record<string, { slug: string; label: string; blurb: string }[]> = {
+  "chemistry-tutoring": [
+    {
+      slug: "sch4u-chemistry-tutoring",
+      label: "SCH4U Chemistry",
+      blurb: "All five SCH4U units, from organic through electrochemistry."
+    }
+  ],
+  "physics-tutoring": [
+    {
+      slug: "sph4u-physics-tutoring",
+      label: "SPH4U Physics",
+      blurb: "Dynamics, momentum, fields, waves and modern physics, unit by unit."
+    }
+  ],
+  "math-tutoring": [
+    {
+      slug: "advanced-functions-tutoring",
+      label: "MHF4U Advanced Functions",
+      blurb: "The function families MCV4U assumes you already own."
+    },
+    {
+      slug: "calculus-vectors-tutoring",
+      label: "MCV4U Calculus & Vectors",
+      blurb: "Derivatives, their applications, and vectors in two and three dimensions."
+    }
+  ]
+};
 
 // Prerender only the curated city × subject pairs (never all combinations).
 export function generateStaticParams(): Params[] {
@@ -151,21 +184,24 @@ export default function CitySubjectPage({ params }: { params: Params }) {
         </div>
       </section>
 
-      {/* WHAT WE COVER */}
+      {/* CHOOSING A TUTOR — hand-written per page. This slot used to reprint the
+          subject page's topic grid and "why it matters" copy verbatim, which made
+          every city × subject page a near-copy of /subjects/<subject>. Google
+          crawled them and declined to index them, so each page now carries its own. */}
       <section className="relative bg-ivory py-24">
         <div className="container-luxe">
           <Reveal>
-            <div className="eyebrow">What we cover</div>
+            <div className="eyebrow">Before you hire anyone</div>
             <h2 className="display mt-4 max-w-3xl text-4xl text-ink-800 sm:text-5xl">
-              {subject.subject} in {location.city}, by course code.
+              Choosing a {subject.subject.toLowerCase()} tutor in {location.city}.
             </h2>
           </Reveal>
-          <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {subject.topics.map((t) => (
-              <StaggerItem key={t}>
-                <div className="flex items-start gap-3 rounded-2xl border border-ink-100 bg-ivory-50 p-5 transition-colors hover:border-gold-300">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
-                  <span className="text-sm text-ink-700">{t}</span>
+          <Stagger className="mt-12 grid gap-6 md:grid-cols-3">
+            {x.criteria.map((c) => (
+              <StaggerItem key={c.title}>
+                <div className="card-luxe h-full">
+                  <h3 className="font-serif text-2xl text-ink-800">{c.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-600">{c.body}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -173,21 +209,21 @@ export default function CitySubjectPage({ params }: { params: Params }) {
         </div>
       </section>
 
-      {/* WHY IT MATTERS HERE */}
+      {/* WHERE IT LEADS HERE */}
       <section className="relative overflow-hidden bg-ink-50 py-24">
         <div className="container-luxe">
           <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
             <Reveal>
               <div>
                 <div className="eyebrow">Why it matters in {location.city}</div>
-                <h2 className="display mt-4 text-4xl text-ink-800 sm:text-5xl">{subject.whyTitle}</h2>
+                <h2 className="display mt-4 text-4xl text-ink-800 sm:text-5xl">{x.localTitle}</h2>
               </div>
             </Reveal>
             <Reveal delay={0.1}>
               <div className="space-y-5">
-                {subject.whyBody.map((p, i) => (
+                {x.localBody.map((p, i) => (
                   <p key={i} className="leading-relaxed text-ink-600">
-                    {p}
+                    {renderParagraph(p)}
                   </p>
                 ))}
               </div>
@@ -278,6 +314,22 @@ export default function CitySubjectPage({ params }: { params: Params }) {
                 </span>
               </Link>
             </StaggerItem>
+            {(COURSE_PAGES[subject.slug] ?? []).map((c) => (
+              <StaggerItem key={c.slug}>
+                <Link
+                  href={`/subjects/${c.slug}`}
+                  className="group flex h-full flex-col rounded-2xl border border-ink-100 bg-ivory p-7 transition-all duration-500 hover:border-gold-300 hover:shadow-luxe"
+                >
+                  <div className="eyebrow">Grade 12 course</div>
+                  <h3 className="mt-4 font-serif text-2xl text-ink-800">{c.label} tutoring</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-600">{c.blurb}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium text-gold-600">
+                    Explore
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </StaggerItem>
+            ))}
             <StaggerItem>
               <Link
                 href={`/tutoring/${location.slug}`}

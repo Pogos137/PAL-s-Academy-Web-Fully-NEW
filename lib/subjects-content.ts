@@ -111,9 +111,9 @@ export const subjects: SubjectContent[] = [
     slug: "sch4u-chemistry-tutoring",
     subject: "SCH4U Chemistry",
     serviceType: "SCH4U chemistry tutoring",
-    metaTitle: "SCH4U Chemistry Tutoring",
+    metaTitle: "SCH4U Tutoring | Grade 12 Chemistry Tutor",
     metaDescription:
-      "Private 1-on-1 SCH4U tutoring across the GTA. Organic chemistry, equilibrium, thermochemistry and electrochemistry, with a tutor who scored 90+. Free consultation.",
+      "Private 1-on-1 SCH4U tutoring, online across the GTA: organic, equilibrium, energetics and electrochemistry, with a tutor who scored 90+. Free consultation.",
     eyebrow: "SCH4U · Grade 12 Chemistry",
     h1: "SCH4U tutoring, unit by unit.",
     heroIntro:
@@ -237,7 +237,7 @@ export const subjects: SubjectContent[] = [
     slug: "sph4u-physics-tutoring",
     subject: "SPH4U Physics",
     serviceType: "SPH4U physics tutoring",
-    metaTitle: "SPH4U Physics Tutoring",
+    metaTitle: "SPH4U Tutoring | Grade 12 Physics Tutor",
     metaDescription:
       "Private 1-on-1 SPH4U tutoring across the GTA. Dynamics, energy and momentum, fields, waves and modern physics, with a tutor who scored 90+. Free consultation.",
     eyebrow: "SPH4U · Grade 12 Physics",
@@ -363,7 +363,7 @@ export const subjects: SubjectContent[] = [
     slug: "sbi4u-biology-tutoring",
     subject: "SBI4U Biology",
     serviceType: "SBI4U biology tutoring",
-    metaTitle: "SBI4U Biology Tutoring",
+    metaTitle: "SBI4U Tutoring | Grade 12 Biology Tutor",
     metaDescription:
       "Private 1-on-1 SBI4U tutoring across the GTA. Biochemistry, metabolic processes, molecular genetics, homeostasis and population dynamics. Free consultation.",
     eyebrow: "SBI4U · Grade 12 Biology",
@@ -487,9 +487,9 @@ export const subjects: SubjectContent[] = [
     slug: "calculus-vectors-tutoring",
     subject: "Calculus & Vectors",
     serviceType: "Calculus tutoring",
-    metaTitle: "MCV4U Calculus & Vectors Tutoring",
+    metaTitle: "MCV4U Tutoring | Calculus & Vectors Tutor",
     metaDescription:
-      "Private 1-on-1 MCV4U Calculus & Vectors tutoring across the GTA, plus first-year university calculus. Verified tutors, weekly online sessions. Book a free consultation.",
+      "Private 1-on-1 MCV4U Calculus & Vectors tutoring across the GTA, plus first-year calculus. Tutors who scored 90+, weekly online sessions. Free consultation.",
     eyebrow: "MCV4U · First-year calculus",
     h1: "MCV4U Calculus & Vectors tutoring, by someone who aced it.",
     heroIntro:
@@ -546,9 +546,9 @@ export const subjects: SubjectContent[] = [
     slug: "advanced-functions-tutoring",
     subject: "Advanced Functions",
     serviceType: "Advanced Functions tutoring",
-    metaTitle: "MHF4U Advanced Functions Tutoring",
+    metaTitle: "MHF4U Tutoring | Advanced Functions Tutor",
     metaDescription:
-      "Private 1-on-1 MHF4U Advanced Functions tutoring across the GTA — the foundation for MCV4U Calculus. Verified tutors, weekly online sessions. Book a free consultation.",
+      "Private 1-on-1 MHF4U Advanced Functions tutoring across the GTA, the foundation for MCV4U. Tutors who scored 90+, weekly online sessions. Free consultation.",
     eyebrow: "MHF4U · Foundation for calculus",
     h1: "MHF4U Advanced Functions tutoring that sets up the rest.",
     heroIntro:
@@ -607,7 +607,7 @@ export const subjects: SubjectContent[] = [
     serviceType: "English tutoring",
     metaTitle: "ENG4U English Tutoring in the GTA",
     metaDescription:
-      "Private 1-on-1 ENG4U & ENG3U English tutoring across the GTA, plus university application essays. Verified tutors, weekly online sessions. Book a free consultation.",
+      "Private 1-on-1 ENG4U & ENG3U English tutoring across the GTA, plus university application essays. Verified tutors, weekly online sessions. Free consultation.",
     eyebrow: "ENG3U · ENG4U · Application essays",
     h1: "English tutoring that teaches what rubrics actually reward.",
     heroIntro:
@@ -723,9 +723,9 @@ export const subjects: SubjectContent[] = [
     slug: "data-management-tutoring",
     subject: "Data Management",
     serviceType: "Data Management tutoring",
-    metaTitle: "MDM4U Data Management Tutoring",
+    metaTitle: "MDM4U Tutoring | Data Management Tutor",
     metaDescription:
-      "Private 1-on-1 MDM4U Data Management tutoring across the GTA — probability, statistics, and the culminating project. Verified tutors, online. Book a free consultation.",
+      "Private 1-on-1 MDM4U Data Management tutoring across the GTA: probability, statistics and the culminating project, with a 90+ tutor. Free consultation.",
     eyebrow: "MDM4U · Statistics & probability",
     h1: "MDM4U Data Management tutoring that makes statistics click.",
     heroIntro:

@@ -87,7 +87,7 @@ export const articles: Article[] = [
       {
         heading: "Start with prerequisites, not just the average",
         body: [
-          "Every U of T program lists required Grade 12 U/M courses, and meeting those prerequisites is non-negotiable — a strong average can't substitute for a missing required course. ENG4U is required for essentially every program. Beyond that, programs specify their own: most science and engineering streams require [MHF4U](/subjects/advanced-functions-tutoring) and [MCV4U](/subjects/calculus-vectors-tutoring), the sciences require courses like [SCH4U](/subjects/chemistry-tutoring), [SPH4U](/subjects/physics-tutoring), or [SBI4U](/subjects/biology-tutoring), and commerce programs typically require calculus.",
+          "Every U of T program lists required Grade 12 U/M courses, and meeting those prerequisites is non-negotiable — a strong average can't substitute for a missing required course. ENG4U is required for essentially every program. Beyond that, programs specify their own: most science and engineering streams require [MHF4U](/subjects/advanced-functions-tutoring) and [MCV4U](/subjects/calculus-vectors-tutoring), the sciences require courses like [SCH4U](/subjects/sch4u-chemistry-tutoring), [SPH4U](/subjects/sph4u-physics-tutoring), or [SBI4U](/subjects/sbi4u-biology-tutoring), and commerce programs typically require calculus.",
           "The practical takeaway: identify your target programs early and reverse-engineer your Grade 11 and 12 course selection from their prerequisites. A missing prerequisite discovered in Grade 12 is a hard problem to fix."
         ]
       },
@@ -142,19 +142,21 @@ export const articles: Article[] = [
   },
   {
     slug: "sch4u-vs-sph4u-which-is-harder",
-    title: "SCH4U vs SPH4U: Which Is Harder, Chemistry or Physics?",
-    metaTitle: "SCH4U vs SPH4U: Which Is Harder?",
+    title: "SCH4U, SPH4U or SBI4U: Which Grade 12 Science Is Hardest?",
+    metaTitle: "SCH4U, SPH4U or SBI4U: Which Is Harder?",
     metaDescription:
-      "SCH4U Chemistry or SPH4U Physics — which Grade 12 science is harder, and which should you take? An honest comparison for Ontario students choosing courses.",
+      "SCH4U Chemistry, SPH4U Physics or SBI4U Biology: which Grade 12 science is hardest, and which should you take? An honest comparison for Ontario students.",
     category: "Course Guides",
     eyebrow: "Course Guides · Grade 12 Science",
-    readMinutes: 7,
+    readMinutes: 9,
     publishedISO: "2026-05-13",
     publishedLabel: "May 13, 2026",
+    updatedISO: "2026-10-18",
+    updatedLabel: "October 18, 2026",
     excerpt:
-      "Chemistry or physics for Grade 12? What SCH4U and SPH4U each really demand, who tends to find which harder, and how to decide for your goals.",
+      "Chemistry, physics or biology for Grade 12? What SCH4U, SPH4U and SBI4U each demand, who tends to find which harder, and how to choose for your goals.",
     intro: [
-      "For Ontario students heading into Grade 12 science, two course codes come up again and again: SCH4U Chemistry and SPH4U Physics. Both are respected, both are required for different university programs, and both have a reputation for being hard — which leads to the question we hear constantly: which one is actually harder?",
+      "For Ontario students heading into Grade 12 science, three course codes come up again and again: SCH4U Chemistry, SPH4U Physics and SBI4U Biology. All three are respected, each is required by different university programs, and each has a reputation for being hard. That leads to the question we hear constantly: which one is actually harder?",
       "The honest answer is that they're difficult in different ways, and the right choice depends more on your strengths and your university goals than on any universal ranking. Here's a clear comparison to help you decide."
     ],
     sections: [
@@ -162,40 +164,50 @@ export const articles: Article[] = [
         heading: "What each course demands",
         body: [
           "SCH4U is broad and detail-dense. It moves through organic chemistry, structure and bonding, energy and rates, equilibrium, and electrochemistry — five fairly distinct units, each with its own vocabulary, rules, and problem types. Success comes from consistent, cumulative work: the mole concept and stoichiometry from Grade 11 underpin almost everything, and falling behind in one unit quietly weakens the next.",
-          "SPH4U is narrower but deeper. It asks you to model situations and reason from a small set of principles — kinematics, dynamics, energy and momentum, fields, and waves. There's less to memorize, but the thinking is more abstract and the math is heavier. Where chemistry rewards diligence, physics rewards conceptual clarity."
+          "SPH4U is narrower but deeper. It asks you to model situations and reason from a small set of principles — kinematics, dynamics, energy and momentum, fields, and waves. There's less to memorize, but the thinking is more abstract and the math is heavier. Where chemistry rewards diligence, physics rewards conceptual clarity.",
+          "SBI4U sits somewhere else again. It covers biochemistry, metabolic processes, molecular genetics, homeostasis and population dynamics, and it carries the most terminology of the three. The math is light, but the tests ask students to explain a mechanism step by step and predict what happens when one part of a system changes, which rewards understanding far more than recall."
         ]
       },
       {
         heading: "Who tends to find which harder",
         body: [
           "Students who are organized, detail-oriented, and willing to put in steady review often find chemistry more comfortable — there's a clear path, and effort reliably pays off. Students who think well in abstractions and enjoy problem-solving tend to prefer physics, even though it feels less predictable.",
-          "The flip side: students who dislike memorization can find SCH4U's volume draining, while students with shaky algebra often struggle in SPH4U, because physics constantly leans on the math from [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring). Neither course is easier in the abstract — it depends on how you're wired and how solid your foundations are."
+          "The flip side: students who dislike memorization can find SCH4U's volume draining, while students with shaky algebra often struggle in SPH4U, because physics constantly leans on the math from [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring). Neither course is easier in the abstract — it depends on how you're wired and how solid your foundations are.",
+          "Biology is where students who rely on memorizing get caught out. SBI4U looks manageable because there is so little calculation, then the unit tests ask why rather than what. Students who can explain a process in their own words usually do well; students who learned the diagrams by shape rather than by function often find it the hardest of the three."
         ]
       },
       {
         heading: "The math factor people underestimate",
         body: [
-          "This is the single most overlooked point. SPH4U uses algebra and trigonometry heavily and constantly; a student who's strong conceptually but weak mechanically will bleed marks. SCH4U uses math too — especially in stoichiometry, equilibrium, and energy calculations — but it's more procedural and less varied. If your math foundation is weak, physics will expose it faster than chemistry will."
+          "This is the single most overlooked point. SPH4U uses algebra and trigonometry heavily and constantly; a student who's strong conceptually but weak mechanically will bleed marks. SCH4U uses math too — especially in stoichiometry, equilibrium, and energy calculations — but it's more procedural and less varied. If your math foundation is weak, physics will expose it faster than chemistry will.",
+          "SBI4U is the lightest of the three on math, which is why students with weaker algebra sometimes lean toward it. That is a sound choice only when the programs they are aiming for do not require the course they are avoiding."
+        ]
+      },
+      {
+        heading: "Where SBI4U fits alongside chemistry",
+        body: [
+          "SBI4U and SCH4U overlap more than most students expect. The biochemistry and metabolism units lean on chemistry ideas such as bonding, functional groups and energy changes, so students taking both in the same year often find each course reinforces the other.",
+          "That is one reason the pairing is so common for students heading into life-science and health programs, many of which list both. If biology is on your list, our [SBI4U study guide](/blog/sbi4u-biology-study-guide) covers each unit and how to study it."
         ]
       },
       {
         heading: "Which one should you take?",
         body: [
-          "Let your university goals lead. Life-science, health-science, and many biology-adjacent programs lean on chemistry; engineering and physical-science programs require physics; plenty of competitive programs expect both. The first step is always the same: check the specific prerequisites for your target programs rather than guessing, because they differ from program to program.",
+          "Let your university goals lead. Life-science and health-science programs lean on chemistry and often biology; engineering and physical-science programs require physics; plenty of competitive programs expect two of the three. The first step is always the same: check the specific prerequisites for your target programs rather than guessing, because they differ from program to program.",
           "If your goals genuinely allow a choice, pick the course that matches your strengths — you'll work harder and score higher in the subject you're wired for. Our guide on [what Ontario universities look at](/blog/what-ontario-universities-look-at) can help you weigh how each fits your application."
         ]
       },
       {
-        heading: "How to do well in either one",
+        heading: "How to do well in any of them",
         body: [
-          "The principles are the same across both. Keep up week to week rather than cramming, because both courses are cumulative. Practise from a blank page instead of rereading notes. And keep an error log — the pattern in your mistakes tells you exactly where to focus.",
-          "For chemistry specifically, our [unit-by-unit SCH4U study approach](/blog/how-to-study-for-sch4u-chemistry) goes deeper; for physics, our [SPH4U study guide](/blog/sph4u-physics-study-guide) lays out the picture-principle-math method that unfamiliar test problems demand."
+          "The principles are the same across all three. Keep up week to week rather than cramming, because both courses are cumulative. Practise from a blank page instead of rereading notes. And keep an error log — the pattern in your mistakes tells you exactly where to focus.",
+          "For chemistry specifically, our [unit-by-unit SCH4U study approach](/blog/how-to-study-for-sch4u-chemistry) goes deeper; for physics, our [SPH4U study guide](/blog/sph4u-physics-study-guide) lays out the picture-principle-math method that unfamiliar test problems demand. For biology, practise explaining each process aloud from start to finish without notes, because that is the skill SBI4U tests reward."
         ]
       },
       {
         heading: "When a tutor makes the difference",
         body: [
-          "If your student is working hard in either course and the mark isn't reflecting it, the gap is usually specific and fixable — a weak foundation in chemistry, or a reasoning-and-process habit in physics. Our [SCH4U chemistry tutoring](/subjects/chemistry-tutoring) and [SPH4U physics tutoring](/subjects/physics-tutoring) pair students with a tutor who scored 90+ in that exact course and rebuild from where the understanding actually broke."
+          "If your student is working hard in any of these courses and the mark isn't reflecting it, the gap is usually specific and fixable: a weak foundation in chemistry, a reasoning habit in physics, or memorized biology that has not yet become understood biology. Our [SCH4U chemistry tutoring](/subjects/sch4u-chemistry-tutoring), [SPH4U physics tutoring](/subjects/sph4u-physics-tutoring) and [SBI4U biology tutoring](/subjects/sbi4u-biology-tutoring) pair students with a tutor who scored 90+ in that exact course and rebuild from where the understanding actually broke."
         ]
       }
     ],
@@ -203,14 +215,16 @@ export const articles: Article[] = [
       "SCH4U is broad and detail-dense (memory + diligence); SPH4U is narrower but more abstract (reasoning + heavier math).",
       "Neither is universally harder — it depends on your strengths and how solid your math foundation is.",
       "Physics leans hard on MHF4U algebra; weak math hurts SPH4U faster than SCH4U.",
+      "SBI4U is the lightest on math and the heaviest on terminology, and its tests reward explaining mechanisms, not recalling diagrams.",
+      "SBI4U and SCH4U overlap in biochemistry, so taking them in the same year often helps both.",
       "Let university prerequisites decide when they must; otherwise pick the course that fits how you think."
     ],
     related: [
-      { label: "SCH4U Chemistry tutoring", href: "/subjects/chemistry-tutoring" },
-      { label: "SPH4U Physics tutoring", href: "/subjects/physics-tutoring" },
-      { label: "How to study for SCH4U", href: "/blog/how-to-study-for-sch4u-chemistry" }
+      { label: "SCH4U Chemistry tutoring", href: "/subjects/sch4u-chemistry-tutoring" },
+      { label: "SPH4U Physics tutoring", href: "/subjects/sph4u-physics-tutoring" },
+      { label: "SBI4U Biology tutoring", href: "/subjects/sbi4u-biology-tutoring" }
     ],
-    relatedArticles: ["sph4u-physics-study-guide", "how-to-study-for-sch4u-chemistry"]
+    relatedArticles: ["sph4u-physics-study-guide", "how-to-study-for-sch4u-chemistry", "sbi4u-biology-study-guide"]
   },
   {
     slug: "sbi4u-biology-study-guide",
@@ -234,7 +248,7 @@ export const articles: Article[] = [
         heading: "What SBI4U actually covers",
         body: [
           "Grade 12 Biology moves through biochemistry, metabolism (including cellular respiration and photosynthesis), molecular genetics, homeostasis, and population dynamics. The units look unrelated, but a single theme runs through all of them: structure determines function, and systems self-regulate. Hold onto that theme and the details start to organize themselves.",
-          "The course also assumes a working comfort with some chemistry — bonding, energy, and molecular structure — which is why students who struggled in [SCH4U chemistry](/subjects/chemistry-tutoring) sometimes find the biochemistry and metabolism units harder than expected."
+          "The course also assumes a working comfort with some chemistry — bonding, energy, and molecular structure — which is why students who struggled in [SCH4U chemistry](/subjects/sch4u-chemistry-tutoring) sometimes find the biochemistry and metabolism units harder than expected."
         ]
       },
       {
@@ -266,7 +280,7 @@ export const articles: Article[] = [
         heading: "Where students lose marks — and when to get help",
         body: [
           "The most common SBI4U mark-losers are memorizing without understanding (which collapses on application questions), neglecting the late units, and underestimating the biochemistry the course assumes. None of these reflect ability — they reflect study method, which is very changeable.",
-          "If your student is putting in real hours and the biology mark still isn't moving, a tutor can find the specific disconnect fast. Our [SBI4U biology tutoring](/subjects/biology-tutoring) pairs students with a tutor who scored 90+ in the course and teaches biology as connected systems — the approach that actually holds under exam pressure."
+          "If your student is putting in real hours and the biology mark still isn't moving, a tutor can find the specific disconnect fast. Our [SBI4U biology tutoring](/subjects/sbi4u-biology-tutoring) pairs students with a tutor who scored 90+ in the course and teaches biology as connected systems — the approach that actually holds under exam pressure."
         ]
       }
     ],
@@ -277,8 +291,8 @@ export const articles: Article[] = [
       "Practise application questions and reconstruct systems from memory instead of relying on flashcards."
     ],
     related: [
-      { label: "SBI4U Biology tutoring", href: "/subjects/biology-tutoring" },
-      { label: "SCH4U Chemistry tutoring", href: "/subjects/chemistry-tutoring" },
+      { label: "SBI4U Biology tutoring", href: "/subjects/sbi4u-biology-tutoring" },
+      { label: "SCH4U Chemistry tutoring", href: "/subjects/sch4u-chemistry-tutoring" },
       { label: "How to study for SCH4U", href: "/blog/how-to-study-for-sch4u-chemistry" }
     ],
     relatedArticles: ["how-to-study-for-sch4u-chemistry", "first-year-university-science-is-different"]
@@ -584,7 +598,7 @@ export const articles: Article[] = [
         heading: "Where students lose marks — and when to get help",
         body: [
           "The most common SPH4U mark-losers are skipping the diagram, mixing up which principle applies, and dropping units or sign conventions in the algebra. None of these are about intelligence; they're about process, and process is teachable.",
-          "If your student understands the ideas in class but freezes on unfamiliar test problems, that's a reasoning-and-process gap, not a knowledge gap — and it's exactly what focused one-on-one work fixes fastest. Our [SPH4U Physics tutoring](/subjects/physics-tutoring) pairs students with a tutor who scored 90+ in the course and coaches the picture-principle-math habit until hard problems stop being intimidating. Because so much of physics rests on math, our [Advanced Functions tutoring](/subjects/advanced-functions-tutoring) can shore up the algebra underneath it."
+          "If your student understands the ideas in class but freezes on unfamiliar test problems, that's a reasoning-and-process gap, not a knowledge gap — and it's exactly what focused one-on-one work fixes fastest. Our [SPH4U Physics tutoring](/subjects/sph4u-physics-tutoring) pairs students with a tutor who scored 90+ in the course and coaches the picture-principle-math habit until hard problems stop being intimidating. Because so much of physics rests on math, our [Advanced Functions tutoring](/subjects/advanced-functions-tutoring) can shore up the algebra underneath it."
         ]
       }
     ],
@@ -595,7 +609,7 @@ export const articles: Article[] = [
       "Don't let the late waves and modern-physics units slip; they're very examinable."
     ],
     related: [
-      { label: "SPH4U Physics tutoring", href: "/subjects/physics-tutoring" },
+      { label: "SPH4U Physics tutoring", href: "/subjects/sph4u-physics-tutoring" },
       { label: "Chemistry tutoring (SCH4U)", href: "/subjects/chemistry-tutoring" },
       { label: "Math tutoring, Grade 9–12", href: "/subjects/math-tutoring" }
     ],
@@ -701,7 +715,7 @@ export const articles: Article[] = [
       "Catch misconceptions early, while they're still cheap to fix."
     ],
     related: [
-      { label: "SCH4U Chemistry tutoring", href: "/subjects/chemistry-tutoring" },
+      { label: "SCH4U Chemistry tutoring", href: "/subjects/sch4u-chemistry-tutoring" },
       { label: "Book a free consultation", href: "/booking" },
       { label: "See all subjects", href: "/subjects" }
     ],
@@ -729,7 +743,7 @@ export const articles: Article[] = [
         heading: "Grade 12 raises the bar on its own",
         body: [
           "Grade 12 U courses move faster, assume more, and grade more strictly than Grade 11. The same effort that earned an 88 last year can quietly produce a 78 this year — not because the student slipped, but because the bar moved.",
-          "Courses like [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring) and [SCH4U Chemistry](/subjects/chemistry-tutoring) are notorious for this. They build relentlessly on prior units, so a single shaky foundation drags everything after it."
+          "Courses like [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring) and [SCH4U Chemistry](/subjects/sch4u-chemistry-tutoring) are notorious for this. They build relentlessly on prior units, so a single shaky foundation drags everything after it."
         ]
       },
       {
@@ -790,7 +804,7 @@ export const articles: Article[] = [
       {
         heading: "Prerequisites are where a few marks decide everything",
         body: [
-          "Competitive programs require specific courses and look closely at them. Life-science and health programs lean on [SCH4U Chemistry](/subjects/chemistry-tutoring) and [SBI4U Biology](/subjects/biology-tutoring); engineering and math programs require [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring), often alongside [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring) and SPH4U Physics.",
+          "Competitive programs require specific courses and look closely at them. Life-science and health programs lean on [SCH4U Chemistry](/subjects/sch4u-chemistry-tutoring) and [SBI4U Biology](/subjects/sbi4u-biology-tutoring); engineering and math programs require [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring), often alongside [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring) and SPH4U Physics.",
           "Because these prerequisite marks are non-negotiable, they carry outsized weight. A strong Top 6 average with a weak required course can still close doors at the most selective programs."
         ]
       },

@@ -11,14 +11,19 @@ const PHONE_TEL = "+14377774828";
 // regardless of how good the copy is. Rendered as a strip rather than a fifth
 // column so the footer grid keeps its five-track layout.
 const popular = [
-  { href: "/tutoring/toronto/chemistry", label: "Chemistry tutor Toronto" },
-  { href: "/tutoring/toronto/physics", label: "Physics tutor Toronto" },
-  { href: "/tutoring/mississauga/math", label: "Math tutor Mississauga" },
-  { href: "/tutoring/toronto/math", label: "Math tutor Toronto" },
-  { href: "/tutoring/mississauga/chemistry", label: "Chemistry tutor Mississauga" },
-  { href: "/blog/sch4u-vs-sph4u-which-is-harder", label: "SCH4U or SPH4U?" }
+  { href: "/tutoring/toronto/chemistry", label: "Chemistry tutoring Toronto" },
+  { href: "/tutoring/toronto/physics", label: "Physics tutoring Toronto" },
+  { href: "/tutoring/toronto/math", label: "Math tutoring Toronto" },
+  { href: "/tutoring/mississauga/math", label: "Math tutoring Mississauga" },
+  { href: "/tutoring/mississauga/chemistry", label: "Chemistry tutoring Mississauga" },
+  { href: "/blog/sch4u-vs-sph4u-which-is-harder", label: "SCH4U, SPH4U or SBI4U?" }
 ];
 
+// Footer anchors repeat on every page, so they tell Google which URL owns a
+// term more loudly than any single in-body link. Keep them aligned with the
+// one-owner-per-term map: course codes point at the course-code pages, and the
+// subject column uses plain subject names. "Chemistry (SCH4U)" pointing at the
+// general chemistry page was handing the SCH4U page's best anchor to its sibling.
 const cols = [
   {
     title: "Learn",
@@ -28,18 +33,30 @@ const cols = [
       { href: "/tutoring", label: "Tutoring by city" },
       { href: "/blog", label: "Guides" },
       { href: "/testimonials", label: "Our Promise" },
-      { href: "/faq", label: "FAQ" }
+      { href: "/faq", label: "FAQ" },
+      { href: "/about", label: "About" }
     ]
   },
   {
     title: "Subjects",
     links: [
-      { href: "/subjects/chemistry-tutoring", label: "Chemistry (SCH4U)" },
-      { href: "/subjects/physics-tutoring", label: "Physics (SPH4U)" },
-      { href: "/subjects/biology-tutoring", label: "Biology (SBI4U)" },
+      { href: "/subjects/chemistry-tutoring", label: "Chemistry" },
+      { href: "/subjects/physics-tutoring", label: "Physics" },
+      { href: "/subjects/biology-tutoring", label: "Biology" },
       { href: "/subjects/math-tutoring", label: "Math (Gr 9–12)" },
-      { href: "/subjects/calculus-vectors-tutoring", label: "Calculus & Vectors" },
-      { href: "/subjects/english-tutoring", label: "English (ENG4U)" }
+      { href: "/subjects/english-tutoring", label: "English (ENG4U)" },
+      { href: "/subjects/computer-science-tutoring", label: "Computer science" }
+    ]
+  },
+  {
+    title: "Grade 12 courses",
+    links: [
+      { href: "/subjects/sch4u-chemistry-tutoring", label: "SCH4U Chemistry" },
+      { href: "/subjects/sph4u-physics-tutoring", label: "SPH4U Physics" },
+      { href: "/subjects/sbi4u-biology-tutoring", label: "SBI4U Biology" },
+      { href: "/subjects/advanced-functions-tutoring", label: "MHF4U Advanced Functions" },
+      { href: "/subjects/calculus-vectors-tutoring", label: "MCV4U Calculus & Vectors" },
+      { href: "/subjects/data-management-tutoring", label: "MDM4U Data Management" }
     ]
   },
   {
@@ -53,15 +70,8 @@ const cols = [
             { href: "/auth/signup", label: "Create account" }
           ]
         : []),
-      { href: "/contact", label: "Contact us" }
-    ]
-  },
-  {
-    title: "Company",
-    links: [
-      { href: "/about", label: "About" },
-      { href: "/careers", label: "Careers" },
-      { href: "/contact", label: "Contact" }
+      { href: "/contact", label: "Contact us" },
+      { href: "/careers", label: "Careers" }
     ]
   }
 ];

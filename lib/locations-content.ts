@@ -80,7 +80,7 @@ export const locations: LocationContent[] = [
       "Toronto is the most competitive admissions market in the country. Students across the TDSB and TCDSB are aiming at the University of Toronto, Toronto Metropolitan, and out-of-province programs where a single Grade 12 mark in chemistry, calculus, or English can decide an offer. The pressure is real, and it rarely shows up as a knowledge problem — it shows up as a confidence problem.",
       "We work the actual Ontario curriculum your student is sitting in, by course code, and we keep the same tutor every week so nothing has to be re-explained from scratch. Because sessions run online, a student in Yorkville and a student in Scarborough get the same tutor quality with zero commute — no fighting the 401 or the subway to get to a lesson.",
       "That reach matters in a city this spread out. We support families from Midtown, Forest Hill, and Rosedale to Leaside, Riverdale, the Beaches, and High Park, and out through North York and Etobicoke — without anyone needing to travel. Whether your student is in a competitive academic stream downtown or a fast-moving west-end classroom, the tutor is matched to the course, not to the postal code.",
-      "The courses that most often decide a Toronto student's options are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/chemistry-tutoring), [SPH4U Physics](/subjects/physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — alongside ENG4U English, which nearly every program counts. These are exactly the courses our tutors specialise in, each having earned 90+ in the subject they teach.",
+      "The courses that most often decide a Toronto student's options are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/sch4u-chemistry-tutoring), [SPH4U Physics](/subjects/sph4u-physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — alongside ENG4U English, which nearly every program counts. These are exactly the courses our tutors specialise in, each having earned 90+ in the subject they teach.",
       "We don't promise a letter grade by a date. What we do is find where the understanding actually broke — usually a unit or two before the marks slipped — and rebuild from there, with written lesson notes after each session so parents can see what changed. For most Toronto students, momentum returns within the first few weeks, and a clearer grade picture follows by the end of the reporting term."
     ],
     neighbourhoods: [
@@ -116,15 +116,11 @@ export const locations: LocationContent[] = [
       },
       {
         q: "Which Toronto courses do you cover?",
-        a: "The full Grade 9–12 Ontario sequence — math, chemistry, physics, biology, English, French and computer science — plus first-year university science and math for U of T, TMU and York students."
-      },
-      {
-        q: "How are Toronto tutors matched?",
-        a: "We match by subject and learning style, and every tutor has earned 90+ in the course they teach (or its university equivalent). You meet them on a free consultation before anything is booked."
+        a: "Grade 9 to 12 across the Ontario curriculum: math from MPM2D through MCV4U and MDM4U, SCH4U, SPH4U and SBI4U on the science side, plus English, French and computer science. For students already at U of T, TMU or York, we also tutor first-year science and math."
       },
       {
         q: "What does it cost?",
-        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
+        a: "Every family buys a package of sessions in CAD rather than paying by the hour, and the size of the package is what sets the cost: how many sessions your student needs, and whether 1-on-1 or a PAL's Circle group of three or four suits them. Subject never changes the price. We quote it on the free consultation, or call (437) 777-4828."
       }
     ],
     nearby: ["north-york", "etobicoke", "scarborough"]
@@ -153,7 +149,7 @@ export const locations: LocationContent[] = [
       "Mississauga's Peel and Dufferin-Peel schools are large and fast-moving, and it's easy for a student to fall a step behind in a packed SCH4U or MCV4U class and never quite catch up. With the University of Toronto Mississauga campus on the doorstep, the marks students earn in Grade 11 and 12 matter directly for where they land next.",
       "We tutor the exact course your student is taking, by code, with the same tutor every week. Sessions are online, so a student near Square One and one out by Meadowvale get identical tutor quality — and parents get an hour of tutoring back instead of spending it driving across the city.",
       "Because there's no commute, where you live in Mississauga doesn't change the help your student gets. We work with families from Port Credit and Lorne Park to Erin Mills, Churchill Meadows, Streetsville, and Meadowvale — matching the tutor to the course rather than to whichever learning centre happens to be nearby.",
-      "The courses that carry the most weight here are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/chemistry-tutoring), [SPH4U Physics](/subjects/physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — alongside ENG4U English. For students continuing at UTM, we also support first-year university chemistry, biology, and calculus.",
+      "The courses that carry the most weight here are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/sch4u-chemistry-tutoring), [SPH4U Physics](/subjects/sph4u-physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — alongside ENG4U English. For students continuing at UTM, we also support first-year university chemistry, biology, and calculus.",
       "We won't promise a grade by a date. Instead, the tutor finds the unit where the understanding first slipped and rebuilds from there, sending written notes after each session so you can follow the progress. Most Mississauga families notice steadier confidence within a few weeks and a clearer mark by the end of the term."
     ],
     neighbourhoods: [
@@ -170,7 +166,7 @@ export const locations: LocationContent[] = [
     highlights: [
       {
         title: "No commute, ever",
-        body: "Online online from home. No driving to Square One and back, no lost evenings in Mississauga traffic — just the lesson."
+        body: "Sessions run online from home. No driving to Square One and back, no lost evenings in Mississauga traffic — just the lesson."
       },
       {
         title: "The Ontario curriculum, exactly",
@@ -188,15 +184,11 @@ export const locations: LocationContent[] = [
       },
       {
         q: "Which Mississauga courses do you cover?",
-        a: "The full Grade 9–12 Ontario sequence — math, chemistry, physics, biology, English, French and computer science — plus first-year university science and math, including UTM courses."
-      },
-      {
-        q: "How are tutors matched?",
-        a: "By subject and learning style. Every tutor has earned 90+ in the course they teach, and you meet them on a free consultation before booking."
+        a: "Every Grade 9 to 12 Ontario course in math, the sciences, English, French and computer science, taught in step with Peel and Dufferin-Peel course outlines. For UTM students, we also tutor first-year science and calculus."
       },
       {
         q: "What does it cost?",
-        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
+        a: "Tutoring is a package of sessions in CAD, not an hourly rate. Its cost comes down to how many sessions your student needs and whether they work 1-on-1 or in a small PAL's Circle, and it is the same whichever subject they take. Call (437) 777-4828 or book the free consultation and we will quote it."
       }
     ],
     nearby: ["etobicoke", "brampton", "toronto"]
@@ -225,7 +217,7 @@ export const locations: LocationContent[] = [
       "Markham students compete hard — for the top marks in YRDSB and York Catholic classrooms, and for spots in the most selective university programs. In that environment, a single weak unit in advanced functions or chemistry can feel like it threatens the whole plan, and the stress can do more damage than the gap itself.",
       "Our job is to make the hard parts make sense, calmly, with the same tutor every week working the exact Ontario course your student is taking. Sessions are online, so the time goes into learning rather than into driving across Markham — and your student keeps a tutor who actually knows where they are in the course.",
       "Markham is large, and demand for strong tutoring runs through all of it. Because sessions are online, students in Unionville, Cornell, Berczy Village, Markham Village, Cathedraltown, and Greensborough all get the same 90+ tutor — no drive to a plaza learning centre, no waitlist tied to a single location.",
-      "The courses that decide the most here are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/chemistry-tutoring), [SPH4U Physics](/subjects/physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — together with ENG4U English. We also support first-year university math and science for students heading to York, U of T, or Seneca.",
+      "The courses that decide the most here are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/sch4u-chemistry-tutoring), [SPH4U Physics](/subjects/sph4u-physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — together with ENG4U English. We also support first-year university math and science for students heading to York, U of T, or Seneca.",
       "We don't trade in grade guarantees. The tutor finds where the understanding actually broke, rebuilds it properly, and sends lesson notes after every session so the progress is visible. For most Markham students, the first thing to return is confidence — and a steadier mark follows it."
     ],
     neighbourhoods: [
@@ -241,7 +233,7 @@ export const locations: LocationContent[] = [
     highlights: [
       {
         title: "No commute, ever",
-        body: "Online online. In a community where every evening is scheduled, that's a real hour back each week."
+        body: "Sessions run online. In a community where every evening is scheduled, that's a real hour back each week."
       },
       {
         title: "The Ontario curriculum, exactly",
@@ -259,15 +251,11 @@ export const locations: LocationContent[] = [
       },
       {
         q: "Which Markham courses do you cover?",
-        a: "The full Grade 9–12 Ontario sequence — math, chemistry, physics, biology, English, French and computer science — plus first-year university math and science."
-      },
-      {
-        q: "How are tutors matched?",
-        a: "By subject and learning style, and every tutor has earned 90+ in the course they teach. You meet them on a free consultation first."
+        a: "The Ontario sequence from Grade 9 to 12, including MHF4U, MCV4U, SCH4U and SPH4U, along with English, French and computer science. We also support first-year math and science for students heading to York, U of T or Seneca."
       },
       {
         q: "What does it cost?",
-        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
+        a: "We price by package rather than by the hour, in CAD, and a harder subject never costs more. The total depends on the number of sessions your student needs and on 1-on-1 versus a PAL's Circle group of three or four, which is what the free consultation works out. You can also call (437) 777-4828."
       }
     ],
     nearby: ["vaughan", "north-york", "scarborough"]
@@ -296,7 +284,7 @@ export const locations: LocationContent[] = [
       "Across Vaughan's YRDSB and York Catholic schools, the courses that decide university offers — advanced functions, calculus, chemistry, biology — move quickly, and a student who misses the foundation of a unit often spends the rest of it guessing. With York University and the wider GTA campuses close by, those Grade 11 and 12 marks carry real weight.",
       "We slow the hard parts down and rebuild them properly, with the same tutor each week teaching the exact Ontario course your student is taking. Because everything runs online, a student in Woodbridge and one in Maple get the same tutor quality with no commute and no wasted evenings.",
       "Vaughan is spread across several distinct communities, and online tutoring reaches all of them equally. We work with families in Woodbridge, Maple, Thornhill, Kleinburg, Concord, and Vellore Village — the tutor is chosen for the course your student is in, not for how close they happen to live.",
-      "The heaviest-weighted courses are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/chemistry-tutoring), [SPH4U Physics](/subjects/physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — plus ENG4U English. First-year university math and science support is there too for students moving on to York or U of T.",
+      "The heaviest-weighted courses are the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/sch4u-chemistry-tutoring), [SPH4U Physics](/subjects/sph4u-physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — plus ENG4U English. First-year university math and science support is there too for students moving on to York or U of T.",
       "There are no grade guarantees from us — just honest work. The tutor traces the gap back to where it started, rebuilds the foundation, and leaves written notes after each session so you can see what changed. For most Vaughan students, confidence steadies first, and the mark follows."
     ],
     neighbourhoods: [
@@ -329,15 +317,11 @@ export const locations: LocationContent[] = [
       },
       {
         q: "Which Vaughan courses do you cover?",
-        a: "The full Grade 9–12 Ontario sequence — math, chemistry, physics, biology, English, French and computer science — plus first-year university math and science."
-      },
-      {
-        q: "How are tutors matched?",
-        a: "By subject and learning style, with every tutor having earned 90+ in the course they teach. You meet them on a free consultation before booking."
+        a: "All the Grade 9 to 12 Ontario courses in math, chemistry, physics, biology, English, French and computer science, following YRDSB and York Catholic outlines. First-year math and science support carries on for students who go to York or U of T."
       },
       {
         q: "What does it cost?",
-        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
+        a: "Sessions are sold in packages, in CAD, and the subject makes no difference to the price. What changes the total is how many sessions your student needs and whether 1-on-1 or a PAL's Circle is the right format. We quote it on the free consultation, or call (437) 777-4828."
       }
     ],
     nearby: ["markham", "north-york", "brampton"]
@@ -366,7 +350,7 @@ export const locations: LocationContent[] = [
       "In Brampton's Peel and Dufferin-Peel schools, science and math classes are often full and fast, and one missed foundation in chemistry or functions can quietly undermine an entire term. For students aiming at competitive university programs, the Grade 11 and 12 marks are what open or close the door.",
       "We give those students one-on-one attention on the exact course they're taking, with the same tutor every week. Sessions are online, so a student anywhere in Brampton gets the same tutor quality without a commute — and parents reclaim the evenings they'd otherwise spend driving.",
       "Brampton is one of the fastest-growing cities in the country, and online tutoring keeps up with it everywhere. We work with families from Springdale and Mount Pleasant to Bramalea, Heart Lake, Castlemore, and Credit Valley — matching the tutor to the course rather than to a fixed location.",
-      "The marks that matter most come from the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/chemistry-tutoring), [SPH4U Physics](/subjects/physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — together with ENG4U English. We also support first-year university chemistry, biology, and calculus for students continuing locally or downtown.",
+      "The marks that matter most come from the Grade 11 and 12 sciences and maths — [SCH4U Chemistry](/subjects/sch4u-chemistry-tutoring), [SPH4U Physics](/subjects/sph4u-physics-tutoring), [MHF4U Advanced Functions](/subjects/advanced-functions-tutoring), and [MCV4U Calculus & Vectors](/subjects/calculus-vectors-tutoring) — together with ENG4U English. We also support first-year university chemistry, biology, and calculus for students continuing locally or downtown.",
       "We don't promise a number by a date. The tutor finds where the understanding first broke, rebuilds it patiently, and shares lesson notes after every session so the progress is clear. Most Brampton families see confidence return within a few weeks and a steadier grade by the end of the term."
     ],
     neighbourhoods: [
@@ -382,7 +366,7 @@ export const locations: LocationContent[] = [
     highlights: [
       {
         title: "No commute, ever",
-        body: "Online online from home. No driving across Brampton, no lost time — the full hour goes into the lesson."
+        body: "Sessions run online from home. No driving across Brampton, no lost time — the full hour goes into the lesson."
       },
       {
         title: "The Ontario curriculum, exactly",
@@ -400,15 +384,11 @@ export const locations: LocationContent[] = [
       },
       {
         q: "Which Brampton courses do you cover?",
-        a: "The full Grade 9–12 Ontario sequence — math, chemistry, physics, biology, English, French and computer science — plus first-year university math and science."
-      },
-      {
-        q: "How are tutors matched?",
-        a: "By subject and learning style, and every tutor has earned 90+ in the course they teach. You meet them on a free consultation before anything is booked."
+        a: "Grade 9 to 12 math, chemistry, physics, biology, English, French and computer science, matched to Peel and Dufferin-Peel course outlines. For students continuing at UTM or downtown, we tutor first-year chemistry, biology and calculus as well."
       },
       {
         q: "What does it cost?",
-        a: "Tutoring is priced by package rather than by the hour, in CAD. What a family pays depends on how many sessions their student actually needs and whether they choose 1-on-1 or a small-group PAL's Circle, so we quote it on the free consultation once we understand the gap. Call (437) 777-4828 and we'll walk you through it in a few minutes."
+        a: "You pay for a package of sessions in CAD rather than an hourly rate, priced the same for every subject. The size of the package depends on how many sessions your student needs and whether 1-on-1 or a PAL's Circle group fits better, and we work that out on the free consultation. Call (437) 777-4828 any time."
       }
     ],
     nearby: ["mississauga", "vaughan", "toronto"]
@@ -440,7 +420,7 @@ export const locations: LocationContent[] = [
     highlights: [
       {
         title: "No commute, ever",
-        body: "Online online — no travel across North York, no transit time, just the lesson when it's scheduled."
+        body: "Sessions run online — no travel across North York, no transit time, just the lesson when it's scheduled."
       },
       {
         title: "The Ontario curriculum, exactly",
@@ -459,10 +439,6 @@ export const locations: LocationContent[] = [
       {
         q: "Which North York courses do you cover?",
         a: "The full Grade 9–12 Ontario sequence — math, chemistry, physics, biology, English, French and computer science — plus first-year university math and science."
-      },
-      {
-        q: "How are tutors matched?",
-        a: "By subject and learning style, with every tutor having earned 90+ in the course they teach. You meet them on a free consultation first."
       },
       {
         q: "What does it cost?",
@@ -498,7 +474,7 @@ export const locations: LocationContent[] = [
     highlights: [
       {
         title: "No commute, ever",
-        body: "Online online from home — no travel across Scarborough, no transit time, just the lesson."
+        body: "Sessions run online from home — no travel across Scarborough, no transit time, just the lesson."
       },
       {
         title: "The Ontario curriculum, exactly",
@@ -517,10 +493,6 @@ export const locations: LocationContent[] = [
       {
         q: "Which Scarborough courses do you cover?",
         a: "The full Grade 9–12 Ontario sequence — math, chemistry, physics, biology, English, French and computer science — plus first-year university science and math, including UTSC courses."
-      },
-      {
-        q: "How are tutors matched?",
-        a: "By subject and learning style, and every tutor has earned 90+ in the course they teach. You meet them on a free consultation before booking."
       },
       {
         q: "What does it cost?",
@@ -556,7 +528,7 @@ export const locations: LocationContent[] = [
     highlights: [
       {
         title: "No commute, ever",
-        body: "Online online — no driving across Etobicoke, no time lost to the 427, just the lesson on schedule."
+        body: "Sessions run online — no driving across Etobicoke, no time lost to the 427, just the lesson on schedule."
       },
       {
         title: "The Ontario curriculum, exactly",
@@ -575,10 +547,6 @@ export const locations: LocationContent[] = [
       {
         q: "Which Etobicoke courses do you cover?",
         a: "The full Grade 9–12 Ontario sequence — math, chemistry, physics, biology, English, French and computer science — plus first-year university math and science."
-      },
-      {
-        q: "How are tutors matched?",
-        a: "By subject and learning style, with every tutor having earned 90+ in the course they teach. You meet them on a free consultation first."
       },
       {
         q: "What does it cost?",

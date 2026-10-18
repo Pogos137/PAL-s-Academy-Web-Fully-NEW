@@ -4,7 +4,9 @@ import Reveal from "@/components/ui/Reveal";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 import CTA from "@/components/sections/CTA";
 import { buildMetadata } from "@/lib/seo";
-import { locations } from "@/lib/locations-content";
+import { getLocation, locations } from "@/lib/locations-content";
+import { getSubject } from "@/lib/subjects-content";
+import { intersections, intersectionPath } from "@/lib/intersections-content";
 
 export const metadata = buildMetadata({
   title: "Tutoring by City · Across the GTA",
@@ -53,6 +55,42 @@ export default function TutoringLocationsPage() {
                 </Link>
               </StaggerItem>
             ))}
+          </Stagger>
+
+          {/* City × subject pages. Listed here as well as on their city pages so
+              the hub passes them link equity directly; before this the Markham
+              and Vaughan pairs had three or four internal links each. */}
+          <Reveal>
+            <div className="mt-20">
+              <div className="eyebrow">By subject and city</div>
+              <h2 className="display mt-4 max-w-3xl text-4xl text-ink-800 sm:text-5xl">
+                Find your subject in your city.
+              </h2>
+            </div>
+          </Reveal>
+          <Stagger className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {intersections.map((x) => {
+              const loc = getLocation(x.citySlug);
+              const sub = getSubject(x.subjectSlug);
+              if (!loc || !sub) return null;
+              return (
+                <StaggerItem key={intersectionPath(x)}>
+                  <Link
+                    href={intersectionPath(x)}
+                    className="group flex h-full flex-col rounded-2xl border border-ink-100 bg-ivory-50 p-7 transition-all duration-500 hover:border-gold-300 hover:shadow-luxe"
+                  >
+                    <div className="eyebrow">{loc.city}</div>
+                    <h3 className="mt-4 font-serif text-2xl text-ink-800">
+                      {sub.subject} tutoring in {loc.city}
+                    </h3>
+                    <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium text-gold-600">
+                      Explore
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                </StaggerItem>
+              );
+            })}
           </Stagger>
 
           <Reveal>
